@@ -55,7 +55,7 @@ public class TankDriveTeleop extends LinearOpMode {
       while (opModeIsActive()) {
         double LeftY = Math.pow(-gamepad1.left_stick_y, 3);
         double RightY = Math.pow(-gamepad1.right_stick_y, 3);
-        if (gamepad1.a == true) {
+        if (gamepad1.a) {
           if (launcher == 0) {
             ((DcMotorEx)Motor3).setVelocity(1820);
             ((DcMotorEx)Motor4).setVelocity(1820);
