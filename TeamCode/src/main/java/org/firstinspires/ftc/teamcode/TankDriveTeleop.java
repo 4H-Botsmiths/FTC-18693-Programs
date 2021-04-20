@@ -20,8 +20,6 @@ public class TankDriveTeleop extends LinearOpMode {
   private CRServo Servo1;
   private CRServo Servo2;
   private CRServo Servo3;
-  private CRServo Servo4;
-  private CRServo Servo5;
   @Override
   public void runOpMode() {
     Motor1 = hardwareMap.get(DcMotor.class, "Motor_0");
@@ -31,8 +29,6 @@ public class TankDriveTeleop extends LinearOpMode {
     Servo1 = hardwareMap.get(CRServo.class, "Servo_0");
     Servo2 = hardwareMap.get(CRServo.class, "Servo_1");
     Servo3 = hardwareMap.get(CRServo.class, "Servo_2");
-    Servo4 = hardwareMap.get(CRServo.class, "Servo_3");
-    Servo5 = hardwareMap.get(CRServo.class, "Servo_4");
     //Motor1.setTargetPosition(0);
     //Motor2.setTargetPosition(0);
     //Motor3.setTargetPosition(0);
@@ -53,94 +49,72 @@ public class TankDriveTeleop extends LinearOpMode {
     double pickup = 0;
     double middle = 0;
     double feeder = 0;
-    double twist = 0;
-    double drawbridge = 0;
     double auto = 0;
     waitForStart();
     if (opModeIsActive()) {
       while (opModeIsActive()) {
         double LeftY = Math.pow(-gamepad1.left_stick_y, 3);
         double RightY = Math.pow(-gamepad1.right_stick_y, 3);
-        if (gamepad1.a == true) if (launcher == 0) {
-          ((DcMotorEx) Motor3).setVelocity(1820);
-          ((DcMotorEx) Motor4).setVelocity(1820);
-          launcher = 1;
-          sleep(200);
-        } else {
-          ((DcMotorEx) Motor3).setVelocity(0);
-          ((DcMotorEx) Motor4).setVelocity(0);
-          launcher = 0;
-          sleep(200);
-        }
-        if (gamepad1.b == true) if (pickup == 0) {
-          if (gamepad1.right_bumper == true) {
-            Servo1.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (gamepad1.a == true) {
+          if (launcher == 0) {
+            ((DcMotorEx)Motor3).setVelocity(1820);
+            ((DcMotorEx)Motor4).setVelocity(1820);
+            launcher = 1;
+            sleep(500);
           } else {
-            Servo1.setDirection(DcMotorSimple.Direction.FORWARD);
+            ((DcMotorEx)Motor3).setVelocity(0);
+            ((DcMotorEx)Motor4).setVelocity(0);
+            launcher = 0;
+            sleep(500);
           }
-          Servo1.setPower(1);
-          pickup = 1;
-          sleep(100);
-        } else {
-          Servo1.setPower(0);
-          pickup = 0;
-          sleep(100);
         }
-        if (gamepad1.y == true) if (middle == 0) {
-          if (gamepad1.right_bumper == true) {
-            Servo2.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (gamepad1.b == true) {
+          if (pickup == 0) {
+            if (gamepad1.right_bumper == true){
+              Servo1.setDirection(DcMotorSimple.Direction.REVERSE);
+            } else {
+              Servo1.setDirection(DcMotorSimple.Direction.FORWARD);
+            }
+            Servo1.setPower(1);
+            pickup = 1;
+            sleep(500);
           } else {
-            Servo2.setDirection(DcMotorSimple.Direction.FORWARD);
+            Servo1.setPower(0);
+            pickup = 0;
+            sleep(500);
           }
-          Servo2.setPower(1);
-          middle = 1;
-          sleep(100);
-        } else {
-          Servo2.setPower(0);
-          middle = 0;
-          sleep(100);
         }
-        if (gamepad1.x == true) if (feeder == 0) {
-          if (gamepad1.right_bumper == true) {
-            Servo3.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (gamepad1.y == true) {
+          if (middle == 0) {
+            if (gamepad1.right_bumper == true){
+              Servo1.setDirection(DcMotorSimple.Direction.REVERSE);
+            } else {
+              Servo1.setDirection(DcMotorSimple.Direction.FORWARD);
+            }
+            Servo2.setPower(1);
+            middle = 1;
+            sleep(500);
           } else {
-            Servo3.setDirection(DcMotorSimple.Direction.FORWARD);
+            Servo2.setPower(0);
+            middle = 0;
+            sleep(500);
           }
-          Servo3.setPower(1);
-          feeder = 1;
-          sleep(100);
-        } else {
-          Servo3.setPower(0);
-          feeder = 0;
-          sleep(100);
         }
-        if (gamepad1.dpad_up == true) if (twist == 0) {
-          if (gamepad1.right_bumper == true) {
-            Servo4.setDirection(DcMotorSimple.Direction.REVERSE);
+        if (gamepad1.x == true) {
+          if (feeder == 0) {
+            if (gamepad1.right_bumper == true){
+              Servo1.setDirection(DcMotorSimple.Direction.REVERSE);
+            } else {
+              Servo1.setDirection(DcMotorSimple.Direction.FORWARD);
+            }
+            Servo3.setPower(1);
+            feeder = 1;
+            sleep(500);
           } else {
-            Servo4.setDirection(DcMotorSimple.Direction.FORWARD);
+            Servo3.setPower(0);
+            feeder = 0;
+            sleep(500);
           }
-          Servo4.setPower(1);
-          twist = 1;
-          sleep(100);
-        } else {
-          Servo4.setPower(0);
-          twist = 0;
-          sleep(100);
-        }
-        if (gamepad1.dpad_down == true) if (drawbridge == 0) {
-          if (gamepad1.right_bumper == true) {
-            Servo5.setDirection(DcMotorSimple.Direction.REVERSE);
-          } else {
-            Servo5.setDirection(DcMotorSimple.Direction.FORWARD);
-          }
-          Servo5.setPower(1);
-          drawbridge = 1;
-          sleep(100);
-        } else {
-          Servo5.setPower(0);
-          drawbridge = 0;
-          sleep(100);
         }
         /*if (gamepad1.b == true && auto == 0) {
           auto = 1;
