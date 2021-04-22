@@ -45,7 +45,6 @@ public class TankDriveTeleop extends LinearOpMode {
     Motor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     //Motor1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     //Motor2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    double launcher = 0;
     double pickup = 0;
     double middle = 0;
     double feeder = 0;
@@ -55,19 +54,6 @@ public class TankDriveTeleop extends LinearOpMode {
       while (opModeIsActive()) {
         double LeftY = Math.pow(-gamepad1.left_stick_y, 3);
         double RightY = Math.pow(-gamepad1.right_stick_y, 3);
-        if (gamepad1.a == true) {
-          if (launcher == 0) {
-            ((DcMotorEx)Motor3).setVelocity(1820);
-            ((DcMotorEx)Motor4).setVelocity(1820);
-            launcher = 1;
-            sleep(500);
-          } else {
-            ((DcMotorEx)Motor3).setVelocity(0);
-            ((DcMotorEx)Motor4).setVelocity(0);
-            launcher = 0;
-            sleep(500);
-          }
-        }
         if (gamepad1.b == true) {
           if (pickup == 0) {
             if (gamepad1.right_bumper == true){
@@ -140,8 +126,9 @@ public class TankDriveTeleop extends LinearOpMode {
           Motor1.setPower(LeftY);
           Motor2.setPower(RightY);
         }
+        ((DcMotorEx)Motor3).setVelocity(1820*gamepad1.left_trigger);
+        ((DcMotorEx)Motor4).setVelocity(1820*gamepad1.left_trigger);
         //telemetry.addData("auto", auto);
-        telemetry.addData("launcher", launcher);
         telemetry.addData("pickup", pickup);
         telemetry.addData("middle", middle);
         telemetry.addData("feeder", feeder);

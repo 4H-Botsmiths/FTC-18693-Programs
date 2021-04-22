@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Rotation;
 
-@TeleOp(name="TankDriveTeleop", group="ForRobot")
+@TeleOp(name="TankDrive", group="ForRobot")
 
 public class TankDrive extends LinearOpMode {
   private DcMotor Motor1;
