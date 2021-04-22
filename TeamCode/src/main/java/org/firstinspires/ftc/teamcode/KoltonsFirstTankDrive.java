@@ -27,15 +27,8 @@ public class TankDrive extends LinearOpMode {
     waitForStart();
     if (opModeIsActive()) {
       while (opModeIsActive()) {
-        Motor1.setPower(gamepad1.left_stick_y, MotorTicks);
-        Motor2.setPower(gamepad1.right_stick_y, MotorTicks);
-        telemetry.addData("left", gamepad1.left_stick_y*100);
-        telemetry.addData("right", gamepad2.left_stick_y*100);
-        telemetry.addData("Motor1", ((DcMotorEx)Motor1).getVelocity());
-        telemetry.addData("Motor2", ((DcMotorEx)Motor2).getVelocity());
-        telemetry.addData("Motor1Pos", Motor1.getCurrentPosition());
-        telemetry.addData("Motor2Pos", Motor2.getCurrentPosition());
-        telemetry.update();
+        ((DcMotorEx) Motor1).setVelocity(Math.multiplyExact(gamepad1.left_stick_y, MotorTicks));
+        ((DcMotorEx) Motor2).setVelocity(Math.multiplyExact(gamepad1.right_stick_y, MotorTicks));
       }
     }
   }
