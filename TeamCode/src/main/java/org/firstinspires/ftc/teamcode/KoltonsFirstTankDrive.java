@@ -9,9 +9,9 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Rotation;
 
-@TeleOp(name="KoltonsFirstTankDrive", group="ForRobot")
+@TeleOp(name="TankDriveTeleop", group="ForRobot")
 
-public class KoltonsFirstTankDrive extends LinearOpMode {
+public class TankDrive extends LinearOpMode {
   private DcMotor Motor1;
   private DcMotor Motor2;
  double MotorTicks = 28;
@@ -27,10 +27,14 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
     waitForStart();
     if (opModeIsActive()) {
       while (opModeIsActive()) {
-        Double LeftVel = Math.multiplyExact(gamepad1.left_stick_y, (MotorTicks))
-        Double RightVel = Math.pow(gamepad1.left_stick_y, 3)
-        ((DcMotorEx)Motor1).setVelocity(LeftVel);
-        ((DcMotorEx)Motor2).setVelocity(RightVel);
+        Motor1.setPower(gamepad1.left_stick_y, MotorTicks);
+        Motor2.setPower(gamepad1.right_stick_y, MotorTicks);
+        telemetry.addData("left", gamepad1.left_stick_y*100);
+        telemetry.addData("right", gamepad2.left_stick_y*100);
+        telemetry.addData("Motor1", ((DcMotorEx)Motor1).getVelocity());
+        telemetry.addData("Motor2", ((DcMotorEx)Motor2).getVelocity());
+        telemetry.addData("Motor1Pos", Motor1.getCurrentPosition());
+        telemetry.addData("Motor2Pos", Motor2.getCurrentPosition());
         telemetry.update();
       }
     }
