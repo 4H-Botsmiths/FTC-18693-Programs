@@ -29,6 +29,7 @@ public class TankDrive extends LinearOpMode {
       while (opModeIsActive()) {
         Motor1.setPower(gamepad1.left_stick_y, MotorTicks);
         Motor2.setPower(gamepad1.right_stick_y, MotorTicks);
+        //why did you put the motor ticks in the power? - william
         telemetry.addData("left", gamepad1.left_stick_y*100);
         telemetry.addData("right", gamepad2.left_stick_y*100);
         telemetry.addData("Motor1", ((DcMotorEx)Motor1).getVelocity());
