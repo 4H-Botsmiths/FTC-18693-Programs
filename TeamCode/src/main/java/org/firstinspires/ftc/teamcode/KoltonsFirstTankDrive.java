@@ -19,11 +19,8 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
   public void runOpMode() {
     Motor1 = hardwareMap.get(DcMotor.class, "Motor_0");
     Motor2= hardwareMap.get(DcMotor.class, "Motor_1");
-    Motor1.setDirection(DcMotorSimple.Direction.REVERSE);
     Motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     Motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-    Motor1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-    Motor2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     waitForStart();
     if (opModeIsActive()) {
       while (opModeIsActive()) {
