@@ -29,8 +29,8 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
                 double MotorRight = Math.pow(-gamepad1.right_stick_y, 3);
                 Motor1.setPower(MotorLeft);
                 Motor2.setPower(MotorRight);
-                Motor3.setVelocity();
-                Motor4.setVelocity();
+                Motor3.setVelocity(0);
+                Motor4.setVelocity(0);
             }
         }
     }
