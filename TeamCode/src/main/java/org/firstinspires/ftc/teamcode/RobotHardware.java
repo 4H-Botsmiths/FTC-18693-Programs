@@ -24,13 +24,17 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  */
 public class RobotHardware {
     /* Public OpMode members. */
-    public DcMotorEx leftDrive = null;
-    public DcMotorEx rightDrive = null;
-    public DcMotorEx leftShooter = null;
-    public DcMotorEx rightShooter = null;
+    public DcMotorEx LeftDrive = null;
+    public DcMotorEx RightDrive = null;
+    public DcMotorEx LeftShooter = null;
+    public DcMotorEx RightShooter = null;
 
-    public Servo leftClaw = null;
-    public Servo rightClaw = null;
+    public Servo Servo1 = null;
+    public Servo Servo2 = null;
+    public Servo Servo3 = null;
+    public Servo Servo4 = null;
+    public Servo Servo5 = null;
+    public Servo Servo6 = null;
 
     public static final double MID_SERVO = 0.5;
     public static final double ARM_UP_POWER = 0.45;
@@ -51,30 +55,38 @@ public class RobotHardware {
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        leftDrive = hwMap.get(DcMotorEx.class, "Motor_0");
-        rightDrive = hwMap.get(DcMotorEx.class, "Motor_1");
-        leftShooter = hwMap.get(DcMotorEx.class, "Motor_2");
-        rightShooter = hwMap.get(DcMotorEx.class, "Motor_3");
-        leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        LeftDrive = hwMap.get(DcMotorEx.class, "Motor_0");
+        RightDrive = hwMap.get(DcMotorEx.class, "Motor_1");
+        LeftShooter = hwMap.get(DcMotorEx.class, "Motor_2");
+        RightShooter = hwMap.get(DcMotorEx.class, "Motor_3");
+
+        // Define and initialize ALL installed servos.
+        Servo1 = hwMap.get(Servo.class, "Motor_0");
+        Servo2 = hwMap.get(Servo.class, "Motor_1");
+        Servo3 = hwMap.get(Servo.class, "Motor_2");
+        Servo4 = hwMap.get(Servo.class, "Motor_3");
+        Servo5 = hwMap.get(Servo.class, "Motor_4");
+        Servo6 = hwMap.get(Servo.class, "Motor_5");
 
         // Set all motors to zero power
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-        leftShooter.setPower(0);
-        rightShooter.setPower(0);
+        LeftDrive.setPower(0);
+        RightDrive.setPower(0);
+        LeftShooter.setPower(0);
+        RightShooter.setPower(0);
+
+        leftClaw.setPosition(MID_SERVO);
+        rightClaw.setPosition(MID_SERVO);
+
+        LeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        RightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        leftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        rightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        leftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        rightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        LeftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        RightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        LeftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        RightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
 
-        // Define and initialize ALL installed servos.
-        leftClaw = hwMap.get(Servo.class, "left_hand");
-        rightClaw = hwMap.get(Servo.class, "right_hand");
-        leftClaw.setPosition(MID_SERVO);
-        rightClaw.setPosition(MID_SERVO);
+
     }
 }}
