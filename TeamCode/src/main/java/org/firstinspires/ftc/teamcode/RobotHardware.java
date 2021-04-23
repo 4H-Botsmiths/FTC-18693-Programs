@@ -30,20 +30,16 @@ public class RobotHardware {
     public DcMotorEx LeftShooter = null;
     public DcMotorEx RightShooter = null;
 
-    public Servo Servo1 = null;
-    public Servo Servo2 = null;
-    public Servo Servo3 = null;
-    public Servo Servo4 = null;
-    public Servo Servo5 = null;
-    public Servo Servo6 = null;
-
-    public static final double MID_SERVO = 0.5;
-    public static final double ARM_UP_POWER = 0.45;
-    public static final double ARM_DOWN_POWER = -0.45;
+    public CRServo Servo1 = null;
+    public CRServo Servo2 = null;
+    public CRServo Servo3 = null;
+    public CRServo Servo4 = null;
+    public CRServo Servo5 = null;
+    public CRServo Servo6 = null;
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
-    private ElapsedTime period = new ElapsedTime();
+    private final ElapsedTime period = new ElapsedTime();
 
     /* Constructor */
     public RobotHardware() {
@@ -62,12 +58,12 @@ public class RobotHardware {
         RightShooter = hwMap.get(DcMotorEx.class, "Motor_3");
 
         // Define and initialize ALL installed servos.
-        Servo1 = hwMap.get(Servo.class, "Servo_0");
-        Servo2 = hwMap.get(Servo.class, "Servo_1");
-        Servo3 = hwMap.get(Servo.class, "Servo_2");
-        Servo4 = hwMap.get(Servo.class, "Servo_3");
-        Servo5 = hwMap.get(Servo.class, "Servo_4");
-        Servo6 = hwMap.get(Servo.class, "Servo_5");
+        Servo1 = hwMap.get(CRServo.class, "Servo_0");
+        Servo2 = hwMap.get(CRServo.class, "Servo_1");
+        Servo3 = hwMap.get(CRServo.class, "Servo_2");
+        Servo4 = hwMap.get(CRServo.class, "Servo_3");
+        Servo5 = hwMap.get(CRServo.class, "Servo_4");
+        Servo6 = hwMap.get(CRServo.class, "Servo_5");
 
         // Set all motors to zero power
         LeftDrive.setPower(0);
