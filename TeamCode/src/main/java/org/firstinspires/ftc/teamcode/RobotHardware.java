@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
 /**
@@ -37,8 +36,6 @@ public class RobotHardware {
     public CRServo Servo4 = null;
     public CRServo Servo5 = null;
     public CRServo Servo6 = null;
-    public void Telementrys() {
-    telemetry.addData("Test", "Did this work?")};
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
