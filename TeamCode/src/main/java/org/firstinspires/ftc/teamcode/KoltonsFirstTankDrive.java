@@ -9,26 +9,27 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Rotation;
 
-@TeleOp(name="KoltonsFirstTankDrive", group="ForRobot")
+@TeleOp(name = "KoltonsFirstTankDrive", group = "ForRobot")
 
 public class KoltonsFirstTankDrive extends LinearOpMode {
-  private DcMotor Motor1;
-  private DcMotor Motor2;
- double MotorTicks = 28;
-  @Override
-  public void runOpMode() {
-    Motor1 = hardwareMap.get(DcMotor.class, "Motor_0");
-    Motor2= hardwareMap.get(DcMotor.class, "Motor_1");
-    Motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-    Motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-    waitForStart();
-    if (opModeIsActive()) {
-      while (opModeIsActive()) {
-          double MotorLeft= Math.multiplyExact(-gamepad1.left_stick_y, MotorTicks);
-          double MotorRight= Math.multiplyExact(-gamepad1.right_stick_y, MotorTicks);
-        ((DcMotorEx) Motor1).setVelocity(MotorLeft);
-        ((DcMotorEx) Motor2).setVelocity(MotorRight);
-      }
+    private DcMotor Motor1;
+    private DcMotor Motor2;
+
+    @Override
+    public void runOpMode() {
+        Motor1 = hardwareMap.get(DcMotor.class, "Motor_0");
+        Motor2 = hardwareMap.get(DcMotor.class, "Motor_1");
+        Motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        Motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        double MotorTicks = 28;
+        waitForStart();
+        if (opModeIsActive()) {
+            while (opModeIsActive()) {
+                double MotorLeft = -gamepad1.left_stick_y*MotorTicks;
+                double MotorRight = -gamepad1.right_stick_y*MotorTicks;
+                ((DcMotorEx) Motor1).setVelocity(MotorLeft);
+                ((DcMotorEx) Motor2).setVelocity(MotorRight);
+            }
+        }
     }
-  }
 }
