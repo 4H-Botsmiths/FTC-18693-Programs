@@ -14,6 +14,7 @@ import org.firstinspires.ftc.robotcore.internal.camera.delegating.DelegatingCapt
 
 public class KoltonsFirstTankDrive extends LinearOpMode {
     RobotHardware robot = new RobotHardware();
+    RobotFunctions functions = new RobotFunctions();
 
     @Override
     public void runOpMode() {
@@ -29,6 +30,7 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
                 double GamepadRight = (-gamepad1.right_stick_y);
                 robot.LeftDrive.setVelocity(GamepadLeft*DriveMaxTicks);
                 robot.RightDrive.setVelocity(GamepadRight*DriveMaxTicks);
+                functions.Telementrys();
 
                 if (gamepad2.a);
                 if
