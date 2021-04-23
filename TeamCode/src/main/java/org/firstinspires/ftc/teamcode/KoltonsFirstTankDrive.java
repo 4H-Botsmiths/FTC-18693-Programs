@@ -20,23 +20,19 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
         robot.init(hardwareMap);
 
 
-        robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        double MotorTicks = 28;
+        robot.LeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.RightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        double DriveTicksPerRotation = 28;
+        double DriveMaxTicks = (DriveTicksPerRotation*100);
         waitForStart();
         if (opModeIsActive()) {
             while (opModeIsActive()) {
-                double MotorLeft = Math.pow(-gamepad1.left_stick_y, 3) * MotorTicks;
-                double MotorRight = Math.pow(-gamepad1.right_stick_y, 3) * MotorTicks;
-                robot.leftDrive.setVelocity(MotorLeft);
-                robot.rightDrive.setVelocity(MotorRight);
-
-                double MotorLeft = Math.pow(-gamepad1.left_stick_y, 3);
-                double MotorRight = Math.pow(-gamepad1.right_stick_y, 3);
-                robot.leftDrive.setPower(MotorLeft);
-                robot.rightDrive.setPower(MotorRight);
-                robot.leftShooter.setVelocity();
-                robot.rightShooter.setVelocity();
+                double GamepadLeft = (-gamepad1.left_stick_y);
+                double GamepadRight = (-gamepad1.right_stick_y);
+                robot.LeftDrive.setVelocity(GamepadLeft*DriveMaxTicks);
+                robot.RightDrive.setVelocity(GamepadRight*DriveMaxTicks);
+                robot.LeftShooter.setVelocity(0);
+                robot.RightShooter.setVelocity(0);
 
             }
         }
