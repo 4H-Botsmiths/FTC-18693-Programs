@@ -12,32 +12,31 @@ import org.firstinspires.ftc.robotcore.external.navigation.Rotation;
 @TeleOp(name = "KoltonsFirstTankDrive", group = "ForRobot")
 
 public class KoltonsFirstTankDrive extends LinearOpMode {
-    private DcMotorEx Motor1 = hardwareMap.get(DcMotorEx.class, "Motor_0");
-    private DcMotorEx Motor2 = hardwareMap.get(DcMotorEx.class, "Motor_1");
-    private DcMotorEx Motor3 = hardwareMap.get(DcMotorEx.class, "Motor_2");
-    private DcMotorEx Motor4 = hardwareMap.get(DcMotorEx.class, "Motor_3")
+    RobotHardware robot = new RobotHardware();
 
     @Override
     public void runOpMode() {
 
+        robot.init(hardwareMap);
 
-        Motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        Motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         double MotorTicks = 28;
         waitForStart();
         if (opModeIsActive()) {
             while (opModeIsActive()) {
-                double MotorLeft = Math.pow(-gamepad1.left_stick_y, 3)*MotorTicks;
-                double MotorRight = Math.pow(-gamepad1.right_stick_y, 3)*MotorTicks;
-                ((DcMotorEx) Motor1).setVelocity(MotorLeft);
-                ((DcMotorEx) Motor2).setVelocity(MotorRight);
+                double MotorLeft = Math.pow(-gamepad1.left_stick_y, 3) * MotorTicks;
+                double MotorRight = Math.pow(-gamepad1.right_stick_y, 3) * MotorTicks;
+                robot.leftDrive.setVelocity(MotorLeft);
+                robot.rightDrive.setVelocity(MotorRight);
 
                 double MotorLeft = Math.pow(-gamepad1.left_stick_y, 3);
                 double MotorRight = Math.pow(-gamepad1.right_stick_y, 3);
-                Motor1.setPower(MotorLeft);
-                Motor2.setPower(MotorRight);
-                Motor3.setVelocity();
-                Motor4.setVelocity();
+                robot.leftDrive.setPower(MotorLeft);
+                robot.rightDrive.setPower(MotorRight);
+                robot.leftShooter.setVelocity();
+                robot.rightShooter.setVelocity();
 
             }
         }
