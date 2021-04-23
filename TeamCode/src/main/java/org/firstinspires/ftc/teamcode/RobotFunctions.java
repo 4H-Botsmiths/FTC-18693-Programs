@@ -4,6 +4,10 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.tel
 
 public class RobotFunctions {
     RobotHardware robot = new RobotHardware();
+
     public void Telementrys() {
-        telemetry.addData(String.valueOf(robot.LeftDrive), "Did this work?")};
+        telemetry.addData(String.valueOf(robot.LeftDrive), "Did this work?");
+    }
+
+
 }
