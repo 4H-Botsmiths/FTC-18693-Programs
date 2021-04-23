@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
+
 /**
  * This is NOT an opmode.
  * <p>
@@ -29,13 +31,14 @@ public class RobotHardware {
     public DcMotorEx RightDrive = null;
     public DcMotorEx LeftShooter = null;
     public DcMotorEx RightShooter = null;
-
     public CRServo Servo1 = null;
     public CRServo Servo2 = null;
     public CRServo Servo3 = null;
     public CRServo Servo4 = null;
     public CRServo Servo5 = null;
     public CRServo Servo6 = null;
+    public void Telementrys() {
+    telemetry.addData("Test", "Did this work?")};
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
@@ -74,8 +77,8 @@ public class RobotHardware {
         //leftClaw.setPosition(MID_SERVO);
         //rightClaw.setPosition(MID_SERVO);
 
-        LeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        RightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        LeftDrive.setDirection(DcMotorEx.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        RightDrive.setDirection(DcMotorEx.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.

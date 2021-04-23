@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Rotation;
+import org.firstinspires.ftc.robotcore.internal.camera.delegating.DelegatingCaptureSequence;
 
 @TeleOp(name = "KoltonsFirstTankDrive", group = "ForRobot")
 
@@ -19,9 +20,6 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
 
         robot.init(hardwareMap);
 
-
-        robot.LeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.RightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         double DriveTicksPerRotation = 28;
         double DriveMaxTicks = (DriveTicksPerRotation*100);
         waitForStart();
@@ -31,6 +29,9 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
                 double GamepadRight = (-gamepad1.right_stick_y);
                 robot.LeftDrive.setVelocity(GamepadLeft*DriveMaxTicks);
                 robot.RightDrive.setVelocity(GamepadRight*DriveMaxTicks);
+
+                if (gamepad2.a);
+                if
                 robot.LeftShooter.setVelocity(0);
                 robot.RightShooter.setVelocity(0);
 
