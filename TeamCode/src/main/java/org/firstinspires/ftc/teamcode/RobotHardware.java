@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -61,12 +62,12 @@ public class RobotHardware {
         RightShooter = hwMap.get(DcMotorEx.class, "Motor_3");
 
         // Define and initialize ALL installed servos.
-        Servo1 = hwMap.get(Servo.class, "Motor_0");
-        Servo2 = hwMap.get(Servo.class, "Motor_1");
-        Servo3 = hwMap.get(Servo.class, "Motor_2");
-        Servo4 = hwMap.get(Servo.class, "Motor_3");
-        Servo5 = hwMap.get(Servo.class, "Motor_4");
-        Servo6 = hwMap.get(Servo.class, "Motor_5");
+        Servo1 = hwMap.get(Servo.class, "Servo_0");
+        Servo2 = hwMap.get(Servo.class, "Servo_1");
+        Servo3 = hwMap.get(Servo.class, "Servo_2");
+        Servo4 = hwMap.get(Servo.class, "Servo_3");
+        Servo5 = hwMap.get(Servo.class, "Servo_4");
+        Servo6 = hwMap.get(Servo.class, "Servo_5");
 
         // Set all motors to zero power
         LeftDrive.setPower(0);
@@ -74,8 +75,8 @@ public class RobotHardware {
         LeftShooter.setPower(0);
         RightShooter.setPower(0);
 
-        leftClaw.setPosition(MID_SERVO);
-        rightClaw.setPosition(MID_SERVO);
+        //leftClaw.setPosition(MID_SERVO);
+        //rightClaw.setPosition(MID_SERVO);
 
         LeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         RightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
