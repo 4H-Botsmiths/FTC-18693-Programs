@@ -35,63 +35,6 @@ public class AutonomousCode extends LinearOpMode {
     int mm_tick;
     int mm_in;
 
-    private boolean CheckColour(String Hex,String Colour) {
-        boolean ColourCheck;
-        int i;
-        double R;
-        double G;
-        double B;
-        List<Serializable> HexList = null;
-
-        switch (Colour) {
-            case "Red":
-                Hex = "FF0000";
-                break;
-            case "Blue":
-                Hex = "0000FF";
-                break;
-            case "White":
-                Hex = "FFFFFF";
-                break;
-        }
-        if (Hex.length() == 6) {
-            for (i = 1; i <= 6; i++) {
-                switch (JavaUtil.inTextGetLetter(Hex, JavaUtil.AtMode.FROM_START, (i - 1))) {
-                    case "A":
-                        HexList.add(10);
-                        break;
-                    case "B":
-                        HexList.add(11);
-                        break;
-                    case "C":
-                        HexList.add(12);
-                        break;
-                    case "D":
-                        HexList.add(13);
-                        break;
-                    case "E":
-                        HexList.add(14);
-                        break;
-                    case "F":
-                        HexList.add(15);
-                        break;
-                    default:
-                        HexList.add(JavaUtil.inTextGetLetter(Hex, JavaUtil.AtMode.FROM_START, (i - 1)));
-                        break;
-                }
-            }
-            R = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 0, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 1, false);
-            G = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 2, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 3, false);
-            B = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 4, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 5, false);
-            Red = Math.round(Color_0.red() * (255 / RedFactor));
-            Green = Math.round(Color_0.green() * (255 / GreenFactor));
-            Blue = Math.round(Color_0.blue() * (255 / Blue_Factor));
-            ColourCheck = Within_Range(10, R, Red) && Within_Range(10, G, Green) && Within_Range(10, B, Blue);
-        } else {
-            ColourCheck = true;
-        }
-        return ColourCheck;
-    }
 
     /**
      * Describe this function...
@@ -187,34 +130,5 @@ public class AutonomousCode extends LinearOpMode {
                 Update_Telemetry();
             }
         }
-    }
+    };
 
-    /**
-     * Describe this function...
-     */
-    private void Update_Telemetry() {
-        telemetry.addData("Motor_0 Target Position", Motor_0.getTargetPosition());
-        telemetry.addData("Motor_1 Target Position", Motor_1.getTargetPosition());
-        telemetry.addData("Motor_0 Encoder Value", Motor_0.getCurrentPosition());
-        telemetry.addData("Motor_1 Encoder Value", Motor_1.getCurrentPosition());
-        telemetry.addData("Motor_0 mm/Second", ((DcMotorEx) Motor_0).getVelocity() * mm_tick);
-        telemetry.addData("Motor_1 mm/Second", ((DcMotorEx) Motor_0).getVelocity() * mm_tick);
-        telemetry.addData("Motor_0 Power", Motor_0.getPower());
-        telemetry.addData("Motor_1 Power", Motor_1.getPower());
-        telemetry.addData("Motor_0 Direction", Motor_0.getDirection());
-        telemetry.addData("Motor_1 Direction", Motor_1.getDirection());
-        telemetry.addData("Motor_0 Working?", Motor_0.isBusy());
-        telemetry.addData("Motor_1 Working?", Motor_0.isBusy());
-        telemetry.update();
-    }
-
-    /**
-     * Checks if the RANGE VARIABLE is within the range RANGE of the RANGE COMPARISON
-     */
-    private boolean Within_Range(double range, double range_variable, float range_comparison) {
-        boolean range_output;
-
-        range_output = range_comparison < range_variable + range && range_comparison > range_variable - range;
-        return range_output;
-    }
-}

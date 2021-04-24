@@ -1,8 +1,15 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +29,19 @@ public class RobotFunctions {
     int mm_in;
     RobotHardware robot = new RobotHardware();
     public void Telemetries() {
-        telemetry.addData(String.valueOf(robot.leftDrive), "Did this work?");
+        telemetry.addData("Motor0 Target Position", robot.leftDrive.getTargetPosition());
+        telemetry.addData("Motor1 Target Position", robot.rightDrive.getTargetPosition());
+        telemetry.addData("Motor0 Encoder Value", robot.leftDrive.getCurrentPosition());
+        telemetry.addData("Motor1 Encoder Value", robot.rightDrive.getCurrentPosition());
+        telemetry.addData("Motor0 mm/Second", robot.leftDrive.getVelocity() * mm_tick);
+        telemetry.addData("Motor1 mm/Second", robot.rightDrive.getVelocity() * mm_tick);
+        telemetry.addData("Motor0 Power", robot.leftDrive.getPower());
+        telemetry.addData("Motor1 Power", robot.rightDrive.getPower());
+        telemetry.addData("Motor0 Direction", robot.leftDrive.getDirection());
+        telemetry.addData("Motor1 Direction", robot.rightDrive.getDirection());
+        telemetry.addData("Motor0 Working?", robot.leftDrive.isBusy());
+        telemetry.addData("Motor1 Working?", robot.rightDrive.isBusy());
+        telemetry.update();
     }
     public void Move(int in, boolean forward_, boolean moveoverride) {
         FunctionDone = false;
@@ -112,5 +131,58 @@ public class RobotFunctions {
             ColourCheck = true;
         }
         return ColourCheck;
+    }
+    public boolean Within_Range(double range, double range_variable, float range_comparison) {
+        boolean range_output;
+        range_output = range_comparison < range_variable + range && range_comparison > range_variable - range;
+        return range_output;
+    }
+    public void Update_Color() {
+        Red = Math.round(robot.color1.red() * (255 / RedFactor));
+        Green = Math.round(robot.color1.green() * (255 / GreenFactor));
+        Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
+    }
+    public void Turn(double degrees, boolean turnoverride) {
+        FunctionDone = false;
+        BNO055IMU.Parameters imuPar;
+        Orientation angles = null;
+
+        Telemetries();
+        imuPar = new BNO055IMU.Parameters();
+        imuPar.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        imuPar.loggingEnabled = false;
+        robot.gyro.initialize(imuPar);
+        robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        while (!FunctionDone) {
+            telemetry.addData("Turn Waiting", counter);
+            Telemetries();
+            counter += 1;
+            if (turnoverride || !robot.rightDrive.isBusy()) {
+                degrees = degrees * -1;
+                counter = 0;
+                if (degrees > 0) {
+                    robot.leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
+                    robot.rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
+                } else {
+                    robot.leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+                    robot.rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+                }
+                robot.leftDrive.setPower(1);
+                robot.rightDrive.setPower(1);
+                while (!(Within_Range(1, degrees, angles.firstAngle) || isStopRequested())) {
+                    angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+                    telemetry.addData("angle", angles.firstAngle);
+                    telemetry.addData("target", degrees);
+                    telemetry.addData("done?", Within_Range(1, degrees, angles.firstAngle) || isStopRequested());
+                    Telemetries();
+                }
+                robot.leftDrive.setPower(0);
+                robot.rightDrive.setPower(0);
+                FunctionDone = true;
+            }
+        }
     }
 }
