@@ -149,41 +149,6 @@ public class AutonomousCode extends LinearOpMode {
     }
 
     /**
-     * Describe this function...
-     */
-    private void Move(int in, boolean forward_, boolean moveoverride) {
-        while (opModeIsActive()) {
-            telemetry.addData("Move Waiting", counter);
-            Update_Telemetry();
-            counter += 1;
-            if (forward_) {
-                Motor_0.setDirection(DcMotorSimple.Direction.REVERSE);
-                Motor_1.setDirection(DcMotorSimple.Direction.FORWARD);
-            } else {
-                Motor_0.setDirection(DcMotorSimple.Direction.FORWARD);
-                Motor_1.setDirection(DcMotorSimple.Direction.REVERSE);
-            }
-            if (moveoverride || !Motor_1.isBusy()) {
-                counter = 0;
-                Motor_0.setPower(0);
-                Motor_1.setPower(0);
-                Motor_0.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-                Motor_1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-                Motor_0.setTargetPosition(in * mm_in * mm_tick);
-                Motor_1.setTargetPosition(in * mm_in * mm_tick);
-                Motor_0.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                Motor_1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                // set F to 54.1
-                ((DcMotorEx) Motor_0).setVelocityPIDFCoefficients(0.0075, 0.000075, 0.005, 54.1);
-                ((DcMotorEx) Motor_1).setVelocityPIDFCoefficients(0.0075, 0.000075, 0.005, 54.1);
-                Motor_0.setPower(1);
-                Motor_1.setPower(1);
-                break;
-            }
-        }
-    }
-
-    /**
      * This function is executed when this Op Mode is selected from the Driver Station.
      */
     @Override
