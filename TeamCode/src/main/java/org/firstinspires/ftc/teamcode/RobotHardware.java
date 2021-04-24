@@ -103,7 +103,7 @@ public class RobotHardware {
         leftShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
         rightShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
 
-        double Drive_Motors_Max_Velocity = 2800;
+        double Drive_Motors_Max_Velocity = 28800;
         double Drive_Motors_F = 32767 / Drive_Motors_Max_Velocity;
         double Drive_Motors_P = 0.1 * Drive_Motors_F;
         double Drive_Motors_I = 0.1 * Drive_Motors_P;
