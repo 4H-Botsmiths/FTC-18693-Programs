@@ -1,11 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.CRServo;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.ElapsedTime;
+
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
 /**
@@ -37,9 +35,12 @@ public class RobotHardware {
     public CRServo Servo5 = null;
     public CRServo Servo6 = null;
 
+    public void Telemetries() {
+    telemetry.addData("Test", "Did this work?");
+    }
+
     /* local OpMode members. */
     HardwareMap hwMap = null;
-    private final ElapsedTime period = new ElapsedTime();
 
     /* Constructor */
     public RobotHardware() {
@@ -79,6 +80,10 @@ public class RobotHardware {
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
+        LeftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        RightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        LeftShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        RightShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         LeftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         RightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         LeftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
@@ -86,4 +91,4 @@ public class RobotHardware {
 
 
     }
-}}
+}
