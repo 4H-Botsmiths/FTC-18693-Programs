@@ -3,7 +3,9 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.opMode;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
 public class RobotFunctions {
@@ -21,7 +23,7 @@ public class RobotFunctions {
         telemetry.addData(String.valueOf(robot.leftDrive), "Did this work?");
     }
     private void Move(int in, boolean forward_, boolean moveoverride) {
-        while (opModeIsActive()) {
+        while (FixMeWilliam())
             telemetry.addData("Move Waiting", counter);
             Telemetries();
             counter += 1;

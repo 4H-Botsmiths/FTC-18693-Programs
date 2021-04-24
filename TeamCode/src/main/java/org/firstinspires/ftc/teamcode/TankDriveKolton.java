@@ -29,12 +29,9 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
 
 
 @TeleOp(name = "Basic: Iterative OpMode", group = "Iterative Opmode")
@@ -82,7 +79,7 @@ public class TankDriveKolton extends OpMode {
     @Override
     public void loop() {
         // Setup a variable for each drive wheel to save power level for telemetry
-        double DriveMaxVelocity = 2800
+        double DriveMaxVelocity = 2800;
         double leftVelocity = (-gamepad1.left_stick_y * DriveMaxVelocity);
         double rightVelocity = (-gamepad1.right_stick_y * DriveMaxVelocity);
         robot.leftDrive.setVelocity(leftVelocity);
@@ -91,7 +88,7 @@ public class TankDriveKolton extends OpMode {
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", leftVelocity, rightVelocity);
-        telemetry.update()
+        telemetry.update();
     }
 
     /*

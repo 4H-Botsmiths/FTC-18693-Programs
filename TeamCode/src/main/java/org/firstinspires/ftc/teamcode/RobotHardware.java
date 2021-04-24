@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -26,11 +27,12 @@ public class RobotHardware {
     public DcMotorEx rightDrive = null;
     public DcMotorEx leftShooter = null;
     public DcMotorEx rightShooter = null;
-    public CRServo Servo1 = null;
-    public CRServo Servo2 = null;
-    public CRServo Servo3 = null;
-    public CRServo Servo4 = null;
-    public CRServo Servo5 = null;
+
+    public CRServo rampBottom = null;
+    public CRServo rampMiddle = null;
+    public CRServo rampTop = null;
+    public CRServo clawArm = null;
+    public CRServo clawHand = null;
     public CRServo Servo6 = null;
 
     /* local OpMode members. */
@@ -53,11 +55,11 @@ public class RobotHardware {
         rightShooter = hwMap.get(DcMotorEx.class, "Motor_3");
 
         // Define and initialize ALL installed servos.
-        Servo1 = hwMap.get(CRServo.class, "Servo_0");
-        Servo2 = hwMap.get(CRServo.class, "Servo_1");
-        Servo3 = hwMap.get(CRServo.class, "Servo_2");
-        Servo4 = hwMap.get(CRServo.class, "Servo_3");
-        Servo5 = hwMap.get(CRServo.class, "Servo_4");
+        rampBottom = hwMap.get(CRServo.class, "Servo_0");
+        rampMiddle = hwMap.get(CRServo.class, "Servo_1");
+        rampTop = hwMap.get(CRServo.class, "Servo_2");
+        clawArm = hwMap.get(CRServo.class, "Servo_3");
+        clawHand = hwMap.get(CRServo.class, "Servo_4");
         Servo6 = hwMap.get(CRServo.class, "Servo_5");
 
         // Set all motors to zero power
@@ -82,8 +84,8 @@ public class RobotHardware {
         rightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         leftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         rightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        leftShooter.setZeroPowerBehavior(float);
-        rightShooter.setZeroPowerBehavior(float);
+        leftShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        rightShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
 
     }
