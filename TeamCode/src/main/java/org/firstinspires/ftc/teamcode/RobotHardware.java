@@ -4,8 +4,6 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
-
 /**
  * This is NOT an opmode.
  * <p>
@@ -24,20 +22,16 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.tel
  */
 public class RobotHardware {
     /* Public OpMode members. */
-    public DcMotorEx LeftDrive = null;
-    public DcMotorEx RightDrive = null;
-    public DcMotorEx LeftShooter = null;
-    public DcMotorEx RightShooter = null;
+    public DcMotorEx leftDrive = null;
+    public DcMotorEx rightDrive = null;
+    public DcMotorEx leftShooter = null;
+    public DcMotorEx rightShooter = null;
     public CRServo Servo1 = null;
     public CRServo Servo2 = null;
     public CRServo Servo3 = null;
     public CRServo Servo4 = null;
     public CRServo Servo5 = null;
     public CRServo Servo6 = null;
-
-    public void Telemetries() {
-    telemetry.addData("Test", "Did this work?");
-    }
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
@@ -53,10 +47,10 @@ public class RobotHardware {
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        LeftDrive = hwMap.get(DcMotorEx.class, "Motor_0");
-        RightDrive = hwMap.get(DcMotorEx.class, "Motor_1");
-        LeftShooter = hwMap.get(DcMotorEx.class, "Motor_2");
-        RightShooter = hwMap.get(DcMotorEx.class, "Motor_3");
+        leftDrive = hwMap.get(DcMotorEx.class, "Motor_0");
+        rightDrive = hwMap.get(DcMotorEx.class, "Motor_1");
+        leftShooter = hwMap.get(DcMotorEx.class, "Motor_2");
+        rightShooter = hwMap.get(DcMotorEx.class, "Motor_3");
 
         // Define and initialize ALL installed servos.
         Servo1 = hwMap.get(CRServo.class, "Servo_0");
@@ -67,27 +61,29 @@ public class RobotHardware {
         Servo6 = hwMap.get(CRServo.class, "Servo_5");
 
         // Set all motors to zero power
-        LeftDrive.setPower(0);
-        RightDrive.setPower(0);
-        LeftShooter.setPower(0);
-        RightShooter.setPower(0);
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+        leftShooter.setPower(0);
+        rightShooter.setPower(0);
 
         //leftClaw.setPosition(MID_SERVO);
         //rightClaw.setPosition(MID_SERVO);
 
-        LeftDrive.setDirection(DcMotorEx.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        RightDrive.setDirection(DcMotorEx.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        leftDrive.setDirection(DcMotorEx.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        rightDrive.setDirection(DcMotorEx.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        LeftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        RightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        LeftShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        RightShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        LeftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        RightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        LeftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        RightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        leftShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        rightShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        leftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        rightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        leftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        rightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        leftShooter.setZeroPowerBehavior(float);
+        rightShooter.setZeroPowerBehavior(float);
 
 
     }

@@ -91,10 +91,10 @@ public class TankDriveTeleop extends LinearOpMode {
                     robot.Servo5.setPower(0);
                     drawbridge = 0;
                 }
-                robot.LeftDrive.setPower(LeftY);
-                robot.RightDrive.setPower(RightY);
-                robot.LeftShooter.setVelocity(1820 * gamepad1.left_trigger);
-                robot.RightShooter.setVelocity(1820 * gamepad1.left_trigger);
+                robot.leftDrive.setPower(LeftY);
+                robot.rightDrive.setPower(RightY);
+                robot.leftShooter.setVelocity(1820 * gamepad1.left_trigger);
+                robot.rightShooter.setVelocity(1820 * gamepad1.left_trigger);
                 if (gamepad1.left_trigger != 0) {
                     launcher = 1;
                 } else {
@@ -109,12 +109,12 @@ public class TankDriveTeleop extends LinearOpMode {
                 telemetry.addData("drawbridge", drawbridge);
                 telemetry.addData("left", LeftY);
                 telemetry.addData("right", RightY);
-                telemetry.addData("Motor1", robot.LeftDrive.getVelocity());
-                telemetry.addData("Motor2", robot.RightDrive.getVelocity());
-                telemetry.addData("Motor1Pos", robot.LeftDrive.getCurrentPosition());
-                telemetry.addData("Motor2Pos", robot.RightDrive.getCurrentPosition());
-                telemetry.addData("Motor3", robot.LeftShooter.getVelocity());
-                telemetry.addData("Motor4", robot.RightShooter.getVelocity());
+                telemetry.addData("Motor1", robot.leftDrive.getVelocity());
+                telemetry.addData("Motor2", robot.rightDrive.getVelocity());
+                telemetry.addData("Motor1Pos", robot.leftDrive.getCurrentPosition());
+                telemetry.addData("Motor2Pos", robot.rightDrive.getCurrentPosition());
+                telemetry.addData("Motor3", robot.leftShooter.getVelocity());
+                telemetry.addData("Motor4", robot.rightShooter.getVelocity());
                 telemetry.update();
             }
         }

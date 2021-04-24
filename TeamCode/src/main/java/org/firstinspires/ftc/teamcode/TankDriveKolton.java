@@ -37,10 +37,10 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 
-@TeleOp(name="Basic: Iterative OpMode", group="Iterative Opmode")
+@TeleOp(name = "Basic: Iterative OpMode", group = "Iterative Opmode")
 //@Disabled
-public class TankDriveKolton extends OpMode
-{
+public class TankDriveKolton extends OpMode {
+
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
@@ -51,7 +51,7 @@ public class TankDriveKolton extends OpMode
      */
     @Override
     public void init() {
-       robot.init(hardwareMap);
+        robot.init(hardwareMap);
         telemetry.addData("Status", "Initializing");
         telemetry.update();
 
@@ -72,8 +72,8 @@ public class TankDriveKolton extends OpMode
     @Override
     public void start() {
         runtime.reset();
-    telemetry.addData("Status", "Running");
-    telemetry.update();
+        telemetry.addData("Status", "Running");
+        telemetry.update();
     }
 
     /*
@@ -83,12 +83,14 @@ public class TankDriveKolton extends OpMode
     public void loop() {
         // Setup a variable for each drive wheel to save power level for telemetry
         double DriveMaxVelocity = 2800
-        double LeftVelocity = (-gamepad1.left_stick_y*DriveMaxVelocity);
-        double rightPower = (-gamepad1.right_stick_y*DriveMaxVelocity);
-
+        double leftVelocity = (-gamepad1.left_stick_y * DriveMaxVelocity);
+        double rightVelocity = (-gamepad1.right_stick_y * DriveMaxVelocity);
+        robot.leftDrive.setVelocity(leftVelocity);
+        robot.leftDrive.setVelocity(rightVelocity);
+        robot.Servo1.setPower(-gamepad2.right_stick_y);
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+        telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", leftVelocity, rightVelocity);
         telemetry.update()
     }
 
@@ -97,6 +99,10 @@ public class TankDriveKolton extends OpMode
      */
     @Override
     public void stop() {
+        robot.leftDrive.setVelocity(0);
+        robot.rightDrive.setVelocity(0);
+        robot.leftShooter.setVelocity(0);
+        robot.leftShooter.setVelocity(0);
     }
 
 }
