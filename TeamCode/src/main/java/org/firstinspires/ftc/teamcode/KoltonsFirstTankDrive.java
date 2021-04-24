@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 public class KoltonsFirstTankDrive extends LinearOpMode {
     RobotHardware robot = new RobotHardware();
-    RobotFunctions functions = new RobotFunctions();
 
     @Override
     public void runOpMode() {
@@ -23,11 +22,10 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
                 double GamepadRight = (-gamepad1.right_stick_y);
                 robot.leftDrive.setVelocity(GamepadLeft*DriveMaxTicks);
                 robot.rightDrive.setVelocity(GamepadRight*DriveMaxTicks);
-                functions.Telemetries();
 
                 if (gamepad2.a);
-                robot.leftShooter.setVelocity(0);
-                robot.rightShooter.setVelocity(0);
+                robot.leftShooter.setVelocity(2800);
+                robot.rightShooter.setVelocity(2800);
 
             }
         }

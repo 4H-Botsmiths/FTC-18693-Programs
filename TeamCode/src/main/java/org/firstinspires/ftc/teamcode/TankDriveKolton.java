@@ -34,14 +34,13 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@TeleOp(name = "Basic: Iterative OpMode", group = "Iterative Opmode")
+@TeleOp(name = "TankDriveKolton", group = "Iterative Opmode")
 //@Disabled
 public class TankDriveKolton extends OpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
-    WilliamFunctions function = new WilliamFunctions();
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -79,15 +78,15 @@ public class TankDriveKolton extends OpMode {
     @Override
     public void loop() {
         // Setup a variable for each drive wheel to save power level for telemetry
-        double DriveMaxVelocity = 2800;
-        double leftVelocity = (-gamepad1.left_stick_y * DriveMaxVelocity);
-        double rightVelocity = (-gamepad1.right_stick_y * DriveMaxVelocity);
+        double DriveMaxVelocity = 28800;
+        double leftVelocity = (-gamepad1.left_stick_y*DriveMaxVelocity);
+        double rightVelocity = (-gamepad1.right_stick_y*DriveMaxVelocity);
         robot.leftDrive.setVelocity(leftVelocity);
-        robot.leftDrive.setVelocity(rightVelocity);
-        robot.Servo1.setPower(-gamepad2.right_stick_y);
+        robot.rightDrive.setVelocity(rightVelocity);
+        robot.clawArm.setPower(gamepad2.left_stick_y);
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", leftVelocity, rightVelocity);
+        telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
         telemetry.update();
     }
 
