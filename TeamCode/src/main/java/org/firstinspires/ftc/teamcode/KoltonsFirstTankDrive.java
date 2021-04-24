@@ -33,7 +33,6 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
                 functions.Telementrys();
 
                 if (gamepad2.a);
-                if
                 robot.LeftShooter.setVelocity(0);
                 robot.RightShooter.setVelocity(0);
 
