@@ -172,11 +172,11 @@ public class WilliamFunctions {
                 }
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
-                while (!(Within_Range(1, degrees, angles.firstAngle) || isStopRequested())) {
+ //               while (!(Within_Range(1, degrees, angles.firstAngle) || isStopRequested())) {
                     angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     telemetry.addData("angle", angles.firstAngle);
                     telemetry.addData("target", degrees);
-                    telemetry.addData("done?", Within_Range(1, degrees, angles.firstAngle) || isStopRequested());
+//                    telemetry.addData("done?", Within_Range(1, degrees, angles.firstAngle) || isStopRequested());
                     Telemetries();
                 }
                 robot.leftDrive.setPower(0);
@@ -185,4 +185,4 @@ public class WilliamFunctions {
             }
         }
     }
-}
+
