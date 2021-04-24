@@ -14,7 +14,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.List;
 
 @Autonomous(name = "Functions", group = "ForRobot")
 @Disabled
@@ -23,9 +24,9 @@ public class WilliamFunctions extends LinearOpMode {
     float Green;
     float Blue;
     double counter = 0;
-    double RedFactor = 338;
-    double GreenFactor = 559;
-    double Blue_Factor = 494;
+    double RedFactor = 338 * 1;
+    double GreenFactor = 559 * 1;
+    double Blue_Factor = 494 * 1;
     int Ticks_Rotation = 288;
     int Wheel_Circumference = (int) 282.6;
     int mm_tick = Wheel_Circumference / Ticks_Rotation;
@@ -86,19 +87,18 @@ public class WilliamFunctions extends LinearOpMode {
         double R;
         double G;
         double B;
-        ArrayList<Integer> HexList = new ArrayList<>();
-        if (!Colour.equals("")) {
-            switch (Colour) {
-                case "Red":
-                    Hex = "FF0000";
-                    break;
-                case "Blue":
-                    Hex = "0000FF";
-                    break;
-                case "White":
-                    Hex = "FFFFFF";
-                    break;
-            }
+        List<Serializable> HexList = null;
+
+        switch (Colour) {
+            case "Red":
+                Hex = "FF0000";
+                break;
+            case "Blue":
+                Hex = "0000FF";
+                break;
+            case "White":
+                Hex = "FFFFFF";
+                break;
         }
         if (Hex.length() == 6) {
             for (i = 1; i <= 6; i++) {
@@ -122,14 +122,16 @@ public class WilliamFunctions extends LinearOpMode {
                         HexList.add(15);
                         break;
                     default:
-                        HexList.add(Integer.parseInt(JavaUtil.inTextGetLetter(Hex, JavaUtil.AtMode.FROM_START, (i - 1))));
+                        HexList.add(JavaUtil.inTextGetLetter(Hex, JavaUtil.AtMode.FROM_START, (i - 1)));
                         break;
                 }
             }
             R = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 0, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 1, false);
             G = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 2, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 3, false);
             B = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 4, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 5, false);
-            Update_Color();
+            Red = Math.round(robot.color1.red() * (255 / RedFactor));
+            Green = Math.round(robot.color1.green() * (255 / GreenFactor));
+            Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
             ColourCheck = Within_Range(10, R, Red) && Within_Range(10, G, Green) && Within_Range(10, B, Blue);
         } else {
             ColourCheck = true;
@@ -178,7 +180,7 @@ public class WilliamFunctions extends LinearOpMode {
                 }
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
-                while (!(Within_Range(1, degrees, angles != null ? angles.firstAngle : 0) || isStopRequested())) {
+                while (!(Within_Range(1, degrees, angles.firstAngle) || isStopRequested())) {
                     angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     telemetry.addData("angle", angles.firstAngle);
                     telemetry.addData("target", degrees);
