@@ -23,7 +23,7 @@ public class KoltonsFirstTankDrive extends LinearOpMode {
                 double GamepadRight = (-gamepad1.right_stick_y);
                 robot.leftDrive.setVelocity(GamepadLeft*DriveMaxTicks);
                 robot.rightDrive.setVelocity(GamepadRight*DriveMaxTicks);
-                functions.Telementrys();
+                functions.Telemetries();
 
                 if (gamepad2.a);
                 robot.leftShooter.setVelocity(0);

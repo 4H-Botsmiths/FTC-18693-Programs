@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Autonomous(name = "Autonomous", group = "ForRobot")
-public class AutonomusCode extends LinearOpMode {
+public class AutonomousCode extends LinearOpMode {
 
     private ColorSensor Color_0;
     private BNO055IMU imu;
