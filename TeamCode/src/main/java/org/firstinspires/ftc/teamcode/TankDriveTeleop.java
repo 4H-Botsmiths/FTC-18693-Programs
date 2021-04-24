@@ -25,14 +25,14 @@ public class TankDriveTeleop extends LinearOpMode {
                 if (gamepad1.b) {
                     if (pickup == 0) {
                         if (gamepad1.right_bumper) {
-                            robot.Servo1.setDirection(DcMotorSimple.Direction.REVERSE);
+                            robot.rampBottom.setDirection(DcMotorSimple.Direction.REVERSE);
                         } else {
-                            robot.Servo1.setDirection(DcMotorSimple.Direction.FORWARD);
+                            robot.rampBottom.setDirection(DcMotorSimple.Direction.FORWARD);
                         }
-                        robot.Servo1.setPower(1);
+                        robot.rampBottom.setPower(1);
                         pickup = 1;
                     } else {
-                        robot.Servo1.setPower(0);
+                        robot.rampBottom.setPower(0);
                         pickup = 0;
                     }
                     sleep(500);
@@ -40,14 +40,14 @@ public class TankDriveTeleop extends LinearOpMode {
                 if (gamepad1.y) {
                     if (middle == 0) {
                         if (gamepad1.right_bumper) {
-                            robot.Servo2.setDirection(DcMotorSimple.Direction.REVERSE);
+                            robot.rampMiddle.setDirection(DcMotorSimple.Direction.REVERSE);
                         } else {
-                            robot.Servo2.setDirection(DcMotorSimple.Direction.FORWARD);
+                            robot.rampMiddle.setDirection(DcMotorSimple.Direction.FORWARD);
                         }
-                        robot.Servo2.setPower(1);
+                        robot.rampMiddle.setPower(1);
                         middle = 1;
                     } else {
-                        robot.Servo2.setPower(0);
+                        robot.rampMiddle.setPower(0);
                         middle = 0;
                     }
                     sleep(500);
@@ -55,40 +55,40 @@ public class TankDriveTeleop extends LinearOpMode {
                 if (gamepad1.x) {
                     if (feeder == 0) {
                         if (gamepad1.right_bumper) {
-                            robot.Servo3.setDirection(DcMotorSimple.Direction.REVERSE);
+                            robot.rampTop.setDirection(DcMotorSimple.Direction.REVERSE);
                         } else {
-                            robot.Servo3.setDirection(DcMotorSimple.Direction.FORWARD);
+                            robot.rampTop.setDirection(DcMotorSimple.Direction.FORWARD);
                         }
-                        robot.Servo3.setPower(1);
+                        robot.rampTop.setPower(1);
                         feeder = 1;
                     } else {
-                        robot.Servo3.setPower(0);
+                        robot.rampTop.setPower(0);
                         feeder = 0;
                     }
                     sleep(500);
                 }
                 if (gamepad1.dpad_up) {
                     if (gamepad1.right_bumper) {
-                        robot.Servo4.setDirection(DcMotorSimple.Direction.REVERSE);
+                        robot.clawHand.setDirection(DcMotorSimple.Direction.REVERSE);
                     } else {
-                        robot.Servo4.setDirection(DcMotorSimple.Direction.FORWARD);
+                        robot.clawHand.setDirection(DcMotorSimple.Direction.FORWARD);
                     }
-                    robot.Servo4.setPower(1);
+                    robot.clawHand.setPower(1);
                     claw = 1;
                 } else {
-                    robot.Servo4.setPower(0);
+                    robot.clawHand.setPower(0);
                     claw = 0;
                 }
                 if (gamepad1.dpad_down) {
                     if (gamepad1.right_bumper) {
-                        robot.Servo5.setDirection(DcMotorSimple.Direction.REVERSE);
+                        robot.clawArm.setDirection(DcMotorSimple.Direction.REVERSE);
                     } else {
-                        robot.Servo5.setDirection(DcMotorSimple.Direction.FORWARD);
+                        robot.clawArm.setDirection(DcMotorSimple.Direction.FORWARD);
                     }
-                    robot.Servo5.setPower(1);
+                    robot.clawArm.setPower(1);
                     drawbridge = 1;
                 } else {
-                    robot.Servo5.setPower(0);
+                    robot.clawArm.setPower(0);
                     drawbridge = 0;
                 }
                 robot.leftDrive.setPower(LeftY);

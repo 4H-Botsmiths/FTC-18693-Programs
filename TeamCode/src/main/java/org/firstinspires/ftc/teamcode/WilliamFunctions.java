@@ -1,6 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -14,20 +17,23 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import java.io.Serializable;
 import java.util.List;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
-
-public class WilliamFunctions {
+@Autonomous(name = "Functions", group = "ForRobot")
+@Disabled
+public class WilliamFunctions extends LinearOpMode {
     float Red;
     float Green;
     float Blue;
-    double counter;
-    double RedFactor;
-    double GreenFactor;
-    double Blue_Factor;
-    boolean FunctionDone;
-    int mm_tick;
-    int mm_in;
+    double counter = 0;
+    double RedFactor = 338 * 1;
+    double GreenFactor = 559 * 1;
+    double Blue_Factor = 494 * 1;
+    int Ticks_Rotation = 288;
+    int Wheel_Circumference = (int) 282.6;
+    int mm_tick = Wheel_Circumference / Ticks_Rotation;
+    int mm_in = (int) 25.4;
+
     RobotHardware robot = new RobotHardware();
+
     public void Telemetries() {
         telemetry.addData("Motor0 Target Position", robot.leftDrive.getTargetPosition());
         telemetry.addData("Motor1 Target Position", robot.rightDrive.getTargetPosition());
@@ -43,9 +49,9 @@ public class WilliamFunctions {
         telemetry.addData("Motor1 Working?", robot.rightDrive.isBusy());
         telemetry.update();
     }
+
     public void Move(int in, boolean forward_, boolean moveoverride) {
-        FunctionDone = false;
-        while (!FunctionDone) {
+        while (opModeIsActive()) {
             telemetry.addData("Move Waiting", counter);
             Telemetries();
             counter += 1;
@@ -71,11 +77,11 @@ public class WilliamFunctions {
                 robot.rightDrive.setVelocityPIDFCoefficients(0.0075, 0.000075, 0.005, 54.1);
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
-                FunctionDone = true;
             }
         }
     }
-    public boolean CheckColour(String Hex,String Colour) {
+
+    public boolean CheckColour(String Hex, String Colour) {
         boolean ColourCheck;
         int i;
         double R;
@@ -132,18 +138,20 @@ public class WilliamFunctions {
         }
         return ColourCheck;
     }
+
     public boolean Within_Range(double range, double range_variable, float range_comparison) {
         boolean range_output;
         range_output = range_comparison < range_variable + range && range_comparison > range_variable - range;
         return range_output;
     }
+
     public void Update_Color() {
         Red = Math.round(robot.color1.red() * (255 / RedFactor));
         Green = Math.round(robot.color1.green() * (255 / GreenFactor));
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
     }
+
     public void Turn(double degrees, boolean turnoverride) {
-        FunctionDone = false;
         BNO055IMU.Parameters imuPar;
         Orientation angles = null;
 
@@ -156,7 +164,7 @@ public class WilliamFunctions {
         robot.rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        while (!FunctionDone) {
+        while (opModeIsActive()) {
             telemetry.addData("Turn Waiting", counter);
             Telemetries();
             counter += 1;
@@ -181,8 +189,12 @@ public class WilliamFunctions {
                 }
                 robot.leftDrive.setPower(0);
                 robot.rightDrive.setPower(0);
-                FunctionDone = true;
             }
         }
+    }
+
+    @Override
+    public void runOpMode() {
+
     }
 }
