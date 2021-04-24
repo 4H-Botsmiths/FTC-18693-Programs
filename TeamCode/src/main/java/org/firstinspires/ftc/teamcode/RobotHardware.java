@@ -1,6 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -35,6 +37,9 @@ public class RobotHardware {
     public CRServo clawHand = null;
     public CRServo Servo6 = null;
 
+    public ColorSensor color1;
+    public BNO055IMU gyro;
+
     /* local OpMode members. */
     HardwareMap hwMap = null;
 
@@ -61,6 +66,9 @@ public class RobotHardware {
         clawArm = hwMap.get(CRServo.class, "Servo_3");
         clawHand = hwMap.get(CRServo.class, "Servo_4");
         Servo6 = hwMap.get(CRServo.class, "Servo_5");
+
+        color1 = hwMap.get(ColorSensor.class, "Color_0");
+        gyro = hwMap.get(BNO055IMU.class, "imu");
 
         // Set all motors to zero power
         leftDrive.setPower(0);
