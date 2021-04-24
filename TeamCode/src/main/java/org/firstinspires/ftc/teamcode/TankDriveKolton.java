@@ -41,7 +41,7 @@ public class TankDriveKolton extends OpMode {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
-    RobotFunctions function = new RobotFunctions();
+    WilliamFunctions function = new WilliamFunctions();
 
     /*
      * Code to run ONCE when the driver hits INIT

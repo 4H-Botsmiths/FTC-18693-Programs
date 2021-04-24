@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
-public class RobotFunctions {
+public class WilliamFunctions {
     float Red;
     float Green;
     float Blue;
