@@ -49,8 +49,7 @@ public class RobotFunctions {
                 robot.rightDrive.setVelocityPIDFCoefficients(0.0075, 0.000075, 0.005, 54.1);
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
-                break;
             }
         }
     }
-}
+
