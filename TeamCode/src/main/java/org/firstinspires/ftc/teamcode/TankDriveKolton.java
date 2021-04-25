@@ -42,6 +42,7 @@ public class TankDriveKolton extends OpMode {
     private ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
     KoltonFunctions function = new KoltonFunctions();
+    public double shooterOn = (0);
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -51,6 +52,8 @@ public class TankDriveKolton extends OpMode {
         robot.init(hardwareMap);
         telemetry.addData("Status", "Initializing");
         telemetry.update();
+        // 0= off, 1= on
+
 
     }
 
@@ -71,6 +74,7 @@ public class TankDriveKolton extends OpMode {
         runtime.reset();
         telemetry.addData("Status", "Running");
         telemetry.update();
+
     }
 
     /*
@@ -79,25 +83,32 @@ public class TankDriveKolton extends OpMode {
     @Override
     public void loop() {
         // Setup a variable for each drive wheel to save power level for telemetry
-        double DriveMaxVelocity = 28800;
-        double leftVelocity = (-gamepad1.left_stick_y*DriveMaxVelocity);
-        double rightVelocity = (-gamepad1.right_stick_y*DriveMaxVelocity);
+        double leftVelocity = (-gamepad1.left_stick_y * robot.driveVelocity);
+        double rightVelocity = (-gamepad1.right_stick_y * robot.driveVelocity);
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
         robot.clawArm.setPower(gamepad2.left_stick_y);
-        if ();
-        {
 
-        } if (gamepad2.right_stick_y == 0) {
+        if (gamepad2.right_stick_button) {
+            if (shooterOn == 0) {
+                shooterOn = 1;
+                robot.leftShooter.setVelocity(robot.shootVelocity);
+                robot.rightShooter.setVelocity(robot.shootVelocity);
+            } else if (shooterOn == 1) {
+                shooterOn = 0;
+                robot.leftShooter.setVelocity(0);
+                robot.rightShooter.setVelocity(0);
+            }
+        } else if (gamepad2.right_stick_y == 0) {
             robot.rampTop.setPower(0);
             robot.rampMiddle.setPower(0);
-            robot.rampBottom.setPower(0); } else {
-            function.
+            robot.rampBottom.setPower(0);
+        } else {
+            function.Ramp();
         }
-        }
-        // Show the elapsed game time and wheel power.
-
     }
+    // Show the elapsed game time and wheel power.
+
 
     /*
      * Code to run ONCE after the driver hits STOP

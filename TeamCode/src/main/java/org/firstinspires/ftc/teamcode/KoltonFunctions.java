@@ -14,11 +14,31 @@ public class KoltonFunctions {
         telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
         telemetry.update();
     }
+
     public void Ramp() {
         if (-gamepad2.right_stick_y > 0) {
+            if (-gamepad2.right_stick_y > 90) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+                robot.rampTop.setPower(0.5);
+            } else if (-gamepad2.right_stick_y > 50) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+            } else if (-gamepad2.right_stick_y > 0) {
+                robot.rampBottom.setPower(0.5);
+            }
 
         } else if (-gamepad2.right_stick_y < 0) {
-
+            if (-gamepad2.right_stick_y < 0.9) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+                robot.rampTop.setPower(0.5);
+            } else if (-gamepad2.right_stick_y < 0.5) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+            } else if (-gamepad2.right_stick_y < 0) {
+                robot.rampBottom.setPower(0.5);
+            }
         }
     }
 }
