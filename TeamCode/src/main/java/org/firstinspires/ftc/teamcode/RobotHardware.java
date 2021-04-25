@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 /**
  * This is NOT an opmode.
@@ -36,6 +37,9 @@ public class RobotHardware {
     public CRServo clawArm = null;
     public CRServo clawHand = null;
     public CRServo Servo6 = null;
+
+    public TouchSensor touchBottom = null;
+    public TouchSensor touchTop = null;
 
     public ColorSensor color1;
     public BNO055IMU gyro;
@@ -73,6 +77,8 @@ public class RobotHardware {
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         gyro = hwMap.get(BNO055IMU.class, "imu");
 
+        touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
+        touchTop = hwMap.get(TouchSensor.class, "Touch_1");
 
 
         // Set all motors to zero power

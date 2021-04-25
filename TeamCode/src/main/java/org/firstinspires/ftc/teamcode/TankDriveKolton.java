@@ -87,7 +87,16 @@ public class TankDriveKolton extends OpMode {
         double rightVelocity = (-gamepad1.right_stick_y * robot.driveVelocity);
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
-        robot.clawArm.setPower(gamepad2.left_stick_y);
+        if (robot.touchTop.isPressed()) {
+            robot.clawArm.setPower(0);
+            robot.clawHand.setPower(0);
+        } else if (robot.touchBottom.isPressed()) {
+            robot.clawArm.setPower(0);
+            robot.clawHand.setPower(0);
+        } else {
+            robot.clawArm.setPower(-gamepad2.left_stick_y);
+        }
+
 
         if (gamepad2.right_stick_button) {
             if (shooterOn == 0) {
