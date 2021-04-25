@@ -41,6 +41,7 @@ public class TankDriveKolton extends OpMode {
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
+    KoltonFunctions function = new KoltonFunctions();
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -84,10 +85,18 @@ public class TankDriveKolton extends OpMode {
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
         robot.clawArm.setPower(gamepad2.left_stick_y);
+        if ();
+        {
+
+        } if (gamepad2.right_stick_y == 0) {
+            robot.rampTop.setPower(0);
+            robot.rampMiddle.setPower(0);
+            robot.rampBottom.setPower(0); } else {
+            function.
+        }
+        }
         // Show the elapsed game time and wheel power.
-        telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
-        telemetry.update();
+
     }
 
     /*
