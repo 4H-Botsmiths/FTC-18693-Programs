@@ -82,6 +82,8 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void loop() {
+        function.detectColor();
+
         // Setup a variable for each drive wheel to save power level for telemetry
         double leftVelocity = (-gamepad1.left_stick_y * robot.driveVelocity);
         double rightVelocity = (-gamepad1.right_stick_y * robot.driveVelocity);
