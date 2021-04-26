@@ -39,9 +39,10 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class TankDriveKolton extends OpMode {
 
     // Declare OpMode members.
-    private ElapsedTime runtime = new ElapsedTime();
+    private final ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
     KoltonFunctions function = new KoltonFunctions();
+    // 0= off, 1= on
     public double shooterOn = (0);
 
     /*
@@ -52,7 +53,6 @@ public class TankDriveKolton extends OpMode {
         robot.init(hardwareMap);
         telemetry.addData("Status", "Initializing");
         telemetry.update();
-        // 0= off, 1= on
 
 
     }
@@ -87,6 +87,9 @@ public class TankDriveKolton extends OpMode {
         double rightVelocity = (-gamepad1.right_stick_y * robot.driveVelocity);
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
+
+        function.Telemetries();
+
         if (robot.touchTop.isPressed()) {
             robot.clawArm.setPower(0);
             robot.clawHand.setPower(0);

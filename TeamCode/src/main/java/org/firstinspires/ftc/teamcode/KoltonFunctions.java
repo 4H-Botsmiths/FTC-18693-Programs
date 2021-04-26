@@ -7,15 +7,23 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.tel
 
 public class KoltonFunctions {
     RobotHardware robot = new RobotHardware();
-    private ElapsedTime runtime = new ElapsedTime();
+    private final ElapsedTime runtime = new ElapsedTime();
 
     public void Telemetries() {
-        telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
+        telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
+        telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
+        telemetry.addData("Ramp Power", "Bottom (%.2f), Middle (%.2f), Top (%.2f)", robot.rampBottom.getPower(), robot.rampMiddle.getPower(), robot.rampTop.getPower());
+        telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower(), robot.clawHand.getPower());
         telemetry.update();
     }
 
     public void Ramp() {
+        double shooterSpeed = (robot.leftShooter.getVelocity()+robot.rightShooter.getVelocity())/2;
+        if (shooterSpeed < robot.shootVelocity){
+            telemetry.addData("Status", "WARNING!, insufficient Shooter Speed");
+        } else {
+            telemetry.addData("Status", "Run Time: " + runtime.toString());
+        }
         if (-gamepad2.right_stick_y > 0) {
             if (-gamepad2.right_stick_y > 90) {
                 robot.rampBottom.setPower(0.5);
