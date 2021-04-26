@@ -98,6 +98,7 @@ public class TankDriveKolton extends OpMode {
             robot.clawHand.setPower(0);
         } else {
             robot.clawArm.setPower(-gamepad2.left_stick_y);
+            robot.clawHand.setPower(robot.clawArm.getPower()/2);
         }
 
 
