@@ -51,7 +51,7 @@ public class TankDriveKolton extends OpMode {
     @Override
     public void init() {
         robot.init(hardwareMap);
-        telemetry.addData("Status", "Initializing");
+        telemetry.addData("Status", "Initializing...");
         telemetry.update();
 
 
@@ -119,7 +119,6 @@ public class TankDriveKolton extends OpMode {
             function.Ramp();
         }
     }
-    // Show the elapsed game time and wheel power.
 
 
     /*
@@ -127,10 +126,19 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void stop() {
+        telemetry.addData("Status", "Stopping...");
+        telemetry.update();
         robot.leftDrive.setVelocity(0);
         robot.rightDrive.setVelocity(0);
         robot.leftShooter.setVelocity(0);
         robot.leftShooter.setVelocity(0);
+        robot.rampBottom.setPower(0);
+        robot.rampBottom.setPower(0);
+        robot.rampBottom.setPower(0);
+        robot.clawArm.setPower(0);
+        robot.clawHand.setPower(0);
+        telemetry.addData("Status", "Stopped");
+        telemetry.update();
     }
 
 }

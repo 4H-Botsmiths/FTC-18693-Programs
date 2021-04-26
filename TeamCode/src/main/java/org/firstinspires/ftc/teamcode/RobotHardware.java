@@ -41,8 +41,8 @@ public class RobotHardware {
     public TouchSensor touchBottom = null;
     public TouchSensor touchTop = null;
 
-    public ColorSensor color1;
-    public BNO055IMU gyro;
+    public ColorSensor color1 = null;
+    public BNO055IMU gyro = null;
 
     public double shootVelocity = 2800;
     public double driveVelocity = 2800;
@@ -74,11 +74,11 @@ public class RobotHardware {
         clawHand = hwMap.get(CRServo.class, "Servo_4");
         Servo6 = hwMap.get(CRServo.class, "Servo_5");
 
-        color1 = hwMap.get(ColorSensor.class, "Color_0");
-        gyro = hwMap.get(BNO055IMU.class, "imu");
-
         touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
         touchTop = hwMap.get(TouchSensor.class, "Touch_1");
+
+        color1 = hwMap.get(ColorSensor.class, "Color_0");
+        gyro = hwMap.get(BNO055IMU.class, "imu");
 
 
         // Set all motors to zero power
@@ -99,10 +99,13 @@ public class RobotHardware {
         rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         leftShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         rightShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+
         leftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         rightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         leftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         rightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+
+
         leftShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         rightShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
