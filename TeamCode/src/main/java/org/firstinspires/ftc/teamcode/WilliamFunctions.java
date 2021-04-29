@@ -23,10 +23,10 @@ public class WilliamFunctions extends LinearOpMode {
     float Red;
     float Green;
     float Blue;
-    double counter = 0;
-    double RedFactor = 338 * 1;
-    double GreenFactor = 559 * 1;
-    double Blue_Factor = 494 * 1;
+    double Counter = 0;
+    double RedFactor = 338;
+    double GreenFactor = 559;
+    double Blue_Factor = 494;
     int Ticks_Rotation = 288;
     int Wheel_Circumference = (int) 282.6;
     int mm_tick = Wheel_Circumference / Ticks_Rotation;
@@ -50,26 +50,26 @@ public class WilliamFunctions extends LinearOpMode {
         telemetry.update();
     }
 
-    public void Move(int in, boolean forward_, boolean moveoverride) {
+    public void Move(int In, boolean Forward, boolean MoveOverride) {
         while (opModeIsActive()) {
-            telemetry.addData("Move Waiting", counter);
+            telemetry.addData("Move Waiting", Counter);
             Telemetries();
-            counter += 1;
-            if (forward_) {
+            Counter += 1;
+            if (Forward) {
                 robot.leftDrive.setDirection(DcMotorEx.Direction.REVERSE);
                 robot.rightDrive.setDirection(DcMotorEx.Direction.FORWARD);
             } else {
                 robot.leftDrive.setDirection(DcMotorEx.Direction.FORWARD);
                 robot.rightDrive.setDirection(DcMotorEx.Direction.REVERSE);
             }
-            if (moveoverride || !robot.rightDrive.isBusy()) {
-                counter = 0;
+            if (MoveOverride || !robot.rightDrive.isBusy()) {
+                Counter = 0;
                 robot.leftDrive.setPower(0);
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-                robot.leftDrive.setTargetPosition(in * mm_in * mm_tick);
-                robot.rightDrive.setTargetPosition(in * mm_in * mm_tick);
+                robot.leftDrive.setTargetPosition(In * mm_in * mm_tick);
+                robot.rightDrive.setTargetPosition(In * mm_in * mm_tick);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 // set F to 54.1
@@ -129,9 +129,7 @@ public class WilliamFunctions extends LinearOpMode {
             R = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 0, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 1, false);
             G = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 2, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 3, false);
             B = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 4, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 5, false);
-            Red = Math.round(robot.color1.red() * (255 / RedFactor));
-            Green = Math.round(robot.color1.green() * (255 / GreenFactor));
-            Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
+            Update_Color();
             ColourCheck = Within_Range(10, R, Red) && Within_Range(10, G, Green) && Within_Range(10, B, Blue);
         } else {
             ColourCheck = true;
@@ -151,7 +149,7 @@ public class WilliamFunctions extends LinearOpMode {
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
     }
 
-    public void Turn(double degrees, boolean turnoverride) {
+    public void Turn(double Degrees, boolean TurnOverride) {
         BNO055IMU.Parameters imuPar;
         Orientation angles = null;
 
@@ -165,13 +163,13 @@ public class WilliamFunctions extends LinearOpMode {
         robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         while (opModeIsActive()) {
-            telemetry.addData("Turn Waiting", counter);
+            telemetry.addData("Turn Waiting", Counter);
             Telemetries();
-            counter += 1;
-            if (turnoverride || !robot.rightDrive.isBusy()) {
-                degrees = degrees * -1;
-                counter = 0;
-                if (degrees > 0) {
+            Counter += 1;
+            if (TurnOverride || !robot.rightDrive.isBusy()) {
+                Degrees = Degrees * -1;
+                Counter = 0;
+                if (Degrees > 0) {
                     robot.leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
                     robot.rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
                 } else {
@@ -180,11 +178,11 @@ public class WilliamFunctions extends LinearOpMode {
                 }
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
-                while (!(Within_Range(1, degrees, angles.firstAngle) || isStopRequested())) {
+                while (!(Within_Range(1, Degrees, angles.firstAngle) || !isStopRequested())) {
                     angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     telemetry.addData("angle", angles.firstAngle);
-                    telemetry.addData("target", degrees);
-                    telemetry.addData("done?", Within_Range(1, degrees, angles.firstAngle) || isStopRequested());
+                    telemetry.addData("target", Degrees);
+                    telemetry.addData("done?", Within_Range(1, Degrees, angles.firstAngle) || !isStopRequested());
                     Telemetries();
                 }
                 robot.leftDrive.setPower(0);
@@ -195,6 +193,5 @@ public class WilliamFunctions extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-
     }
 }
