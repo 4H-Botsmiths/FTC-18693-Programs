@@ -24,8 +24,8 @@ public class WilliamFunctions extends LinearOpMode {
     float Green;
     float Blue;
     double Counter = 0;
-    double RedFactor = 338;
-    double GreenFactor = 559;
+    double Red_Factor = 338;
+    double Green_Factor = 559;
     double Blue_Factor = 494;
     int Ticks_Rotation = 288;
     int Wheel_Circumference = (int) 282.6;
@@ -144,8 +144,8 @@ public class WilliamFunctions extends LinearOpMode {
     }
 
     public void Update_Color() {
-        Red = Math.round(robot.color1.red() * (255 / RedFactor));
-        Green = Math.round(robot.color1.green() * (255 / GreenFactor));
+        Red = Math.round(robot.color1.red() * (255 / Red_Factor));
+        Green = Math.round(robot.color1.green() * (255 / Green_Factor));
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
     }
 

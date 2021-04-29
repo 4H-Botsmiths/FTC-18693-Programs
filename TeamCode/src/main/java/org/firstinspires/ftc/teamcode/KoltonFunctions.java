@@ -56,7 +56,7 @@ public class KoltonFunctions {
             }
         }
     }
-    public void detectColor() {
+    public void /*String*/ detectColor() {
         int colorHSV;
         float hue;
         float sat;
