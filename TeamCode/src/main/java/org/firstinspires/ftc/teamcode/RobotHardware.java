@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 /**
  * This is NOT an opmode.
@@ -37,8 +38,14 @@ public class RobotHardware {
     public CRServo clawHand = null;
     public CRServo Servo6 = null;
 
-    public ColorSensor color1;
-    public BNO055IMU gyro;
+    public TouchSensor touchBottom = null;
+    public TouchSensor touchTop = null;
+
+    public ColorSensor color1 = null;
+    public BNO055IMU gyro = null;
+
+    public double shootVelocity = 2800;
+    public double driveVelocity = 2800;
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
@@ -67,8 +74,12 @@ public class RobotHardware {
         clawHand = hwMap.get(CRServo.class, "Servo_4");
         Servo6 = hwMap.get(CRServo.class, "Servo_5");
 
+        touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
+        touchTop = hwMap.get(TouchSensor.class, "Touch_1");
+
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         gyro = hwMap.get(BNO055IMU.class, "imu");
+
 
         // Set all motors to zero power
         leftDrive.setPower(0);
@@ -88,23 +99,24 @@ public class RobotHardware {
         rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         leftShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         rightShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+
         leftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         rightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         leftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         rightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+
+
         leftShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         rightShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
         //PIDF Caliration
-        double Shooter_Motors_Max_Velocity = 1850;
-        double Shooter_Motors_F = 32767 / Shooter_Motors_Max_Velocity;
+        double Shooter_Motors_F = 32767 / shootVelocity;
         double Shooter_Motors_P = 0.1 * Shooter_Motors_F;
         double Shooter_Motors_I = 0.1 * Shooter_Motors_P;
         leftShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
         rightShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
 
-        double Drive_Motors_Max_Velocity = 28800;
-        double Drive_Motors_F = 32767 / Drive_Motors_Max_Velocity;
+        double Drive_Motors_F = 32767 / driveVelocity;
         double Drive_Motors_P = 0.1 * Drive_Motors_F;
         double Drive_Motors_I = 0.1 * Drive_Motors_P;
         leftDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);

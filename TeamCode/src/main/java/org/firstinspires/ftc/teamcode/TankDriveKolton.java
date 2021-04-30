@@ -39,8 +39,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class TankDriveKolton extends OpMode {
 
     // Declare OpMode members.
-    private ElapsedTime runtime = new ElapsedTime();
+    private final ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
+    KoltonFunctions function = new KoltonFunctions();
+    // 0= off, 1= on
+    public double shooterOn = (0);
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -48,8 +51,9 @@ public class TankDriveKolton extends OpMode {
     @Override
     public void init() {
         robot.init(hardwareMap);
-        telemetry.addData("Status", "Initializing");
+        telemetry.addData("Status", "Initializing...");
         telemetry.update();
+
 
     }
 
@@ -70,6 +74,7 @@ public class TankDriveKolton extends OpMode {
         runtime.reset();
         telemetry.addData("Status", "Running");
         telemetry.update();
+
     }
 
     /*
@@ -77,28 +82,66 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void loop() {
+        function.detectColor();
+
         // Setup a variable for each drive wheel to save power level for telemetry
-        double DriveMaxVelocity = 28800;
-        double leftVelocity = (-gamepad1.left_stick_y*DriveMaxVelocity);
-        double rightVelocity = (-gamepad1.right_stick_y*DriveMaxVelocity);
+        double leftVelocity = (-gamepad1.left_stick_y * robot.driveVelocity);
+        double rightVelocity = (-gamepad1.right_stick_y * robot.driveVelocity);
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
-        robot.clawArm.setPower(gamepad2.left_stick_y);
-        // Show the elapsed game time and wheel power.
-        telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.addData("Motors Velocity", "left (%.2f), right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
-        telemetry.update();
+
+        function.Telemetries();
+
+        if (robot.touchTop.isPressed()) {
+            robot.clawArm.setPower(0);
+            robot.clawHand.setPower(0);
+        } else if (robot.touchBottom.isPressed()) {
+            robot.clawArm.setPower(0);
+            robot.clawHand.setPower(0);
+        } else {
+            robot.clawArm.setPower(-gamepad2.left_stick_y);
+            robot.clawHand.setPower(robot.clawArm.getPower()/2);
+        }
+
+
+        if (gamepad2.right_stick_button) {
+            if (shooterOn == 0) {
+                shooterOn = 1;
+                robot.leftShooter.setVelocity(robot.shootVelocity);
+                robot.rightShooter.setVelocity(robot.shootVelocity);
+            } else if (shooterOn == 1) {
+                shooterOn = 0;
+                robot.leftShooter.setVelocity(0);
+                robot.rightShooter.setVelocity(0);
+            }
+        } else if (gamepad2.right_stick_y == 0) {
+            robot.rampTop.setPower(0);
+            robot.rampMiddle.setPower(0);
+            robot.rampBottom.setPower(0);
+        } else {
+            function.Ramp();
+        }
     }
+
 
     /*
      * Code to run ONCE after the driver hits STOP
      */
     @Override
     public void stop() {
+        telemetry.addData("Status", "Stopping...");
+        telemetry.update();
         robot.leftDrive.setVelocity(0);
         robot.rightDrive.setVelocity(0);
         robot.leftShooter.setVelocity(0);
         robot.leftShooter.setVelocity(0);
+        robot.rampBottom.setPower(0);
+        robot.rampBottom.setPower(0);
+        robot.rampBottom.setPower(0);
+        robot.clawArm.setPower(0);
+        robot.clawHand.setPower(0);
+        telemetry.addData("Status", "Stopped");
+        telemetry.update();
     }
 
 }
