@@ -44,7 +44,39 @@ public class TankDriveKolton extends OpMode {
     KoltonFunctions function = new KoltonFunctions();
     // 0= off, 1= on
     public double shooterOn = (0);
+    public void Ramp() {
+        // double shooterSpeed = (robot.leftShooter.getVelocity()+robot.rightShooter.getVelocity())/2;
+        double shooterSpeed = 0;
+        if (shooterSpeed < robot.shootVelocity){
+            telemetry.addData("Status", "WARNING!, insufficient Shooter Speed");
+        } else {
+            telemetry.addData("Status", "Run Time: " + runtime.toString());
+        }
+        if (-gamepad2.right_stick_y > 0) {
+            if (-gamepad2.right_stick_y > 90) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+                robot.rampTop.setPower(0.5);
+            } else if (-gamepad2.right_stick_y > 50) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+            } else if (-gamepad2.right_stick_y > 0) {
+                robot.rampBottom.setPower(0.5);
+            }
 
+        } else if (-gamepad2.right_stick_y < 0) {
+            if (-gamepad2.right_stick_y < 0.9) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+                robot.rampTop.setPower(0.5);
+            } else if (-gamepad2.right_stick_y < 0.5) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+            } else if (-gamepad2.right_stick_y < 0) {
+                robot.rampBottom.setPower(0.5);
+            }
+        }
+    }
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -54,7 +86,6 @@ public class TankDriveKolton extends OpMode {
         telemetry.addData("Status", "Initializing...");
         telemetry.update();
 
-
     }
 
     /*
@@ -62,7 +93,7 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void init_loop() {
-        telemetry.addData("Status", "Initialized");
+        telemetry.addData("Status", robot.ready);
         telemetry.update();
     }
 
@@ -82,7 +113,7 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void loop() {
-        function.detectColor();
+        //function.detectColor();
 
         // Setup a variable for each drive wheel to save power level for telemetry
         double leftVelocity = (-gamepad1.left_stick_y * robot.driveVelocity);
@@ -90,7 +121,7 @@ public class TankDriveKolton extends OpMode {
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
 
-        function.Telemetries();
+       // function.Telemetries();
 
         if (robot.touchTop.isPressed()) {
             robot.clawArm.setPower(0);
@@ -119,7 +150,7 @@ public class TankDriveKolton extends OpMode {
             robot.rampMiddle.setPower(0);
             robot.rampBottom.setPower(0);
         } else {
-            function.Ramp();
+            Ramp();
         }
     }
 
@@ -131,10 +162,10 @@ public class TankDriveKolton extends OpMode {
     public void stop() {
         telemetry.addData("Status", "Stopping...");
         telemetry.update();
-        robot.leftDrive.setVelocity(0);
-        robot.rightDrive.setVelocity(0);
-        robot.leftShooter.setVelocity(0);
-        robot.leftShooter.setVelocity(0);
+        robot.leftDrive.setPower(0);
+        robot.rightDrive.setPower(0);
+        robot.leftShooter.setPower(0);
+        robot.leftShooter.setPower(0);
         robot.rampBottom.setPower(0);
         robot.rampBottom.setPower(0);
         robot.rampBottom.setPower(0);
