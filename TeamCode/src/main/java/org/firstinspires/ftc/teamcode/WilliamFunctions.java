@@ -24,9 +24,9 @@ public class WilliamFunctions extends LinearOpMode {
     float Green;
     float Blue;
     double counter = 0;
-    double RedFactor = 338 * 1;
-    double GreenFactor = 559 * 1;
-    double Blue_Factor = 494 * 1;
+    double RedFactor = 338;
+    double GreenFactor = 559;
+    double Blue_Factor = 494;
     int Ticks_Rotation = 288;
     int Wheel_Circumference = (int) 282.6;
     int mm_tick = Wheel_Circumference / Ticks_Rotation;
@@ -129,9 +129,7 @@ public class WilliamFunctions extends LinearOpMode {
             R = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 0, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 1, false);
             G = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 2, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 3, false);
             B = (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 4, false) * 16 + (Double) JavaUtil.inListGet(HexList, JavaUtil.AtMode.FROM_START, 5, false);
-            Red = Math.round(robot.color1.red() * (255 / RedFactor));
-            Green = Math.round(robot.color1.green() * (255 / GreenFactor));
-            Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
+            Update_Color();
             ColourCheck = Within_Range(10, R, Red) && Within_Range(10, G, Green) && Within_Range(10, B, Blue);
         } else {
             ColourCheck = true;
