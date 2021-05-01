@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -24,6 +25,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
+@TeleOp()
 public class RobotHardware {
     /* Public OpMode members. */
     public DcMotorEx leftDrive = null;
@@ -47,6 +49,7 @@ public class RobotHardware {
     public double shootVelocity = 2800;
     public double driveVelocity = 2800;
 
+    public String ready = "Initializing...";
     /* local OpMode members. */
     HardwareMap hwMap = null;
 
@@ -121,6 +124,6 @@ public class RobotHardware {
         double Drive_Motors_I = 0.1 * Drive_Motors_P;
         leftDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
         rightDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
-
+        ready = "Initialized";
     }
 }

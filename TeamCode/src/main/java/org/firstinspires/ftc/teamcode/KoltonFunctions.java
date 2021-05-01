@@ -25,7 +25,8 @@ public class KoltonFunctions {
     }
 
     public void Ramp() {
-        double shooterSpeed = (robot.leftShooter.getVelocity()+robot.rightShooter.getVelocity())/2;
+       // double shooterSpeed = (robot.leftShooter.getVelocity()+robot.rightShooter.getVelocity())/2;
+        double shooterSpeed = 0;
         if (shooterSpeed < robot.shootVelocity){
             telemetry.addData("Status", "WARNING!, insufficient Shooter Speed");
         } else {
@@ -66,13 +67,13 @@ public class KoltonFunctions {
         colorHSV = Color.argb(robot.color1.alpha(), robot.color1.red(), robot.color1.green(), robot.color1.blue());
         // Get hue.
         hue = JavaUtil.colorToHue(colorHSV);
-        telemetry.addData("Hue", hue);
+        //telemetry.addData("Hue", hue);
         // Get saturation.
         sat = JavaUtil.colorToSaturation(colorHSV);
-        telemetry.addData("Saturation", sat);
+        //telemetry.addData("Saturation", sat);
         // Get value.
         val = JavaUtil.colorToValue(colorHSV);
-        telemetry.addData("Value", val);
+        //telemetry.addData("Value", val);
         // Use hue to determine if it's red, green, blue, etc..
         if (hue < 30) {
             detectedColor = "Red";
@@ -91,11 +92,11 @@ public class KoltonFunctions {
         }
         // Check to see if it might be black or white.
         if (sat < 0.2) {
-            telemetry.addData("Check Sat", "Is surface white?");
+            //telemetry.addData("Check Sat", "Is surface white?");
         }
         if (val < 0.16) {
-            telemetry.addData("Check Val", "Is surface black?");
+            //telemetry.addData("Check Val", "Is surface black?");
         }
-        telemetry.update();
+        //telemetry.update();
     }
 }
