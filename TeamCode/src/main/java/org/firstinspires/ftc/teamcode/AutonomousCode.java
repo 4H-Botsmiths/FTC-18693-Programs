@@ -6,15 +6,14 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 @Autonomous(name = "Autonomous", group = "ForRobot")
 public class AutonomousCode extends LinearOpMode {
     WilliamFunctions functions = new WilliamFunctions();
-
+    RobotHardware robot = new RobotHardware();
     @Override
     public void runOpMode() {
-        RobotHardware robot = new RobotHardware();
-        robot.init(hardwareMap);
         telemetry.addData("Status", "Please wait");
         telemetry.update();
         telemetry.addData("Status", "Ready");
         telemetry.update();
+        functions.runOpMode();
         waitForStart();
         if (opModeIsActive()) {
             if (functions.CheckColour("FFFFFF", "")) {
