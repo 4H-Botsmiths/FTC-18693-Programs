@@ -44,8 +44,7 @@ public class TankDriveKolton extends OpMode {
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
-    KoltonFunctions function = new KoltonFunctions();
-    // 0= off, 1= on
+   // 0= off, 1= on
     public double shooterOn = (0);
     public String detectedColor;
     public void Ramp() {
