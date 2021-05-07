@@ -123,7 +123,7 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void init_loop() {
-        telemetry.addData("Status", robot.ready);
+        telemetry.addData("Status", "Initialized");
         telemetry.update();
     }
 
