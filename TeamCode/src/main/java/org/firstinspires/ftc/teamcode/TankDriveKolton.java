@@ -29,22 +29,100 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import android.graphics.Color;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
+import org.firstinspires.ftc.robotcore.external.JavaUtil;
 
 
 @TeleOp(name = "TankDriveKolton", group = "Iterative Opmode")
 //@Disabled
 public class TankDriveKolton extends OpMode {
-
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
     KoltonFunctions function = new KoltonFunctions();
     // 0= off, 1= on
     public double shooterOn = (0);
+    public String detectedColor;
+    public void Ramp() {
+        // double shooterSpeed = (robot.leftShooter.getVelocity()+robot.rightShooter.getVelocity())/2;
+        double shooterSpeed = 0;
+        if (shooterSpeed < robot.shootVelocity){
+            telemetry.addData("Status", "WARNING!, insufficient Shooter Speed");
+        } else {
+            telemetry.addData("Status", "Run Time: " + runtime.toString());
+        }
+        if (-gamepad2.right_stick_y > 0) {
+            if (-gamepad2.right_stick_y > 90) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+                robot.rampTop.setPower(0.5);
+            } else if (-gamepad2.right_stick_y > 50) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+            } else if (-gamepad2.right_stick_y > 0) {
+                robot.rampBottom.setPower(0.5);
+            }
 
+        } else if (-gamepad2.right_stick_y < 0) {
+            if (-gamepad2.right_stick_y < 0.9) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+                robot.rampTop.setPower(0.5);
+            } else if (-gamepad2.right_stick_y < 0.5) {
+                robot.rampBottom.setPower(0.5);
+                robot.rampMiddle.setPower(0.5);
+            } else if (-gamepad2.right_stick_y < 0) {
+                robot.rampBottom.setPower(0.5);
+            }
+        }
+    }
+    public void Telemetries() {
+        telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
+        telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
+        telemetry.addData("Ramp Power", "Bottom (%.2f), Middle (%.2f), Top (%.2f)", robot.rampBottom.getPower(), robot.rampMiddle.getPower(), robot.rampTop.getPower());
+        telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower(), robot.clawHand.getPower());
+        telemetry.addData("Color Detected", detectedColor);
+        telemetry.update();
+    }
+    public void detectColor() {
+        int colorHSV;
+        float hue;
+        float sat;
+        float val;
+        // Convert RGB values to HSV color model.
+        // See https://en.wikipedia.org/wiki/HSL_and_HSV for details on HSV color model.
+        colorHSV = Color.argb(robot.color1.alpha(), robot.color1.red(), robot.color1.green(), robot.color1.blue());
+        // Get hue.
+        hue = JavaUtil.colorToHue(colorHSV);
+        //telemetry.addData("Hue", hue);
+        // Get saturation.
+        sat = JavaUtil.colorToSaturation(colorHSV);
+        //telemetry.addData("Saturation", sat);
+        // Get value.
+        val = JavaUtil.colorToValue(colorHSV);
+        //telemetry.addData("Value", val);
+        // Use hue to determine if it's red, green, blue, etc..
+        if (hue < 30) {
+            detectedColor = "Red";
+        } else if (hue < 60) {
+            detectedColor = "Orange";
+        } else if (hue < 90) {
+            detectedColor = "Yellow";
+        } else if (hue < 150) {
+            detectedColor = "Green";
+        } else if (hue < 225) {
+            detectedColor = "Blue";
+        } else if (hue < 350) {
+            detectedColor = "Purple";
+        } else {
+            detectedColor = "Not Detected";
+        }
+    }
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -54,7 +132,6 @@ public class TankDriveKolton extends OpMode {
         telemetry.addData("Status", "Initializing...");
         telemetry.update();
 
-
     }
 
     /*
@@ -62,7 +139,7 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void init_loop() {
-        telemetry.addData("Status", "Initialized");
+        telemetry.addData("Status", robot.ready);
         telemetry.update();
     }
 
@@ -82,7 +159,7 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void loop() {
-        function.detectColor();
+        //function.detectColor();
 
         // Setup a variable for each drive wheel to save power level for telemetry
         double leftVelocity = (-gamepad1.left_stick_y * robot.driveVelocity);
@@ -90,7 +167,7 @@ public class TankDriveKolton extends OpMode {
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
 
-        function.Telemetries();
+       // function.Telemetries();
 
         if (robot.touchTop.isPressed()) {
             robot.clawArm.setPower(0);
@@ -119,7 +196,7 @@ public class TankDriveKolton extends OpMode {
             robot.rampMiddle.setPower(0);
             robot.rampBottom.setPower(0);
         } else {
-            function.Ramp();
+            Ramp();
         }
     }
 
@@ -131,10 +208,10 @@ public class TankDriveKolton extends OpMode {
     public void stop() {
         telemetry.addData("Status", "Stopping...");
         telemetry.update();
-        robot.leftDrive.setVelocity(0);
-        robot.rightDrive.setVelocity(0);
-        robot.leftShooter.setVelocity(0);
-        robot.leftShooter.setVelocity(0);
+        robot.leftDrive.setPower(0);
+        robot.rightDrive.setPower(0);
+        robot.leftShooter.setPower(0);
+        robot.leftShooter.setPower(0);
         robot.rampBottom.setPower(0);
         robot.rampBottom.setPower(0);
         robot.rampBottom.setPower(0);

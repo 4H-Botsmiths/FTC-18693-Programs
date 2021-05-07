@@ -9,7 +9,8 @@ public class AutonomousCode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-
+        RobotHardware robot = new RobotHardware();
+        robot.init(hardwareMap);
         telemetry.addData("Status", "Please wait");
         telemetry.update();
         telemetry.addData("Status", "Ready");
