@@ -1,7 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -25,7 +27,6 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
-@TeleOp()
 public class RobotHardware {
     /* Public OpMode members. */
     public DcMotorEx leftDrive = null;
@@ -73,7 +74,7 @@ public class RobotHardware {
         rampBottom = hwMap.get(CRServo.class, "Servo_0");
         rampMiddle = hwMap.get(CRServo.class, "Servo_1");
         rampTop = hwMap.get(CRServo.class, "Servo_2");
-        clawArm = hwMap.get(CRServo.class, "Servo_3");
+        clawArm = //hwMap.get(CRServo.class, "Servo_3");
         clawHand = hwMap.get(CRServo.class, "Servo_4");
         Servo6 = hwMap.get(CRServo.class, "Servo_5");
 

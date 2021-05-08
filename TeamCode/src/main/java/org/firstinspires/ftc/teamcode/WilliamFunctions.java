@@ -20,7 +20,7 @@ import java.util.List;
 @Autonomous(name = "Functions", group = "ForRobot")
 @Disabled
 public class WilliamFunctions extends LinearOpMode {
-    float Red;
+    public float Red;
     float Green;
     float Blue;
     double Counter = 0;
@@ -81,7 +81,7 @@ public class WilliamFunctions extends LinearOpMode {
         }
     }
 
-    public boolean CheckColour(String Hex, String Colour) {
+    /*public boolean CheckColour(String Hex, String Colour) {
         boolean ColourCheck;
         int i;
         double R;
@@ -135,7 +135,7 @@ public class WilliamFunctions extends LinearOpMode {
             ColourCheck = true;
         }
         return ColourCheck;
-    }
+    }*/
 
     public boolean Within_Range(double range, double range_variable, float range_comparison) {
         boolean range_output;
@@ -143,15 +143,15 @@ public class WilliamFunctions extends LinearOpMode {
         return range_output;
     }
 
-    public void Update_Color() {
+    /*public void Update_Color() {
         Red = Math.round(robot.color1.red() * (255 / Red_Factor));
         Green = Math.round(robot.color1.green() * (255 / Green_Factor));
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
-    }
+    }*/
 
     public void Turn(double Degrees, boolean TurnOverride) {
         BNO055IMU.Parameters imuPar;
-        Orientation angles = null;
+        Orientation angles;
 
         Telemetries();
         imuPar = new BNO055IMU.Parameters();
@@ -178,6 +178,7 @@ public class WilliamFunctions extends LinearOpMode {
                 }
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
+                angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                 while (!(Within_Range(1, Degrees, angles.firstAngle) || !isStopRequested())) {
                     angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     telemetry.addData("angle", angles.firstAngle);
