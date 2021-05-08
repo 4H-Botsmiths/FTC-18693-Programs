@@ -1,12 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.LED;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 /**
@@ -46,10 +48,18 @@ public class RobotHardware {
     public ColorSensor color1 = null;
     public BNO055IMU gyro = null;
 
-    public double shootVelocity = 2800;
-    public double driveVelocity = 2800;
+    public Rev2mDistanceSensor distanceLeft = null;
+    public Rev2mDistanceSensor distanceRight = null;
 
-    public String ready = "Initializing...";
+    public LED light1 = null;
+    public LED light2 = null;
+
+    public double maxShootVelocity = 2800;
+    public double maxDriveVelocity = 2800;
+    public double shootVelocity = maxShootVelocity;
+    public double driveVelocity = maxDriveVelocity;
+
+
     /* local OpMode members. */
     HardwareMap hwMap = null;
 
@@ -82,6 +92,12 @@ public class RobotHardware {
 
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         gyro = hwMap.get(BNO055IMU.class, "imu");
+
+        distanceLeft = hwMap.get(Rev2mDistanceSensor.class, "Distance_1");
+        distanceRight = hwMap.get(Rev2mDistanceSensor.class, "Distance_2");
+
+        light1 = hwMap.get(LED.class, "Light_0");
+        light2 = hwMap.get(LED.class, "Light_1");
 
 
         // Set all motors to zero power
@@ -124,6 +140,5 @@ public class RobotHardware {
         double Drive_Motors_I = 0.1 * Drive_Motors_P;
         leftDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
         rightDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
-        ready = "Initialized";
     }
 }
