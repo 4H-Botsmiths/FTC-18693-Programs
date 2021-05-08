@@ -1,14 +1,14 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.LED;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 
 /**
@@ -27,6 +27,7 @@ import com.qualcomm.robotcore.hardware.TouchSensor;
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
+@TeleOp()
 public class RobotHardware {
     /* Public OpMode members. */
     public DcMotorEx leftDrive = null;
@@ -47,10 +48,18 @@ public class RobotHardware {
     public ColorSensor color1 = null;
     public BNO055IMU gyro = null;
 
-    public double shootVelocity = 2800;
-    public double driveVelocity = 2800;
+    public Rev2mDistanceSensor distanceLeft = null;
+    public Rev2mDistanceSensor distanceRight = null;
 
-    public String ready = "Initializing...";
+    public LED light1 = null;
+    public LED light2 = null;
+
+    public double maxShootVelocity = 2800;
+    public double maxDriveVelocity = 2800;
+    public double shootVelocity = maxShootVelocity;
+    public double driveVelocity = maxDriveVelocity;
+
+
     /* local OpMode members. */
     HardwareMap hwMap = null;
 
@@ -74,7 +83,7 @@ public class RobotHardware {
         rampBottom = hwMap.get(CRServo.class, "Servo_0");
         rampMiddle = hwMap.get(CRServo.class, "Servo_1");
         rampTop = hwMap.get(CRServo.class, "Servo_2");
-        clawArm = //hwMap.get(CRServo.class, "Servo_3");
+        clawArm = hwMap.get(CRServo.class, "Servo_3");
         clawHand = hwMap.get(CRServo.class, "Servo_4");
         Servo6 = hwMap.get(CRServo.class, "Servo_5");
 
@@ -83,6 +92,12 @@ public class RobotHardware {
 
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         gyro = hwMap.get(BNO055IMU.class, "imu");
+
+        distanceLeft = hwMap.get(Rev2mDistanceSensor.class, "Distance_1");
+        distanceRight = hwMap.get(Rev2mDistanceSensor.class, "Distance_2");
+
+        light1 = hwMap.get(LED.class, "Light_0");
+        light2 = hwMap.get(LED.class, "Light_1");
 
 
         // Set all motors to zero power
@@ -113,7 +128,7 @@ public class RobotHardware {
         leftShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
         rightShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
-        //PIDF Calibration
+        //PIDF Caliration
         double Shooter_Motors_F = 32767 / shootVelocity;
         double Shooter_Motors_P = 0.1 * Shooter_Motors_F;
         double Shooter_Motors_I = 0.1 * Shooter_Motors_P;
@@ -125,6 +140,5 @@ public class RobotHardware {
         double Drive_Motors_I = 0.1 * Drive_Motors_P;
         leftDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
         rightDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
-        ready = "Initialized";
     }
 }

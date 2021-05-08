@@ -36,6 +36,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 
 @TeleOp(name = "TankDriveKolton", group = "Iterative Opmode")
@@ -63,6 +64,7 @@ public class TankDriveKolton extends OpMode {
         telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
         telemetry.addData("Ramp Power", "Bottom (%.2f), Middle (%.2f), Top (%.2f)", robot.rampBottom.getPower(), robot.rampMiddle.getPower(), robot.rampTop.getPower());
         telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower(), robot.clawHand.getPower());
+       telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
         telemetry.addData("Color Detected", detectColor());
         telemetry.update();
     }
@@ -107,6 +109,11 @@ public class TankDriveKolton extends OpMode {
             return "Not Detected";
         }
     }
+    public void LED() throws InterruptedException {
+        robot.light1.enableLight(true);
+        wait(1000);
+        robot.light1.enableLight(false);
+    }
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -115,6 +122,8 @@ public class TankDriveKolton extends OpMode {
         robot.init(hardwareMap);
         telemetry.addData("Status", "Initializing...");
         telemetry.update();
+
+
 
     }
 
@@ -185,7 +194,7 @@ public class TankDriveKolton extends OpMode {
 
         detectColor();
         Telemetries();
-
+        robot.light1.enableLight(true);
 
     }
 
