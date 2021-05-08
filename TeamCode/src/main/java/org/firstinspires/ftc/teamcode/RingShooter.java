@@ -64,6 +64,8 @@ public class RingShooter extends OpMode {
     @Override
     public void init_loop() {
         telemetry.addData("Status", "Initialized");
+        telemetry.addData("Touch Bottom Trigered",robot.touchBottom.isPressed());
+        telemetry.addData("Touch Top Trigered",robot.touchTop.isPressed());
         telemetry.update();
     }
 
@@ -95,6 +97,8 @@ public class RingShooter extends OpMode {
         telemetry.addData("Shoot Velocity","Left %.1f Percent, Right %.1f Percent",left,right);
         telemetry.addData("Raw Shoot Velocity","Left %.1f, Right %.1f",robot.leftShooter.getVelocity(),robot.rightShooter.getVelocity());
         telemetry.addData("Battery Voltage","%.1f", robot.voltageSensor.getVoltage());
+
+
     }
 
 

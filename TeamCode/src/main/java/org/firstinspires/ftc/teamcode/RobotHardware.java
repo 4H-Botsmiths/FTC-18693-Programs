@@ -57,7 +57,7 @@ public class RobotHardware {
     public VoltageSensor voltageSensor = null;
 
     public double maxServoPower = 0.75;
-    public double maxShootVelocity = 700;
+    public double maxShootVelocity = 500;
     public double maxDriveVelocity = 28800;
     public double servoPower = maxServoPower;
     public double shootVelocity = maxShootVelocity;
