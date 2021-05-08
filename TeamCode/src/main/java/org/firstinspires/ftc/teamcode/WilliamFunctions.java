@@ -8,25 +8,25 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.firstinspires.ftc.robotcore.external.JavaUtil;
+//import org.firstinspires.ftc.robotcore.external.JavaUtil;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-import java.io.Serializable;
-import java.util.List;
+//import java.io.Serializable;
+//import java.util.List;
 
 @Autonomous(name = "Functions", group = "ForRobot")
 @Disabled
 public class WilliamFunctions extends LinearOpMode {
-    public float Red;
-    float Green;
-    float Blue;
+    //public float Red;
+    //float Green;
+    //float Blue;
     double Counter = 0;
-    double Red_Factor = 338;
-    double Green_Factor = 559;
-    double Blue_Factor = 494;
+    //double Red_Factor = 338;
+    //double Green_Factor = 559;
+    //double Blue_Factor = 494;
     int Ticks_Rotation = 288;
     int Wheel_Circumference = (int) 282.6;
     int mm_tick = Wheel_Circumference / Ticks_Rotation;
