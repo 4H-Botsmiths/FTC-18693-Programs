@@ -84,14 +84,17 @@ public class RingShooter extends OpMode {
     @Override
     public void loop() {
 
+        double left = robot.leftShooter.getVelocity()/robot.maxShootVelocity*100;
+        double right = robot.rightShooter.getVelocity()/robot.maxShootVelocity*100;
         // Setup a variable for each drive wheel to save power level for telemetry
         robot.leftShooter.setVelocity(robot.shootVelocity);
         robot.rightShooter.setVelocity(robot.shootVelocity);
-        robot.rampTop.setPower(1);
-        robot.rampMiddle.setPower(1);
-        robot.rampBottom.setPower(1);
-        telemetry.addData("Shoot Velocity","Left %.1f%, Right %.1f%",robot.leftShooter.getVelocity()/robot.maxShootVelocity*100, robot.rightShooter.getVelocity()/robot.maxShootVelocity*100);
-        telemetry.addData("Servo's on", "%.0f",(robot.rampBottom.getPower()+robot.rampMiddle.getPower()+robot.rampTop.getPower())/3);
+        robot.rampTop.setPower(robot.servoPower);
+        robot.rampMiddle.setPower(robot.servoPower);
+        robot.rampBottom.setPower(robot.servoPower);
+        telemetry.addData("Shoot Velocity","Left %.1f Percent, Right %.1f Percent",left,right);
+        telemetry.addData("Raw Shoot Velocity","Left %.1f, Right %.1f",robot.leftShooter.getVelocity(),robot.rightShooter.getVelocity());
+        telemetry.addData("Battery Voltage","%.1f", robot.voltageSensor.getVoltage());
     }
 
 

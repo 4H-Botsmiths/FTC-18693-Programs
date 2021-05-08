@@ -109,11 +109,6 @@ public class TankDriveKolton extends OpMode {
             return "Not Detected";
         }
     }
-    public void LED() throws InterruptedException {
-        robot.light1.enableLight(true);
-        wait(1000);
-        robot.light1.enableLight(false);
-    }
     /*
      * Code to run ONCE when the driver hits INIT
      */
@@ -153,12 +148,22 @@ public class TankDriveKolton extends OpMode {
     @Override
     public void loop() {
         //function.detectColor();
-
+        if (robot.voltageSensor.getVoltage() < robot.lowBattery){
+            robot.shootVelocity = robot.maxShootVelocity*0.75;
+            robot.driveVelocity = robot.maxDriveVelocity*0.75;
+        } else if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery){
+            robot.shootVelocity = robot.maxShootVelocity*0.5;
+            robot.driveVelocity = robot.maxDriveVelocity*0.5;
+        } else{
+            robot.shootVelocity = robot.maxShootVelocity;
+            robot.driveVelocity = robot.maxDriveVelocity;
+        }
         // Setup a variable for each drive wheel to save power level for telemetry
         double leftVelocity = (-gamepad1.left_stick_y * robot.driveVelocity);
         double rightVelocity = (-gamepad1.right_stick_y * robot.driveVelocity);
         robot.leftDrive.setVelocity(leftVelocity);
         robot.rightDrive.setVelocity(rightVelocity);
+
 
        // function.Telemetries();
 
@@ -174,27 +179,10 @@ public class TankDriveKolton extends OpMode {
         }
 
 
-        if (gamepad2.right_stick_button) {
-            if (shooterOn == 0) {
-                shooterOn = 1;
-                robot.leftShooter.setVelocity(robot.shootVelocity);
-                robot.rightShooter.setVelocity(robot.shootVelocity);
-            } else if (shooterOn == 1) {
-                shooterOn = 0;
-                robot.leftShooter.setVelocity(0);
-                robot.rightShooter.setVelocity(0);
-            }
-        } else if (gamepad2.right_stick_y == 0) {
-            robot.rampTop.setPower(0);
-            robot.rampMiddle.setPower(0);
-            robot.rampBottom.setPower(0);
-        } else {
-            Ramp();
-        }
+
 
         detectColor();
         Telemetries();
-        robot.light1.enableLight(true);
 
     }
 
