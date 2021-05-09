@@ -177,9 +177,11 @@ public class TankDriveKolton extends OpMode {
             robot.clawArm.setPower(-gamepad2.left_stick_y);
             robot.clawHand.setPower(robot.clawArm.getPower()/2);
         }
-
-
-
+        if(time%2 == 0){
+            robot.greenLight.enableLight(false);
+        } else{
+            robot.greenLight.enableLight(true);
+        }
 
         detectColor();
         Telemetries();

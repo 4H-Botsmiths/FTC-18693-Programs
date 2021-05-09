@@ -46,8 +46,15 @@ public class RobotHardware {
     public TouchSensor touchBottom = null;
     public TouchSensor touchTop = null;
     public LED redLight = null;
-    public LED yellowLight = null;
+    public LED blueLight = null;
     public LED greenLight = null;
+    public LED spareLight1 = null;
+    public LED spareLight2 = null;
+    public LED spareLight3 = null;
+    public LED spareLight4 = null;
+    public LED spareLight5 = null;
+    public LED spareLight6 = null;
+
 
     public ColorSensor color1 = null;
     public Rev2mDistanceSensor distanceLeft = null;
@@ -93,9 +100,15 @@ public class RobotHardware {
 
         touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
         touchTop = hwMap.get(TouchSensor.class, "Touch_1");
-        redLight = hwMap.get(LED.class, "Light_2");
-        yellowLight = hwMap.get(LED.class, "Light_3");
-        greenLight = hwMap.get(LED.class, "Light_4");
+        redLight = hwMap.get(LED.class, "Light_0");
+        blueLight = hwMap.get(LED.class, "Light_1");
+        greenLight = hwMap.get(LED.class, "Light_2");
+        spareLight1 = hwMap.get(LED.class, "Light_3");
+        spareLight2 = hwMap.get(LED.class, "Light_4");
+        spareLight3 = hwMap.get(LED.class, "Light_5");
+        spareLight4 = hwMap.get(LED.class, "Light_6");
+        spareLight5 = hwMap.get(LED.class, "Light_7");
+        spareLight6 = hwMap.get(LED.class, "Light_8");
 
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         distanceLeft = hwMap.get(Rev2mDistanceSensor.class, "Distance_1");
