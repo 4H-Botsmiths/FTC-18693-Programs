@@ -50,15 +50,35 @@ public class TankDriveKolton extends OpMode {
     public String detectedColor;
 
     public void Ramp() {
-        // double shooterSpeed = (robot.leftShooter.getVelocity()+robot.rightShooter.getVelocity())/2;
-        double shooterSpeed = 0;
-        if (shooterSpeed < robot.shootVelocity) {
-            telemetry.addData("Status", "WARNING!, insufficient Shooter Speed");
-        } else {
-            telemetry.addData("Status", "Run Time: " + runtime.toString());
+        if (gamepad2.right_trigger > 0.9){
+            robot.leftShooter.setVelocity(robot.shootVelocity);
+            robot.rightShooter.setVelocity(robot.shootVelocity);
+            robot.rampBottom.setPower(0.75);
+            robot.rampMiddle.setPower(0.75);
+            robot.rampTop.setPower(0.75);
+        }else if (gamepad2.right_trigger >0.5){
+            robot.leftShooter.setVelocity(robot.shootVelocity*0.5);
+            robot.rightShooter.setVelocity(robot.shootVelocity*0.5);
+            robot.rampBottom.setPower(0.75);
+            robot.rampMiddle.setPower(0.75);
+            robot.rampTop.setPower(0);
+        } else if (gamepad2.right_trigger > 0){
+            robot.leftShooter.setVelocity(robot.shootVelocity*0.25);
+            robot.rightShooter.setVelocity(robot.shootVelocity*0.25);
+            robot.rampBottom.setPower(0.75);
+            robot.rampMiddle.setPower(0);
+            robot.rampTop.setPower(0);
+        }else {
+            robot.leftShooter.setVelocity(0);
+            robot.rightShooter.setVelocity(0);
+            robot.rampBottom.setPower(0);
+            robot.rampMiddle.setPower(0);
+            robot.rampTop.setPower(0);
         }
 
-    }
+        }
+
+
     public void Telemetries() {
         telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
         telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
@@ -149,10 +169,9 @@ public class TankDriveKolton extends OpMode {
     public void loop() {
         //function.detectColor();
         if (robot.voltageSensor.getVoltage() < robot.lowBattery){
-            robot.shootVelocity = robot.maxShootVelocity*0.75;
             robot.driveVelocity = robot.maxDriveVelocity*0.75;
         } else if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery){
-            robot.shootVelocity = robot.maxShootVelocity*0.5;
+            robot.shootVelocity = robot.maxShootVelocity*0.75;
             robot.driveVelocity = robot.maxDriveVelocity*0.5;
         } else{
             robot.shootVelocity = robot.maxShootVelocity;
@@ -185,6 +204,7 @@ public class TankDriveKolton extends OpMode {
 
         detectColor();
         Telemetries();
+        Ramp();
 
     }
 
