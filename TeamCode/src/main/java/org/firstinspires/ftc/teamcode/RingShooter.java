@@ -66,7 +66,7 @@ public class RingShooter extends OpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.addData("Touch Bottom Trigered",robot.touchBottom.isPressed());
         telemetry.addData("Touch Top Trigered",robot.touchTop.isPressed());
-        telemetry.update();
+        telemetry.addData("Distance (Meters)","Left %.2f, Right %.2f",robot.distanceLeft);
     }
 
     /*
