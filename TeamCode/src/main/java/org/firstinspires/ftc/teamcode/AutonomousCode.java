@@ -1,12 +1,9 @@
 package org.firstinspires.ftc.teamcode;
-
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -23,15 +20,17 @@ public class AutonomousCode extends LinearOpMode {
     //double Green_Factor = 559;
     //double Blue_Factor = 494;
     int Ticks_Rotation = 288;
-    int Wheel_Circumference = (int) 282.6;
-    int mm_tick = Wheel_Circumference / Ticks_Rotation;
-    int mm_in = (int) 25.4;
+    double Wheel_Circumference = 282.6;
+    double mm_tick = Wheel_Circumference / Ticks_Rotation;
+    double mm_in = 25.4;
 
     RobotHardware robot = new RobotHardware();
+
 
     public void Telemetries() {
         telemetry.addData("mm/in", mm_in);
         telemetry.addData("mm/tick", mm_tick);
+        telemetry.addData("Wheel circ", Wheel_Circumference);
         telemetry.addData("Motor0 Target Position", robot.leftDrive.getTargetPosition());
         telemetry.addData("Motor1 Target Position", robot.rightDrive.getTargetPosition());
         telemetry.addData("Motor0 Encoder Value", robot.leftDrive.getCurrentPosition());
@@ -47,7 +46,7 @@ public class AutonomousCode extends LinearOpMode {
         telemetry.update();
     }
 
-    public void Move(int In, boolean Forward, boolean MoveOverride) {
+    public void Move(double In, boolean Forward, boolean MoveOverride) {
         while (opModeIsActive()) {
             telemetry.addData("Move Waiting", Counter);
             Telemetries();
@@ -65,8 +64,8 @@ public class AutonomousCode extends LinearOpMode {
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-                robot.leftDrive.setTargetPosition(In * mm_in * mm_tick);
-                robot.rightDrive.setTargetPosition(In * mm_in * mm_tick);
+                robot.leftDrive.setTargetPosition((int) Math.round(In * mm_in * mm_tick));
+                robot.rightDrive.setTargetPosition((int) Math.round(In * mm_in * mm_tick));
                 robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 // set F to 54.1
@@ -74,6 +73,7 @@ public class AutonomousCode extends LinearOpMode {
                 robot.rightDrive.setVelocityPIDFCoefficients(0.0075, 0.000075, 0.005, 54.1);
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
+                break;
             }
         }
     }
@@ -167,11 +167,11 @@ public class AutonomousCode extends LinearOpMode {
                 Degrees = Degrees * -1;
                 Counter = 0;
                 if (Degrees > 0) {
-                    robot.leftDrive.setDirection(DcMotorSimple.Direction.FORWARD);
-                    robot.rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
+                    robot.leftDrive.setDirection(DcMotorEx.Direction.FORWARD);
+                    robot.rightDrive.setDirection(DcMotorEx.Direction.FORWARD);
                 } else {
-                    robot.leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
-                    robot.rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+                    robot.leftDrive.setDirection(DcMotorEx.Direction.REVERSE);
+                    robot.rightDrive.setDirection(DcMotorEx.Direction.REVERSE);
                 }
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
