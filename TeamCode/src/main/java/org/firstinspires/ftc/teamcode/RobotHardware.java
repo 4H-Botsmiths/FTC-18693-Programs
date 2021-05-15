@@ -96,7 +96,7 @@ public class RobotHardware {
         clawArm = hwMap.get(CRServo.class, "Servo_3");
         clawHand = hwMap.get(CRServo.class, "Servo_4");
 
-        touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
+        /*touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
         touchTop = hwMap.get(TouchSensor.class, "Touch_1");
         redLight = hwMap.get(LED.class, "Light_0");
         blueLight = hwMap.get(LED.class, "Light_1");
@@ -110,7 +110,7 @@ public class RobotHardware {
 
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         distanceLeft = hwMap.get(Rev2mDistanceSensor.class, "Distance_1");
-        distanceRight = hwMap.get(Rev2mDistanceSensor.class, "Distance_2");
+        distanceRight = hwMap.get(Rev2mDistanceSensor.class, "Distance_2");*/
 
         gyro = hwMap.get(BNO055IMU.class, "imu");
         voltageSensor = hwMap.get(VoltageSensor.class, "Control Hub");

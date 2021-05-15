@@ -78,7 +78,7 @@ public class TankDriveKolton extends OpMode {
 
         }
 
-
+    short gamepad1=1;
     public void Telemetries() {
         telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
         telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
