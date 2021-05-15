@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -15,7 +16,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 @Autonomous(name = "Autonomous", group = "ForRobot")
 public class AutonomousCode extends LinearOpMode {
     //WilliamFunctions functions = new WilliamFunctions();
-   // RobotHardware robot = new RobotHardware();
     //public float Red;
     //float Green;
     //float Blue;
@@ -104,7 +104,7 @@ public class AutonomousCode extends LinearOpMode {
                         break;
                     case "B":
                         HexList.add(11);
-                        break;
+                        break;ge
                     case "C":
                         HexList.add(12);
                         break;
@@ -189,6 +189,7 @@ public class AutonomousCode extends LinearOpMode {
     }
     @Override
     public void runOpMode() {
+        robot.init(hardwareMap);
         telemetry.addData("Status", "Please wait");
         telemetry.update();
         telemetry.addData("Status", "Ready");
