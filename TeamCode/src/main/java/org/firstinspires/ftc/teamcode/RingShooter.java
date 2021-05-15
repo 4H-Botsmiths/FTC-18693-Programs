@@ -25,7 +25,7 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+ /
 
 package org.firstinspires.ftc.teamcode;
 
@@ -38,29 +38,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 //@Disabled
 public class RingShooter extends OpMode {
     // Declare OpMode members.
-    private final ElapsedTime runtime = new ElapsedTime();
-    RobotHardware robot = new RobotHardware();
-
-
-
-
-
-    /*
-     * Code to run ONCE when the driver hits INIT
-     */
-    @Override
-    public void init() {
-        robot.init(hardwareMap);
-        telemetry.addData("Status", "Initializing...");
-        telemetry.update();
-
-
-
-    }
+    private final ElapsedTime runtime = new Elaps
 
     /*
      * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     */
+     *
     @Override
     public void init_loop() {
         telemetry.addData("Status", "Initialized");
@@ -71,7 +53,7 @@ public class RingShooter extends OpMode {
 
     /*
      * Code to run ONCE when the driver hits PLAY
-     */
+     *
     @Override
     public void start() {
         runtime.reset();
@@ -82,7 +64,7 @@ public class RingShooter extends OpMode {
 
     /*
      * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     */
+     *
     @Override
     public void loop() {
 
@@ -104,7 +86,7 @@ public class RingShooter extends OpMode {
 
     /*
      * Code to run ONCE after the driver hits STOP
-     */
+     *
     @Override
     public void stop() {
         telemetry.addData("Status", "Stopping...");
@@ -123,3 +105,4 @@ public class RingShooter extends OpMode {
     }
 
 }
+*/

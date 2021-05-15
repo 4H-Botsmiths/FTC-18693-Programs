@@ -41,7 +41,7 @@ public class RobotHardware {
     public CRServo clawArm = null;
     public CRServo clawHand = null;
 
-    public TouchSensor touchBottom = null;
+    /*public TouchSensor touchBottom = null;
     public TouchSensor touchTop = null;
     public LED redLight = null;
     public LED blueLight = null;
@@ -56,7 +56,7 @@ public class RobotHardware {
 
     public ColorSensor color1 = null;
     public Rev2mDistanceSensor distanceLeft = null;
-    public Rev2mDistanceSensor distanceRight = null;
+    public Rev2mDistanceSensor distanceRight = null;*/
 
     public BNO055IMU gyro = null;
     public VoltageSensor voltageSensor = null;
