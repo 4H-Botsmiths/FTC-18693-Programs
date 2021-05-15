@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+/*package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -14,7 +14,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-//import java.io.Serializable;
+//imports java.io.Serializable;
 //import java.util.List;
 
 @Autonomous(name = "Functions", group = "ForRobot")
@@ -135,7 +135,7 @@ public class WilliamFunctions extends LinearOpMode {
             ColourCheck = true;
         }
         return ColourCheck;
-    }*/
+    }
 
     public boolean Within_Range(double range, double range_variable, float range_comparison) {
         boolean range_output;
@@ -147,7 +147,7 @@ public class WilliamFunctions extends LinearOpMode {
         Red = Math.round(robot.color1.red() * (255 / Red_Factor));
         Green = Math.round(robot.color1.green() * (255 / Green_Factor));
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
-    }*/
+    }
 
     public void Turn(double Degrees, boolean TurnOverride) {
         BNO055IMU.Parameters imuPar;
@@ -196,4 +196,4 @@ public class WilliamFunctions extends LinearOpMode {
     public void runOpMode() {
         robot.init(hardwareMap);
     }
-}
+}*/
