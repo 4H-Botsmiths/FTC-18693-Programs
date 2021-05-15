@@ -6,7 +6,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -31,6 +30,8 @@ public class AutonomousCode extends LinearOpMode {
     RobotHardware robot = new RobotHardware();
 
     public void Telemetries() {
+        telemetry.addData("mm/in", mm_in);
+        telemetry.addData("mm/tick", mm_tick);
         telemetry.addData("Motor0 Target Position", robot.leftDrive.getTargetPosition());
         telemetry.addData("Motor1 Target Position", robot.rightDrive.getTargetPosition());
         telemetry.addData("Motor0 Encoder Value", robot.leftDrive.getCurrentPosition());
@@ -64,8 +65,8 @@ public class AutonomousCode extends LinearOpMode {
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-                robot.leftDrive.setTargetPosition(200/*In * mm_in * mm_tick*/);
-                robot.rightDrive.setTargetPosition(200/*In * mm_in * mm_tick*/);
+                robot.leftDrive.setTargetPosition(In * mm_in * mm_tick);
+                robot.rightDrive.setTargetPosition(In * mm_in * mm_tick);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 // set F to 54.1
