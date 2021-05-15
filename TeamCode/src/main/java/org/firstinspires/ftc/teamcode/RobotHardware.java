@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.rev.Rev2mDistanceSensor;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -29,7 +28,6 @@ import com.qualcomm.robotcore.hardware.VoltageSensor;
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
-@TeleOp()
 public class RobotHardware {
     /* Public OpMode members. */
     public DcMotorEx leftDrive = null;
@@ -76,9 +74,9 @@ public class RobotHardware {
     HardwareMap hwMap = null;
 
     /* Constructor */
-    public RobotHardware() {
+    //public RobotHardware() {
 
-    }
+    //}
 
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap ahwMap) {
