@@ -164,9 +164,9 @@ public class AutonomousCode extends LinearOpMode {
             Telemetries();
             Counter += 1;
             if (TurnOverride || !robot.rightDrive.isBusy()) {
-                Degrees = Degrees * -1;
+                //Degrees = Degrees * -1;
                 Counter = 0;
-                if (Degrees > 0) {
+                if (Degrees < 0) {
                     robot.leftDrive.setDirection(DcMotorEx.Direction.FORWARD);
                     robot.rightDrive.setDirection(DcMotorEx.Direction.FORWARD);
                 } else {
@@ -176,15 +176,18 @@ public class AutonomousCode extends LinearOpMode {
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
                 angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-                while (!(Within_Range(1, Degrees, angles.firstAngle) || !isStopRequested())) {
+                while (!(Within_Range(1, Degrees, angles.firstAngle) && !isStopRequested())) {
                     angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                     telemetry.addData("angle", angles.firstAngle);
                     telemetry.addData("target", Degrees);
                     telemetry.addData("done?", Within_Range(1, Degrees, angles.firstAngle) || !isStopRequested());
                     Telemetries();
                 }
-                robot.leftDrive.setPower(0);
-                robot.rightDrive.setPower(0);
+                if ((Within_Range(1, Degrees, angles.firstAngle))) {
+                    robot.leftDrive.setPower(0);
+                    robot.rightDrive.setPower(0);
+                }
+
             }
         }
     }
