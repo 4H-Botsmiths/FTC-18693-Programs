@@ -12,6 +12,11 @@ import com.qualcomm.robotcore.hardware.LED;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+
 /**
  * This is NOT an opmode.
  * <p>
@@ -41,7 +46,7 @@ public class RobotHardware {
     public CRServo clawArm = null;
     public CRServo clawHand = null;
 
-    /*public TouchSensor touchBottom = null;
+    public TouchSensor touchBottom = null;
     public TouchSensor touchTop = null;
     public LED redLight = null;
     public LED blueLight = null;
@@ -51,12 +56,11 @@ public class RobotHardware {
     public LED spareLight3 = null;
     public LED spareLight4 = null;
     public LED spareLight5 = null;
-    public LED spareLight6 = null;
 
 
     public ColorSensor color1 = null;
     public Rev2mDistanceSensor distanceLeft = null;
-    public Rev2mDistanceSensor distanceRight = null;*/
+    public Rev2mDistanceSensor distanceRight = null;
 
     public BNO055IMU gyro = null;
     public VoltageSensor voltageSensor = null;
@@ -96,7 +100,7 @@ public class RobotHardware {
         clawArm = hwMap.get(CRServo.class, "Servo_3");
         clawHand = hwMap.get(CRServo.class, "Servo_4");
 
-        /*touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
+        touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
         touchTop = hwMap.get(TouchSensor.class, "Touch_1");
         redLight = hwMap.get(LED.class, "Light_0");
         blueLight = hwMap.get(LED.class, "Light_1");
@@ -106,15 +110,18 @@ public class RobotHardware {
         spareLight3 = hwMap.get(LED.class, "Light_5");
         spareLight4 = hwMap.get(LED.class, "Light_6");
         spareLight5 = hwMap.get(LED.class, "Light_7");
-        spareLight6 = hwMap.get(LED.class, "Light_8");
 
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         distanceLeft = hwMap.get(Rev2mDistanceSensor.class, "Distance_1");
-        distanceRight = hwMap.get(Rev2mDistanceSensor.class, "Distance_2");*/
+        distanceRight = hwMap.get(Rev2mDistanceSensor.class, "Distance_2");
 
         gyro = hwMap.get(BNO055IMU.class, "imu");
         voltageSensor = hwMap.get(VoltageSensor.class, "Control Hub");
-
+        BNO055IMU.Parameters imuPar;
+        imuPar = new BNO055IMU.Parameters();
+        imuPar.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+        imuPar.loggingEnabled = false;
+        gyro.initialize(imuPar);
 
         // Set all motors to zero power
         leftDrive.setPower(0);

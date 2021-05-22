@@ -25,7 +25,7 @@
  * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
+ */
 
 package org.firstinspires.ftc.teamcode;
 
@@ -49,7 +49,7 @@ public class TankDriveKolton extends OpMode {
     public double shooterOn = (0);
     public String detectedColor;
 
-    public void Ramp() {
+    public void RampUp() {
         if (gamepad2.right_trigger > 0.9){
             robot.leftShooter.setVelocity(robot.shootVelocity);
             robot.rightShooter.setVelocity(robot.shootVelocity);
@@ -77,9 +77,32 @@ public class TankDriveKolton extends OpMode {
         }
 
         }
+    public void RampDown() {
+        if (gamepad2.left_trigger > 0.9){
+            robot.rampBottom.setPower(-0.75);
+            robot.rampMiddle.setPower(-0.75);
+            robot.rampTop.setPower(-0.75);
+        }else if (gamepad2.left_trigger >0.5){
+            robot.rampBottom.setPower(-0.75);
+            robot.rampMiddle.setPower(-0.75);
+            robot.rampTop.setPower(0);
+        } else if (gamepad2.left_trigger > 0){
+            robot.rampBottom.setPower(-0.75);
+            robot.rampMiddle.setPower(0);
+            robot.rampTop.setPower(0);
+        }else {
+            robot.leftShooter.setVelocity(0);
+            robot.rightShooter.setVelocity(0);
+            robot.rampBottom.setPower(0);
+            robot.rampMiddle.setPower(0);
+            robot.rampTop.setPower(0);
+        }
+
+    }
+
     public void Telemetries() {
-        telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
-        telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(), robot.rightDrive.getVelocity());
+        telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity()/robot.driveVelocity*100, robot.rightDrive.getVelocity()/robot.driveVelocity*100);
+        telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftShooter.getVelocity()/robot.shootVelocity*100, robot.rightShooter.getVelocity()/robot.shootVelocity*100);
         telemetry.addData("Ramp Power", "Bottom (%.2f), Middle (%.2f), Top (%.2f)", robot.rampBottom.getPower(), robot.rampMiddle.getPower(), robot.rampTop.getPower());
         telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower(), robot.clawHand.getPower());
        telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
@@ -129,7 +152,7 @@ public class TankDriveKolton extends OpMode {
     }
     /*
      * Code to run ONCE when the driver hits INIT
-     *
+     */
     @Override
     public void init() {
         robot.init(hardwareMap);
@@ -142,7 +165,7 @@ public class TankDriveKolton extends OpMode {
 
     /*
      * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     *
+     */
     @Override
     public void init_loop() {
         telemetry.addData("Status", "Initialized");
@@ -151,7 +174,7 @@ public class TankDriveKolton extends OpMode {
 
     /*
      * Code to run ONCE when the driver hits PLAY
-     *
+     */
     @Override
     public void start() {
         runtime.reset();
@@ -162,7 +185,7 @@ public class TankDriveKolton extends OpMode {
 
     /*
      * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     *
+     */
     @Override
     public void loop() {
         //function.detectColor();
@@ -176,10 +199,13 @@ public class TankDriveKolton extends OpMode {
             robot.driveVelocity = robot.maxDriveVelocity;
         }
         // Setup a variable for each drive wheel to save power level for telemetry
-        double leftVelocity = (-gamepad1.left_stick_y * robot.driveVelocity);
-        double rightVelocity = (-gamepad1.right_stick_y * robot.driveVelocity);
-        robot.leftDrive.setVelocity(leftVelocity);
-        robot.rightDrive.setVelocity(rightVelocity);
+        /* double leftVelocity = (Math.pow(-gamepad1.left_stick_y, 7) * robot.driveVelocity);
+        double rightVelocity = (Math.pow(-gamepad1.right_stick_y, 7) * robot.driveVelocity);
+        if (leftVelocity/robot.driveVelocity < 0.1 && leftVelocity/robot.driveVelocity > 0.01) {leftVelocity = 0.1 * robot.driveVelocity;}
+        if (rightVelocity/robot.driveVelocity < 0.1 && rightVelocity/robot.driveVelocity > 0.01) {rightVelocity = 0.1 * robot.driveVelocity;}
+        */
+        robot.leftDrive.setVelocity(-gamepad1.left_stick_y*robot.driveVelocity);
+        robot.rightDrive.setVelocity(-gamepad1.right_stick_y*robot.driveVelocity);
 
 
        // function.Telemetries();
@@ -192,24 +218,35 @@ public class TankDriveKolton extends OpMode {
             robot.clawHand.setPower(0);
         } else {
             robot.clawArm.setPower(-gamepad2.left_stick_y);
-            robot.clawHand.setPower(robot.clawArm.getPower()/2);
+            robot.clawHand.setPower(gamepad2.right_stick_y);
         }
         if(time%2 == 0){
             robot.greenLight.enableLight(false);
         } else{
             robot.greenLight.enableLight(true);
         }
+        if (gamepad2.right_trigger > 0){
+            RampUp();
+        }else if (gamepad2.left_trigger > 0){
+            robot.leftShooter.setPower(0);
+            robot.rightShooter.setPower(0);
+            RampDown();
+        }else{
+            robot.rampTop.setPower(0);
+            robot.rampMiddle.setPower(0);
+            robot.rampBottom.setPower(0);
+            robot.leftShooter.setPower(0);
+            robot.rightShooter.setPower(0);
+        }
 
-        detectColor();
         Telemetries();
-        Ramp();
 
     }
 
 
     /*
      * Code to run ONCE after the driver hits STOP
-     *
+     */
     @Override
     public void stop() {
         telemetry.addData("Status", "Stopping...");
@@ -227,4 +264,4 @@ public class TankDriveKolton extends OpMode {
         telemetry.update();
     }
 
-}*/
+}

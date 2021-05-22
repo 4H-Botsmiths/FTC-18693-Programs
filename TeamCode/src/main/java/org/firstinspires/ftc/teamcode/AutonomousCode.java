@@ -146,6 +146,10 @@ public class AutonomousCode extends LinearOpMode {
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
     }*/
 
+    public void Rotate(double Degrees){
+
+    }
+
     public void Turn(double Degrees, boolean TurnOverride) {
         BNO055IMU.Parameters imuPar;
         Orientation angles;
