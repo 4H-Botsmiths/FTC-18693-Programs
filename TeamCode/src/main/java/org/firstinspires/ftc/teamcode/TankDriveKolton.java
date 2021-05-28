@@ -31,12 +31,19 @@ package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+
+import static android.os.SystemClock.sleep;
 
 
 @TeleOp(name = "TankDriveKolton", group = "Iterative Opmode")
@@ -48,27 +55,28 @@ public class TankDriveKolton extends OpMode {
     // 0= off, 1= on
     public double shooterOn = (0);
     public String detectedColor;
+    public double currentAngle;
 
     public void RampUp() {
-        if (gamepad2.right_trigger > 0.9){
+        if (gamepad2.right_trigger > 0.9) {
             robot.leftShooter.setVelocity(robot.shootVelocity);
             robot.rightShooter.setVelocity(robot.shootVelocity);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0.75);
             robot.rampTop.setPower(0.75);
-        }else if (gamepad2.right_trigger >0.5){
-            robot.leftShooter.setVelocity(robot.shootVelocity*0.5);
-            robot.rightShooter.setVelocity(robot.shootVelocity*0.5);
+        } else if (gamepad2.right_trigger > 0.5) {
+            robot.leftShooter.setVelocity(robot.shootVelocity * 0.5);
+            robot.rightShooter.setVelocity(robot.shootVelocity * 0.5);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0.75);
             robot.rampTop.setPower(0);
-        } else if (gamepad2.right_trigger > 0){
-            robot.leftShooter.setVelocity(robot.shootVelocity*0.25);
-            robot.rightShooter.setVelocity(robot.shootVelocity*0.25);
+        } else if (gamepad2.right_trigger > 0) {
+            robot.leftShooter.setVelocity(robot.shootVelocity * 0.25);
+            robot.rightShooter.setVelocity(robot.shootVelocity * 0.25);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0);
             robot.rampTop.setPower(0);
-        }else {
+        } else {
             robot.leftShooter.setVelocity(0);
             robot.rightShooter.setVelocity(0);
             robot.rampBottom.setPower(0);
@@ -76,21 +84,22 @@ public class TankDriveKolton extends OpMode {
             robot.rampTop.setPower(0);
         }
 
-        }
+    }
+
     public void RampDown() {
-        if (gamepad2.left_trigger > 0.9){
+        if (gamepad2.left_trigger > 0.9) {
             robot.rampBottom.setPower(-0.75);
             robot.rampMiddle.setPower(-0.75);
             robot.rampTop.setPower(-0.75);
-        }else if (gamepad2.left_trigger >0.5){
+        } else if (gamepad2.left_trigger > 0.5) {
             robot.rampBottom.setPower(-0.75);
             robot.rampMiddle.setPower(-0.75);
             robot.rampTop.setPower(0);
-        } else if (gamepad2.left_trigger > 0){
+        } else if (gamepad2.left_trigger > 0) {
             robot.rampBottom.setPower(-0.75);
             robot.rampMiddle.setPower(0);
             robot.rampTop.setPower(0);
-        }else {
+        } else {
             robot.leftShooter.setVelocity(0);
             robot.rightShooter.setVelocity(0);
             robot.rampBottom.setPower(0);
@@ -101,14 +110,15 @@ public class TankDriveKolton extends OpMode {
     }
 
     public void Telemetries() {
-        telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity()/robot.driveVelocity*100, robot.rightDrive.getVelocity()/robot.driveVelocity*100);
-        telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftShooter.getVelocity()/robot.shootVelocity*100, robot.rightShooter.getVelocity()/robot.shootVelocity*100);
+        telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
+        telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
         telemetry.addData("Ramp Power", "Bottom (%.2f), Middle (%.2f), Top (%.2f)", robot.rampBottom.getPower(), robot.rampMiddle.getPower(), robot.rampTop.getPower());
         telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower(), robot.clawHand.getPower());
-       telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
+        telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
         telemetry.addData("Color Detected", detectColor());
         telemetry.update();
     }
+
     public String detectColor() {
         int colorHSV;
         float hue;
@@ -129,7 +139,7 @@ public class TankDriveKolton extends OpMode {
         // Use hue to determine if it's red, green, blue, etc..
         if (hue < 30) {
             detectedColor = "Red";
-            return  "Red";
+            return "Red";
         } else if (hue < 60) {
             detectedColor = "Orange";
             return "Orange";
@@ -150,15 +160,25 @@ public class TankDriveKolton extends OpMode {
             return "Not Detected";
         }
     }
+
+    public void Turn(int Degrees) {
+        while (currentAngle < 1 & currentAngle > -1) ;
+        Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+        currentAngle = angles.firstAngle - Degrees;
+        robot.leftDrive.setVelocity(currentAngle * robot.driveTPR);
+        robot.rightDrive.setVelocity(currentAngle * -robot.driveTPR);
+    }
+
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
-        robot.init(hardwareMap);
         telemetry.addData("Status", "Initializing...");
-        telemetry.update();
-
+        telemetry.addData("Gyro", "calibrating...");
+        robot.init(hardwareMap);
+        telemetry.addData("Gyro", robot.gyro.getCalibrationStatus().toString());
+        telemetry.addData("Status", "Initialized");
 
 
     }
@@ -168,8 +188,6 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void init_loop() {
-        telemetry.addData("Status", "Initialized");
-        telemetry.update();
     }
 
     /*
@@ -189,12 +207,12 @@ public class TankDriveKolton extends OpMode {
     @Override
     public void loop() {
         //function.detectColor();
-        if (robot.voltageSensor.getVoltage() < robot.lowBattery){
-            robot.driveVelocity = robot.maxDriveVelocity*0.75;
-        } else if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery){
-            robot.shootVelocity = robot.maxShootVelocity*0.75;
-            robot.driveVelocity = robot.maxDriveVelocity*0.5;
-        } else{
+        if (robot.voltageSensor.getVoltage() < robot.lowBattery) {
+            robot.driveVelocity = robot.maxDriveVelocity * 0.75;
+        } else if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery) {
+            robot.shootVelocity = robot.maxShootVelocity * 0.75;
+            robot.driveVelocity = robot.maxDriveVelocity * 0.5;
+        } else {
             robot.shootVelocity = robot.maxShootVelocity;
             robot.driveVelocity = robot.maxDriveVelocity;
         }
@@ -204,11 +222,11 @@ public class TankDriveKolton extends OpMode {
         if (leftVelocity/robot.driveVelocity < 0.1 && leftVelocity/robot.driveVelocity > 0.01) {leftVelocity = 0.1 * robot.driveVelocity;}
         if (rightVelocity/robot.driveVelocity < 0.1 && rightVelocity/robot.driveVelocity > 0.01) {rightVelocity = 0.1 * robot.driveVelocity;}
         */
-        robot.leftDrive.setVelocity(-gamepad1.left_stick_y*robot.driveVelocity);
-        robot.rightDrive.setVelocity(-gamepad1.right_stick_y*robot.driveVelocity);
+        robot.leftDrive.setVelocity(-gamepad1.left_stick_y * robot.driveVelocity);
+        robot.rightDrive.setVelocity(-gamepad1.right_stick_y * robot.driveVelocity);
 
 
-       // function.Telemetries();
+        // function.Telemetries();
 
         if (robot.touchTop.isPressed()) {
             robot.clawArm.setPower(0);
@@ -220,18 +238,18 @@ public class TankDriveKolton extends OpMode {
             robot.clawArm.setPower(-gamepad2.left_stick_y);
             robot.clawHand.setPower(gamepad2.right_stick_y);
         }
-        if(time%2 == 0){
+        if (time % 2 == 0) {
             robot.greenLight.enableLight(false);
-        } else{
+        } else {
             robot.greenLight.enableLight(true);
         }
-        if (gamepad2.right_trigger > 0){
+        if (gamepad2.right_trigger > 0) {
             RampUp();
-        }else if (gamepad2.left_trigger > 0){
+        } else if (gamepad2.left_trigger > 0) {
             robot.leftShooter.setPower(0);
             robot.rightShooter.setPower(0);
             RampDown();
-        }else{
+        } else {
             robot.rampTop.setPower(0);
             robot.rampMiddle.setPower(0);
             robot.rampBottom.setPower(0);

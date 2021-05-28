@@ -17,6 +17,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
+import static android.os.SystemClock.sleep;
+
+
 /**
  * This is NOT an opmode.
  * <p>
@@ -63,11 +66,17 @@ public class RobotHardware {
     public Rev2mDistanceSensor distanceRight = null;
 
     public BNO055IMU gyro = null;
+    public BNO055IMU.Parameters parameters = null;
     public VoltageSensor voltageSensor = null;
 
+
+    public double shootTPR = 28;
+    public double driveTPR = 288;
+    public double shootRPS = 16;
+    public double driveRPS = 100;
     public double maxServoPower = 0.75;
-    public double maxShootVelocity = 500;
-    public double maxDriveVelocity = 28800;
+    public double maxShootVelocity = shootTPR*shootRPS;
+    public double maxDriveVelocity = driveTPR*driveRPS;
     public double servoPower = maxServoPower;
     public double shootVelocity = maxShootVelocity;
     public double driveVelocity = maxDriveVelocity;
@@ -117,11 +126,20 @@ public class RobotHardware {
 
         gyro = hwMap.get(BNO055IMU.class, "imu");
         voltageSensor = hwMap.get(VoltageSensor.class, "Control Hub");
-        BNO055IMU.Parameters imuPar;
-        imuPar = new BNO055IMU.Parameters();
-        imuPar.angleUnit = BNO055IMU.AngleUnit.DEGREES;
-        imuPar.loggingEnabled = false;
-        gyro.initialize(imuPar);
+
+
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+
+        parameters.mode                = BNO055IMU.SensorMode.IMU;
+        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.loggingEnabled      = false;
+        gyro.initialize(parameters);
+
+
+
+        // make sure the imu gyro is calibrated before continuing.
+
 
         // Set all motors to zero power
         leftDrive.setPower(0);
@@ -166,5 +184,10 @@ public class RobotHardware {
         double Drive_Motors_I = 0.1 * Drive_Motors_P;
         leftDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
         rightDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
+
+        while (!gyro.isGyroCalibrated())
+        {
+            sleep(50);
+        }
     }
 }
