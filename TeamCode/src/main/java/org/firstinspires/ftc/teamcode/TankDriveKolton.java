@@ -261,6 +261,7 @@ public class TankDriveKolton extends OpMode {
         robot.clawArm.setPower(0);
         robot.clawHand.setPower(0);
         telemetry.addData("Status", "Stopped");
+        robot.greenLight.enableLight(false);
         telemetry.update();
     }
 
