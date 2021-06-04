@@ -31,6 +31,7 @@ package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -45,7 +46,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 
-@TeleOp(name = "AutonomousKolton", group = "Iterative Opmode")
+@Autonomous(name = "AutonomousKolton", group = "Iterative Opmode")
 //@Disabled
 public class AutonomousKolton extends OpMode {
     // Declare OpMode members.
@@ -186,7 +187,7 @@ public class AutonomousKolton extends OpMode {
         robot.rightDrive.setPower(0);
     }
 
-    public void Forward(double Inches){
+    public void Drive(double Inches){
         double Position = Inches*robot.driveInchPerTick;
         robot.leftDrive.setPower(0);
         robot.rightDrive.setPower(0);
@@ -253,6 +254,9 @@ public class AutonomousKolton extends OpMode {
         } else {
             robot.greenLight.enableLight(true);
         }
+        Drive(12);
+        Turn(180);
+        Drive(12);
         Telemetries();
 
     }
