@@ -55,7 +55,7 @@ public class TankDriveKolton extends OpMode {
     // 0= off, 1= on
     public double shooterOn = (0);
     public String detectedColor;
-    public double currentAngle;
+    public double currentAngle = 360;
 
     public void RampUp() {
         if (gamepad2.right_trigger > 0.9) {
@@ -162,11 +162,16 @@ public class TankDriveKolton extends OpMode {
     }
 
     public void Turn(int Degrees) {
-        while (currentAngle < 1 & currentAngle > -1) ;
-        Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-        currentAngle = angles.firstAngle - Degrees;
-        robot.leftDrive.setVelocity(currentAngle * robot.driveTPR);
-        robot.rightDrive.setVelocity(currentAngle * -robot.driveTPR);
+        while (!(currentAngle < 1 & currentAngle > -1)) {
+            Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+            currentAngle = angles.firstAngle-Degrees;
+            robot.leftDrive.setVelocity(currentAngle * robot.driveVelocity);
+            robot.rightDrive.setVelocity(currentAngle * -robot.driveVelocity);
+            telemetry.addData("Current Angle", angles.firstAngle);
+            telemetry.addData("Target Angle", Degrees);
+            telemetry.addData("Degrees To Go", currentAngle);
+            telemetry.update();
+        }
     }
 
     /*
@@ -177,8 +182,6 @@ public class TankDriveKolton extends OpMode {
         telemetry.addData("Status", "Initializing...");
         telemetry.addData("Gyro", "calibrating...");
         robot.init(hardwareMap);
-        telemetry.addData("Gyro", robot.gyro.getCalibrationStatus().toString());
-        telemetry.addData("Status", "Initialized");
 
 
     }
@@ -188,6 +191,8 @@ public class TankDriveKolton extends OpMode {
      */
     @Override
     public void init_loop() {
+        telemetry.addData("Gyro", robot.gyro.getCalibrationStatus().toString());
+        telemetry.addData("Status", "Initialized");
     }
 
     /*
@@ -255,6 +260,9 @@ public class TankDriveKolton extends OpMode {
             robot.rampBottom.setPower(0);
             robot.leftShooter.setPower(0);
             robot.rightShooter.setPower(0);
+        }
+        if(gamepad1.a){
+            Turn(90);
         }
 
         Telemetries();
