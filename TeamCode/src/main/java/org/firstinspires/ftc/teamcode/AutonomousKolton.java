@@ -31,9 +31,9 @@ package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
 
-import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
@@ -42,13 +42,12 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
-import static android.os.SystemClock.sleep;
 
-
-@TeleOp(name = "TankDriveKolton", group = "Iterative Opmode")
+@TeleOp(name = "AutonomousKolton", group = "Iterative Opmode")
 //@Disabled
-public class TankDriveKolton extends OpMode {
+public class AutonomousKolton extends OpMode {
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
@@ -56,6 +55,7 @@ public class TankDriveKolton extends OpMode {
     public double shooterOn = (0);
     public String detectedColor;
     public double currentAngle = 360;
+    public double turnSpeed;
 
     public void RampUp() {
         if (gamepad2.right_trigger > 0.9) {
@@ -162,7 +162,44 @@ public class TankDriveKolton extends OpMode {
         }
     }
 
+    public void Turn(int Degrees) {
 
+        while (!(currentAngle < 10 & currentAngle > 10)) {
+            Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+            currentAngle = angles.firstAngle-Degrees;
+            if(currentAngle>300){
+               turnSpeed = 100;
+            }else if(currentAngle>200){
+                turnSpeed = 75;
+            }else if(currentAngle>100){
+                turnSpeed = 50;
+            }else{
+                turnSpeed = 35;
+            }
+            robot.leftDrive.setVelocity(-turnSpeed *robot.driveVelocity);
+            robot.rightDrive.setVelocity(turnSpeed*robot.driveVelocity);
+            telemetry.addData("Current Angle", angles.firstAngle);
+            telemetry.addData("Target Angle", Degrees);
+            telemetry.addData("Degrees To Go", currentAngle);
+        }
+        robot.leftDrive.setPower(0);
+        robot.rightDrive.setPower(0);
+    }
+
+    public void Forward(double Inches){
+        double Position = Inches*robot.driveInchPerTick;
+        robot.leftDrive.setPower(0);
+        robot.rightDrive.setPower(0);
+        robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        robot.leftDrive.setTargetPosition((int) Position);
+        robot.rightDrive.setTargetPosition((int) Position);
+        robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+        robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+        robot.leftDrive.setPower(1);
+        robot.rightDrive.setPower(1);
+
+    }
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -211,47 +248,11 @@ public class TankDriveKolton extends OpMode {
             robot.shootVelocity = robot.maxShootVelocity;
             robot.driveVelocity = robot.maxDriveVelocity;
         }
-        // Setup a variable for each drive wheel to save power level for telemetry
-        /* double leftVelocity = (Math.pow(-gamepad1.left_stick_y, 7) * robot.driveVelocity);
-        double rightVelocity = (Math.pow(-gamepad1.right_stick_y, 7) * robot.driveVelocity);
-        if (leftVelocity/robot.driveVelocity < 0.1 && leftVelocity/robot.driveVelocity > 0.01) {leftVelocity = 0.1 * robot.driveVelocity;}
-        if (rightVelocity/robot.driveVelocity < 0.1 && rightVelocity/robot.driveVelocity > 0.01) {rightVelocity = 0.1 * robot.driveVelocity;}
-        */
-        robot.leftDrive.setVelocity(-gamepad1.left_stick_y * robot.driveVelocity);
-        robot.rightDrive.setVelocity(-gamepad1.right_stick_y * robot.driveVelocity);
-
-
-        // function.Telemetries();
-
-        if (robot.touchTop.isPressed()) {
-            robot.clawArm.setPower(0);
-            robot.clawHand.setPower(0);
-        } else if (robot.touchBottom.isPressed()) {
-            robot.clawArm.setPower(0);
-            robot.clawHand.setPower(0);
-        } else {
-            robot.clawArm.setPower(-gamepad2.left_stick_y);
-            robot.clawHand.setPower(gamepad2.right_stick_y);
-        }
         if (time % 2 == 0) {
             robot.greenLight.enableLight(false);
         } else {
             robot.greenLight.enableLight(true);
         }
-        if (gamepad2.right_trigger > 0) {
-            RampUp();
-        } else if (gamepad2.left_trigger > 0) {
-            robot.leftShooter.setPower(0);
-            robot.rightShooter.setPower(0);
-            RampDown();
-        } else {
-            robot.rampTop.setPower(0);
-            robot.rampMiddle.setPower(0);
-            robot.rampBottom.setPower(0);
-            robot.leftShooter.setPower(0);
-            robot.rightShooter.setPower(0);
-        }
-
         Telemetries();
 
     }

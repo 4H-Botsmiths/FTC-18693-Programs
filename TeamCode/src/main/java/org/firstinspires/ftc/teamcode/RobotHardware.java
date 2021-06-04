@@ -82,6 +82,10 @@ public class RobotHardware {
     public double driveVelocity = maxDriveVelocity;
     public double lowBattery = 9.5;
     public double reallyLowBattery = 9;
+    public double circumferenceMM = 280;
+    public double circumferenceIN = 11;
+    public double driveInchPerTick = circumferenceIN/driveTPR;
+    public double driveMilimeterPerTick = circumferenceMM/driveTPR;
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
