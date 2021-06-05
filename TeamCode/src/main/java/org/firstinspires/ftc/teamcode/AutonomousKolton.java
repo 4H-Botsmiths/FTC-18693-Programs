@@ -174,13 +174,13 @@ public class AutonomousKolton extends OpMode {
             Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
             currentAngle = angles.firstAngle - Degrees;
             if (currentAngle > 300) {
-                turnSpeed = 100;
-            } else if (currentAngle > 200) {
                 turnSpeed = 75;
-            } else if (currentAngle > 100) {
+            } else if (currentAngle > 200) {
                 turnSpeed = 50;
+            } else if (currentAngle > 100) {
+                turnSpeed = 40;
             } else {
-                turnSpeed = 35;
+                turnSpeed = 20;
             }
             robot.leftDrive.setVelocity(-turnSpeed * robot.driveVelocity);
             robot.rightDrive.setVelocity(turnSpeed * robot.driveVelocity);
@@ -194,8 +194,6 @@ public class AutonomousKolton extends OpMode {
 
     public void Drive(double Inches) {
         double Position = Inches/robot.driveInchPerTick;
-        while (DontChangeMe == 0) {
-            if (!robot.leftDrive.isBusy() || !robot.rightDrive.isBusy()) {
                 robot.leftDrive.setPower(0);
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
@@ -206,9 +204,12 @@ public class AutonomousKolton extends OpMode {
                 robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
-                break;
-            }
-        }
+                while(robot.leftDrive.isBusy() || robot.rightDrive.isBusy()){
+                    sleep(50);
+                }
+
+
+
     }
 
     /*
@@ -239,9 +240,7 @@ public class AutonomousKolton extends OpMode {
     public void start() {
         runtime.reset();
         telemetry.addData("Status", "Running");
-        Drive(12);
-        Turn(90);
-        Drive(12);
+
 
     }
 
@@ -267,6 +266,8 @@ public class AutonomousKolton extends OpMode {
             robot.greenLight.enableLight(true);
         }
         Telemetries();
+
+
         }
 
 
