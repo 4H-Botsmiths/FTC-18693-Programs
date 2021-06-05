@@ -239,7 +239,6 @@ public class AutonomousKolton extends OpMode {
     public void start() {
         runtime.reset();
         telemetry.addData("Status", "Running");
-        Drive(12);
 
     }
 
@@ -265,6 +264,9 @@ public class AutonomousKolton extends OpMode {
             robot.greenLight.enableLight(true);
         }
         Telemetries();
+        if (gamepad1.a) {
+            Drive(12);
+        }
     }
 
 

@@ -154,8 +154,8 @@ public class RobotHardware {
         //leftClaw.setPosition(MID_SERVO);
         //rightClaw.setPosition(MID_SERVO);
 
-        leftDrive.setDirection(DcMotorSimple.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
-        rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        leftDrive.setDirection(DcMotorSimple.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
 
         leftShooter.setDirection(DcMotorSimple.Direction.FORWARD);
         rightShooter.setDirection(DcMotorSimple.Direction.REVERSE);
