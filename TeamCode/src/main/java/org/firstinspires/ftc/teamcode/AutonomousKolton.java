@@ -193,7 +193,7 @@ public class AutonomousKolton extends OpMode {
     }
 
     public void Drive(double Inches) {
-        double Position = Inches * robot.driveInchPerTick;
+        double Position = Inches/robot.driveInchPerTick;
         while (DontChangeMe == 0) {
             if (!robot.leftDrive.isBusy() || !robot.rightDrive.isBusy()) {
                 robot.leftDrive.setPower(0);
@@ -239,6 +239,9 @@ public class AutonomousKolton extends OpMode {
     public void start() {
         runtime.reset();
         telemetry.addData("Status", "Running");
+        Drive(12);
+        Turn(90);
+        Drive(12);
 
     }
 
@@ -264,10 +267,8 @@ public class AutonomousKolton extends OpMode {
             robot.greenLight.enableLight(true);
         }
         Telemetries();
-        if (gamepad1.a) {
-            Drive(12);
         }
-    }
+
 
 
     /*

@@ -11,7 +11,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@Autonomous(name = "Autonomous Official", group = "ForRobot")
+@Autonomous(name = "Autonomous Official", preselectTeleOp = "TeleopKolton")
 public class AutonomousCodeOfficial extends LinearOpMode {
     //WilliamFunctions functions = new WilliamFunctions();
     //public float Red;
@@ -68,8 +68,8 @@ public class AutonomousCodeOfficial extends LinearOpMode {
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-                robot.leftDrive.setTargetPosition((int) Math.round(In * mm_in * mm_tick));
-                robot.rightDrive.setTargetPosition((int) Math.round(In * mm_in * mm_tick));
+                robot.leftDrive.setTargetPosition((int) Math.round(In/robot.driveInchPerTick));
+                robot.rightDrive.setTargetPosition((int) Math.round(In/robot.driveInchPerTick));
                 robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 // set F to 54.1
@@ -232,7 +232,7 @@ public class AutonomousCodeOfficial extends LinearOpMode {
         waitForStart();
         if (opModeIsActive()) {
             //if (functions.CheckColour("FFFFFF", "")) {
-            Move(48, true, false);
+            Move(72, true, false);
             Turn(90, false);
             // }
             while (opModeIsActive()) {

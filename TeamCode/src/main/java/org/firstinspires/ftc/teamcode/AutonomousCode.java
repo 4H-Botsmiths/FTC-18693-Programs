@@ -205,10 +205,7 @@ public class AutonomousCode extends LinearOpMode {
         waitForStart();
         if (opModeIsActive()) {
             //if (functions.CheckColour("FFFFFF", "")) {
-            Move(48, true, false);
-            Turn(90, false);
-            Move(24, true, false);
-            Turn(-90, false);
+            Move(48, false, false);
             // }
             while (opModeIsActive()) {
                 Telemetries();
