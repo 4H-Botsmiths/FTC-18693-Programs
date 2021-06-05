@@ -25,6 +25,8 @@ public class AutonomousCodeOfficial extends LinearOpMode {
     double Wheel_Circumference = 282.6;
     double mm_tick = Wheel_Circumference / Ticks_Rotation;
     double mm_in = 25.4;
+    //public double currentAngle = 360;
+    //public double turnSpeed;
 
     RobotHardware robot = new RobotHardware();
 
@@ -148,10 +150,32 @@ public class AutonomousCodeOfficial extends LinearOpMode {
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
     }*/
 
-    public void Rotate(double Degrees){
-
-    }
-
+   /* public void Turn(int Degrees, boolean TurnOverride) {
+        while (opModeIsActive()) {
+            if (!robot.rightDrive.isBusy() || TurnOverride)
+                while (!(currentAngle < 10 & currentAngle > 10)) {
+                    Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+                    currentAngle = angles.firstAngle - Degrees;
+                    if (currentAngle > 300) {
+                        turnSpeed = 100;
+                    } else if (currentAngle > 200) {
+                        turnSpeed = 75;
+                    } else if (currentAngle > 100) {
+                        turnSpeed = 50;
+                    } else {
+                        turnSpeed = 35;
+                    }
+                    robot.leftDrive.setVelocity(-turnSpeed * robot.driveVelocity);
+                    robot.rightDrive.setVelocity(turnSpeed * robot.driveVelocity);
+                    telemetry.addData("Current Angle", angles.firstAngle);
+                    telemetry.addData("Target Angle", Degrees);
+                    telemetry.addData("Degrees To Go", currentAngle);
+                }
+            robot.leftDrive.setPower(0);
+            robot.rightDrive.setPower(0);
+        }
+        }
+    }*/
     public void Turn(double Degrees, boolean TurnOverride) {
         BNO055IMU.Parameters imuPar;
         Orientation angles;
@@ -193,10 +217,11 @@ public class AutonomousCodeOfficial extends LinearOpMode {
                     robot.leftDrive.setPower(0);
                     robot.rightDrive.setPower(0);
                 }
-
+                break;
             }
         }
     }
+
     @Override
     public void runOpMode() {
         robot.init(hardwareMap);
@@ -209,8 +234,6 @@ public class AutonomousCodeOfficial extends LinearOpMode {
             //if (functions.CheckColour("FFFFFF", "")) {
             Move(48, true, false);
             Turn(90, false);
-            Move(24, true, false);
-            Turn(-90, false);
             // }
             while (opModeIsActive()) {
                 Telemetries();
