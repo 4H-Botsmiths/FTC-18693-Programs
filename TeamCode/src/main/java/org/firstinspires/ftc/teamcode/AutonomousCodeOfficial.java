@@ -216,8 +216,8 @@ public class AutonomousCodeOfficial extends LinearOpMode {
                 if ((Within_Range(1, Degrees, angles.firstAngle))) {
                     robot.leftDrive.setPower(0);
                     robot.rightDrive.setPower(0);
+                    break;
                 }
-                break;
             }
         }
     }
