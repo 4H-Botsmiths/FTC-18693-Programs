@@ -74,7 +74,7 @@ public class RobotHardware {
     public double driveTPR = 288;
     public double shootRPS = 16;
     public double driveRPS = 100;
-    public double maxServoPower = 0.75;
+    public double maxServoPower = 1;
     public double maxShootVelocity = shootTPR*shootRPS;
     public double maxDriveVelocity = driveTPR*driveRPS;
     public double servoPower = maxServoPower;
@@ -167,8 +167,8 @@ public class RobotHardware {
         leftShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         rightShooter.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
 
-        leftDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
-        rightDrive.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+        leftDrive.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+        rightDrive.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
         leftShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         rightShooter.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
 

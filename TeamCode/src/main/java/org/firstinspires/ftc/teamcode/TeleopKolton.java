@@ -46,9 +46,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import static android.os.SystemClock.sleep;
 
 
-@TeleOp(name = "TankDriveKolton", group = "Iterative Opmode")
+@TeleOp(name = "TeleopKolton")
 //@Disabled
-public class TankDriveKolton extends OpMode {
+public class TeleopKolton extends OpMode {
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();

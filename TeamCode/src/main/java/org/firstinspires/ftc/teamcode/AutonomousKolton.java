@@ -30,10 +30,12 @@
 package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
+import android.media.tv.TvContract;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -45,8 +47,10 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
+import static android.os.SystemClock.sleep;
 
-@Autonomous(name = "AutonomousKolton", group = "Iterative Opmode")
+
+@Autonomous(name = "AutonomousKolton", preselectTeleOp = "TeleopKolton")
 //@Disabled
 public class AutonomousKolton extends OpMode {
     // Declare OpMode members.
@@ -57,6 +61,7 @@ public class AutonomousKolton extends OpMode {
     public String detectedColor;
     public double currentAngle = 360;
     public double turnSpeed;
+    public double DontChangeMe = 0;
 
     public void RampUp() {
         if (gamepad2.right_trigger > 0.9) {
@@ -167,18 +172,18 @@ public class AutonomousKolton extends OpMode {
 
         while (!(currentAngle < 10 & currentAngle > 10)) {
             Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
-            currentAngle = angles.firstAngle-Degrees;
-            if(currentAngle>300){
-               turnSpeed = 100;
-            }else if(currentAngle>200){
+            currentAngle = angles.firstAngle - Degrees;
+            if (currentAngle > 300) {
+                turnSpeed = 100;
+            } else if (currentAngle > 200) {
                 turnSpeed = 75;
-            }else if(currentAngle>100){
+            } else if (currentAngle > 100) {
                 turnSpeed = 50;
-            }else{
+            } else {
                 turnSpeed = 35;
             }
-            robot.leftDrive.setVelocity(-turnSpeed *robot.driveVelocity);
-            robot.rightDrive.setVelocity(turnSpeed*robot.driveVelocity);
+            robot.leftDrive.setVelocity(-turnSpeed * robot.driveVelocity);
+            robot.rightDrive.setVelocity(turnSpeed * robot.driveVelocity);
             telemetry.addData("Current Angle", angles.firstAngle);
             telemetry.addData("Target Angle", Degrees);
             telemetry.addData("Degrees To Go", currentAngle);
@@ -187,19 +192,23 @@ public class AutonomousKolton extends OpMode {
         robot.rightDrive.setPower(0);
     }
 
-    public void Drive(double Inches){
-        double Position = Inches*robot.driveInchPerTick;
-        robot.leftDrive.setPower(0);
-        robot.rightDrive.setPower(0);
-        robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-        robot.leftDrive.setTargetPosition((int) Position);
-        robot.rightDrive.setTargetPosition((int) Position);
-        robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-        robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-        robot.leftDrive.setPower(1);
-        robot.rightDrive.setPower(1);
-
+    public void Drive(double Inches) {
+        double Position = Inches * robot.driveInchPerTick;
+        while (DontChangeMe == 0) {
+            if (!robot.leftDrive.isBusy() || !robot.rightDrive.isBusy()) {
+                robot.leftDrive.setPower(0);
+                robot.rightDrive.setPower(0);
+                robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+                robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+                robot.leftDrive.setTargetPosition((int) Math.round(Position));
+                robot.rightDrive.setTargetPosition((int) Math.round(Position));
+                robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+                robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+                robot.leftDrive.setPower(1);
+                robot.rightDrive.setPower(1);
+                break;
+            }
+        }
     }
 
     /*
@@ -230,9 +239,10 @@ public class AutonomousKolton extends OpMode {
     public void start() {
         runtime.reset();
         telemetry.addData("Status", "Running");
-        telemetry.update();
+        Drive(12);
 
     }
+
 
     /*
      * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
@@ -254,11 +264,7 @@ public class AutonomousKolton extends OpMode {
         } else {
             robot.greenLight.enableLight(true);
         }
-        Drive(12);
-        Turn(180);
-        Drive(12);
         Telemetries();
-
     }
 
 
@@ -280,7 +286,7 @@ public class AutonomousKolton extends OpMode {
         robot.clawHand.setPower(0);
         telemetry.addData("Status", "Stopped");
         robot.greenLight.enableLight(false);
-        telemetry.update();
+
     }
 
 }
