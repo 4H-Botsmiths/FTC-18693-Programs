@@ -84,8 +84,8 @@ public class RobotHardware {
     public double reallyLowBattery = 9;
     public double circumferenceMM = 280;
     public double circumferenceIN = 11;
-    public double driveInchPerTick = circumferenceIN/driveTPR;
-    public double driveMilimeterPerTick = circumferenceMM/driveTPR;
+    public double driveTickPerInch = driveTPR/circumferenceIN;
+    public double driveMilimeterPerTick = driveTPR/circumferenceMM;
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
@@ -138,6 +138,7 @@ public class RobotHardware {
         parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
         parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
         parameters.loggingEnabled      = false;
+        parameters.temperatureUnit      = BNO055IMU.TempUnit.FARENHEIT;
         gyro.initialize(parameters);
 
 

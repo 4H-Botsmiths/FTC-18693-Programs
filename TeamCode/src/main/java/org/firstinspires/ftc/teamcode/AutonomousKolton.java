@@ -171,6 +171,13 @@ public class AutonomousKolton extends OpMode {
     public void Turn(int Degrees) {
 
         while (!(currentAngle < 10 & currentAngle > 10)) {
+            robot.gyro.initialize(robot.parameters);
+            while (!robot.gyro.isGyroCalibrated())
+            {
+                telemetry.addData("Gyro","Calibrating...");
+                sleep(50);
+            }
+            telemetry.addData("Gyro", "Calibrated");
             Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
             currentAngle = angles.firstAngle - Degrees;
             if (currentAngle > 300) {
@@ -193,7 +200,7 @@ public class AutonomousKolton extends OpMode {
     }
 
     public void Drive(double Inches) {
-        double Position = Inches/robot.driveInchPerTick;
+        double Position = Inches*robot.driveTickPerInch;
                 robot.leftDrive.setPower(0);
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
@@ -206,6 +213,7 @@ public class AutonomousKolton extends OpMode {
                 robot.rightDrive.setPower(1);
                 while(robot.leftDrive.isBusy() || robot.rightDrive.isBusy()){
                     sleep(50);
+                    telemetry.addData("Status","Driving to Position");
                 }
 
 
@@ -240,8 +248,14 @@ public class AutonomousKolton extends OpMode {
     public void start() {
         runtime.reset();
         telemetry.addData("Status", "Running");
-
-
+        robot.leftDrive.setVelocity(100*robot.driveVelocity);
+        robot.rightDrive.setVelocity(100*robot.driveVelocity);
+        sleep(500);
+        robot.clawArm.setPower(-1);
+        sleep(3500);
+        robot.clawArm.setPower(0);
+        robot.leftDrive.setVelocity(0);
+        robot.rightDrive.setVelocity(0);
     }
 
 
@@ -266,7 +280,6 @@ public class AutonomousKolton extends OpMode {
             robot.greenLight.enableLight(true);
         }
         Telemetries();
-
 
         }
 
