@@ -34,6 +34,7 @@ import android.graphics.Color;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
@@ -46,9 +47,9 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import static android.os.SystemClock.sleep;
 
 
-@TeleOp(name = "TankDriveKolton", group = "Iterative Opmode")
+@TeleOp(name = "TeleopKolton")
 //@Disabled
-public class TankDriveKolton extends OpMode {
+public class TeleopKolton extends OpMode {
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
     RobotHardware robot = new RobotHardware();
@@ -56,6 +57,8 @@ public class TankDriveKolton extends OpMode {
     public double shooterOn = (0);
     public String detectedColor;
     public double currentAngle = 360;
+    double HandPos = 0;
+    boolean Direction = true;
 
     public void RampUp() {
         if (gamepad2.right_trigger > 0.9) {
@@ -116,8 +119,7 @@ public class TankDriveKolton extends OpMode {
         telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower(), robot.clawHand.getPower());
         telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
         telemetry.addData("Color Detected", detectColor());
-
-        telemetry.update();
+        telemetry.addData("Temperature", robot.gyro.getTemperature());
     }
 
     public String detectColor() {
@@ -161,7 +163,6 @@ public class TankDriveKolton extends OpMode {
             return "Not Detected";
         }
     }
-
 
 
     /*
@@ -229,10 +230,16 @@ public class TankDriveKolton extends OpMode {
         } else if (robot.touchBottom.isPressed()) {
             robot.clawArm.setPower(0);
             robot.clawHand.setPower(0);
+        } else if (gamepad2.a) {
+            robot.clawHand.setPower(-1);
+        } else if (gamepad2.y) {
+            robot.clawHand.setPower(1);
         } else {
             robot.clawArm.setPower(-gamepad2.left_stick_y);
             robot.clawHand.setPower(gamepad2.right_stick_y);
         }
+
+
         if (time % 2 == 0) {
             robot.greenLight.enableLight(false);
         } else {
@@ -253,6 +260,15 @@ public class TankDriveKolton extends OpMode {
         }
 
         Telemetries();
+        if(gamepad1.a){
+            if (Direction){
+                robot.maxDriveVelocity = -288;
+                Direction = false;
+            }else {
+                robot.maxDriveVelocity = 288;
+                Direction = true;
+            }
+        }
 
     }
 

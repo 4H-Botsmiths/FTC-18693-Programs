@@ -1,9 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -11,7 +9,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@Autonomous(name = "Autonomous Official", group = "ForRobot")
+@Autonomous(name = "Autonomous Official", preselectTeleOp = "TeleopKolton")
 public class AutonomousCodeOfficial extends LinearOpMode {
     //WilliamFunctions functions = new WilliamFunctions();
     //public float Red;
@@ -25,6 +23,8 @@ public class AutonomousCodeOfficial extends LinearOpMode {
     double Wheel_Circumference = 282.6;
     double mm_tick = Wheel_Circumference / Ticks_Rotation;
     double mm_in = 25.4;
+    public double currentAngle = 360;
+    public double turnSpeed;
 
     RobotHardware robot = new RobotHardware();
 
@@ -66,8 +66,8 @@ public class AutonomousCodeOfficial extends LinearOpMode {
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-                robot.leftDrive.setTargetPosition((int) Math.round(In * mm_in * mm_tick));
-                robot.rightDrive.setTargetPosition((int) Math.round(In * mm_in * mm_tick));
+                robot.leftDrive.setTargetPosition((int) Math.round(In/robot.driveInchPerTick));
+                robot.rightDrive.setTargetPosition((int) Math.round(In/robot.driveInchPerTick));
                 robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 // set F to 54.1
@@ -75,7 +75,7 @@ public class AutonomousCodeOfficial extends LinearOpMode {
                 robot.rightDrive.setVelocityPIDFCoefficients(0.0075, 0.000075, 0.005, 54.1);
                 robot.leftDrive.setPower(1);
                 robot.rightDrive.setPower(1);
-                break;
+                while (robot.rightDrive.isBusy()) {Telemetries();}
             }
         }
     }
@@ -136,7 +136,7 @@ public class AutonomousCodeOfficial extends LinearOpMode {
         return ColourCheck;
     }*/
 
-    public boolean Within_Range(double range, double range_variable, float range_comparison) {
+   /* public boolean Within_Range(double range, double range_variable, float range_comparison) {
         boolean range_output;
         range_output = range_comparison < range_variable + range && range_comparison > range_variable - range;
         return range_output;
@@ -148,11 +148,31 @@ public class AutonomousCodeOfficial extends LinearOpMode {
         Blue = Math.round(robot.color1.blue() * (255 / Blue_Factor));
     }*/
 
-    public void Rotate(double Degrees){
+    public void Turn(int Degrees) {
 
+        while (!(currentAngle < 10 & currentAngle > 10)) {
+            Orientation angles = robot.gyro.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
+            currentAngle = angles.firstAngle - Degrees;
+            if (currentAngle > 300) {
+                turnSpeed = 100;
+            } else if (currentAngle > 200) {
+                turnSpeed = 75;
+            } else if (currentAngle > 100) {
+                turnSpeed = 50;
+            } else {
+                turnSpeed = 35;
+            }
+            robot.leftDrive.setVelocity(-turnSpeed * robot.driveVelocity);
+            robot.rightDrive.setVelocity(turnSpeed * robot.driveVelocity);
+            telemetry.addData("Current Angle", angles.firstAngle);
+            telemetry.addData("Target Angle", Degrees);
+            telemetry.addData("Degrees To Go", currentAngle);
+        }
+        robot.leftDrive.setPower(0);
+        robot.rightDrive.setPower(0);
     }
 
-    public void Turn(double Degrees, boolean TurnOverride) {
+    /*public void Turn(double Degrees, boolean TurnOverride) {
         BNO055IMU.Parameters imuPar;
         Orientation angles;
 
@@ -192,11 +212,12 @@ public class AutonomousCodeOfficial extends LinearOpMode {
                 if ((Within_Range(1, Degrees, angles.firstAngle))) {
                     robot.leftDrive.setPower(0);
                     robot.rightDrive.setPower(0);
+                    break;
                 }
-
             }
         }
-    }
+    }*/
+
     @Override
     public void runOpMode() {
         robot.init(hardwareMap);
@@ -207,10 +228,8 @@ public class AutonomousCodeOfficial extends LinearOpMode {
         waitForStart();
         if (opModeIsActive()) {
             //if (functions.CheckColour("FFFFFF", "")) {
-            Move(48, true, false);
-            Turn(90, false);
-            Move(24, true, false);
-            Turn(-90, false);
+            Move(72, true, false);
+            Turn(90);
             // }
             while (opModeIsActive()) {
                 Telemetries();
