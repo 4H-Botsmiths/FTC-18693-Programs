@@ -12,11 +12,6 @@ import com.qualcomm.robotcore.hardware.LED;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.hardware.VoltageSensor;
 
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
-import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-
 import static android.os.SystemClock.sleep;
 
 
@@ -70,22 +65,22 @@ public class RobotHardware {
     public VoltageSensor voltageSensor = null;
 
 
-    public double shootTPR = 28;
-    public double driveTPR = 288;
-    public double shootRPS = 16;
-    public double driveRPS = 100;
-    public double maxServoPower = 0.75;
-    public double maxShootVelocity = shootTPR*shootRPS;
-    public double maxDriveVelocity = driveTPR*driveRPS;
+    public final double shootTPR = 28;
+    public final double driveTPR = 288;
+    public final double shootRPS = 16;
+    public final double driveRPS = 100;
+    public final double maxServoPower = 0.75;
+    public final double maxShootVelocity = shootTPR*shootRPS;
+    public final double maxDriveVelocity = driveTPR*driveRPS;
     public double servoPower = maxServoPower;
     public double shootVelocity = maxShootVelocity;
     public double driveVelocity = maxDriveVelocity;
     public double lowBattery = 9.5;
     public double reallyLowBattery = 9;
-    public double circumferenceMM = 280;
-    public double circumferenceIN = 11;
-    public double driveInchPerTick = circumferenceIN/driveTPR;
-    public double driveMilimeterPerTick = circumferenceMM/driveTPR;
+    public final double circumferenceMM = 280;
+    public final double circumferenceIN = 11;
+    public final double driveInchPerTick = circumferenceIN/driveTPR;
+    public final double driveMilimeterPerTick = circumferenceMM/driveTPR;
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
@@ -177,15 +172,11 @@ public class RobotHardware {
         rightShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
         //PIDF Caliration
-        double Shooter_Motors_F = 32767 / maxShootVelocity;
-        double Shooter_Motors_P = 0.1 * Shooter_Motors_F;
-        double Shooter_Motors_I = 0.1 * Shooter_Motors_P;
+        double Shooter_Motors_F = 32767 / maxShootVelocity, Shooter_Motors_P = 0.1 * Shooter_Motors_F, Shooter_Motors_I = 0.1 * Shooter_Motors_P;
         leftShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
         rightShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
 
-        double Drive_Motors_F = 32767 / maxDriveVelocity;
-        double Drive_Motors_P = 0.1 * Drive_Motors_F;
-        double Drive_Motors_I = 0.1 * Drive_Motors_P;
+        double Drive_Motors_F = 32767 / maxDriveVelocity, Drive_Motors_P = 0.1 * Drive_Motors_F, Drive_Motors_I = 0.1 * Drive_Motors_P;
         leftDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
         rightDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
 

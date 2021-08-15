@@ -33,7 +33,6 @@ import android.graphics.Color;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -43,7 +42,6 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 
 @Autonomous(name = "AutonomousKolton", group = "Iterative Opmode")
@@ -187,10 +185,8 @@ public class AutonomousKolton extends OpMode {
         robot.rightDrive.setPower(0);
     }
 
-    public void Drive(double Inches){
+    public void Drive(int Inches){
         double Position = Inches*robot.driveInchPerTick;
-        robot.leftDrive.setPower(0);
-        robot.rightDrive.setPower(0);
         robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         robot.leftDrive.setTargetPosition((int) Position);
@@ -249,11 +245,7 @@ public class AutonomousKolton extends OpMode {
             robot.shootVelocity = robot.maxShootVelocity;
             robot.driveVelocity = robot.maxDriveVelocity;
         }
-        if (time % 2 == 0) {
-            robot.greenLight.enableLight(false);
-        } else {
-            robot.greenLight.enableLight(true);
-        }
+        robot.greenLight.enableLight(time % 2 != 0);
         Drive(12);
         Turn(180);
         Drive(12);
