@@ -31,20 +31,14 @@ package org.firstinspires.ftc.teamcode;
 
 import android.graphics.Color;
 
-import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.ftccommon.SoundPlayer;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
-import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
-import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.android.AndroidSoundPool;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
-import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
-
-import static android.os.SystemClock.sleep;
 
 
 @TeleOp(name = "TeleopKolton")
@@ -52,11 +46,13 @@ import static android.os.SystemClock.sleep;
 public class TeleopKolton extends OpMode {
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
-    RobotHardware robot = new RobotHardware();
+    public AndroidSoundPool audio;
     // 0= off, 1= on
     public double shooterOn = (0);
     public String detectedColor;
     public double currentAngle = 360;
+    public double Status;
+    RobotHardware robot = new RobotHardware();
     double HandPos = 0;
     boolean Direction = true;
 
@@ -113,10 +109,10 @@ public class TeleopKolton extends OpMode {
     }
 
     public void Telemetries() {
-        telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
-        telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
-        telemetry.addData("Ramp Power", "Bottom (%.2f), Middle (%.2f), Top (%.2f)", robot.rampBottom.getPower(), robot.rampMiddle.getPower(), robot.rampTop.getPower());
-        telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower(), robot.clawHand.getPower());
+        telemetry.addData("Drive Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
+        telemetry.addData("Shooter Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
+        telemetry.addData("Ramp Power", "Bottom (%.2f%%), Middle (%.2f%%), Top (%.2f%%)", robot.rampBottom.getPower()/robot.servoPower*100, robot.rampMiddle.getPower()/robot.servoPower*100, robot.rampTop.getPower()/robot.servoPower*100);
+        telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower()*100, robot.clawHand.getPower()*100);
         telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
         telemetry.addData("Color Detected", detectColor());
         telemetry.addData("Temperature", robot.gyro.getTemperature());
@@ -173,6 +169,8 @@ public class TeleopKolton extends OpMode {
         telemetry.addData("Status", "Initializing...");
         telemetry.addData("Gyro", "calibrating...");
         robot.init(hardwareMap);
+        audio = new AndroidSoundPool();
+        audio.initialize(SoundPlayer.getInstance());
 
 
     }
@@ -203,14 +201,23 @@ public class TeleopKolton extends OpMode {
     @Override
     public void loop() {
         //function.detectColor();
-        if (robot.voltageSensor.getVoltage() < robot.lowBattery) {
-            robot.driveVelocity = robot.maxDriveVelocity * 0.75;
-        } else if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery) {
+        if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery && Status != 2) {
+            Status = 2;
             robot.shootVelocity = robot.maxShootVelocity * 0.75;
             robot.driveVelocity = robot.maxDriveVelocity * 0.5;
-        } else {
+            telemetry.addData("Status", "WARNING! Really Low Voltage", "color: red");
+            audio.play("RawRes:ss_siren");
+        } else if (robot.voltageSensor.getVoltage() < robot.lowBattery && Status != 1) {
+            Status = 1;
+            robot.driveVelocity = robot.maxDriveVelocity * 0.75;
+            telemetry.addData("Status", "WARNING! Low Voltage", "color: orange");
+            audio.play("RawRes:ss_mf_fail");
+        } else if (Status != 0) {
+            Status = 0;
             robot.shootVelocity = robot.maxShootVelocity;
             robot.driveVelocity = robot.maxDriveVelocity;
+            telemetry.addData("Status", "Running");
+            audio.stop();
         }
         // Setup a variable for each drive wheel to save power level for telemetry
         /* double leftVelocity = (Math.pow(-gamepad1.left_stick_y, 7) * robot.driveVelocity);
@@ -240,11 +247,7 @@ public class TeleopKolton extends OpMode {
         }
 
 
-        if (time % 2 == 0) {
-            robot.greenLight.enableLight(false);
-        } else {
-            robot.greenLight.enableLight(true);
-        }
+        robot.greenLight.enableLight(time % 2 != 0);
         if (gamepad2.right_trigger > 0) {
             RampUp();
         } else if (gamepad2.left_trigger > 0) {
@@ -260,7 +263,7 @@ public class TeleopKolton extends OpMode {
         }
 
         Telemetries();
-        if(gamepad1.a){
+    /*    if(gamepad1.a){
             if (Direction){
                 robot.maxDriveVelocity = -288;
                 Direction = false;
@@ -269,7 +272,7 @@ public class TeleopKolton extends OpMode {
                 Direction = true;
             }
         }
-
+*/
     }
 
 
@@ -279,7 +282,7 @@ public class TeleopKolton extends OpMode {
     @Override
     public void stop() {
         telemetry.addData("Status", "Stopping...");
-        telemetry.update();
+        audio.close();
         robot.leftDrive.setPower(0);
         robot.rightDrive.setPower(0);
         robot.leftShooter.setPower(0);
