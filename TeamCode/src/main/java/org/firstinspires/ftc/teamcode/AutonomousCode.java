@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@Autonomous(name = "Autonomous", group = "ForRobot")
+@Autonomous(name = "Autonomous", group = "William")
 public class AutonomousCode extends LinearOpMode {
     //WilliamFunctions functions = new WilliamFunctions();
     //public float Red;

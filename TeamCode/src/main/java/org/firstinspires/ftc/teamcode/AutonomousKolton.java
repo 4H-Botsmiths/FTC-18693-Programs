@@ -46,7 +46,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import static android.os.SystemClock.sleep;
 
 
-@Autonomous(name = "AutonomousKolton", preselectTeleOp = "TeleopKolton")
+@Autonomous(name = "AutonomousKolton", preselectTeleOp = "TeleopKolton", group = "Kolton")
 //@Disabled
 public class AutonomousKolton extends OpMode {
     // Declare OpMode members.

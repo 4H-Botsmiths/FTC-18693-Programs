@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp(name = "TankDriveTeleop", group = "ForRobot")
+@TeleOp(name = "TankDriveTeleop", group = "William")
 
 public class TankDriveTeleop extends LinearOpMode {
     RobotHardware robot = new RobotHardware();

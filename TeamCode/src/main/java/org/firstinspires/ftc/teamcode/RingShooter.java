@@ -34,7 +34,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@TeleOp(name = "Ring Shooter", group = "Iterative Opmode")
+@TeleOp(name = "Ring Shooter", group = "Kolton")
 //@Disabled
 public class RingShooter extends OpMode {
     // Declare OpMode members.

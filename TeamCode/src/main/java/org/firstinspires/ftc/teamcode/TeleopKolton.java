@@ -41,7 +41,7 @@ import org.firstinspires.ftc.robotcore.external.android.AndroidSoundPool;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 
-@TeleOp(name = "TeleopKolton")
+@TeleOp(name = "TeleopKolton", group = "Kolton")
 //@Disabled
 public class TeleopKolton extends OpMode {
     // Declare OpMode members.
