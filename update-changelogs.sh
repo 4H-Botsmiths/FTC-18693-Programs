@@ -5,4 +5,7 @@ git log --stat --author "bloomkd46" >>Koltons-Changelog.txt
 echo to update run ./update-changlelogs.sh >Williams-Changelog.txt
 git log --stat --author "StrongMan19" >>Williams-Changelog.txt
 
-echo Files Successfully Updated
+git add Koltons-Changelog.txt Williams-Changelog.txt
+git commit -m "Updated Koltons-Changelog.txt and Williams-Changelog.txt" >/dev/null
+
+echo Changelogs Successfully Updated
