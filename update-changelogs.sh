@@ -10,6 +10,6 @@ git log --grep="Update:" >>Project-Changelog.txt
 
 git add Koltons-Changelog.txt Williams-Changelog.txt Project-Changelog.txt
 git commit -m "Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt" >/dev/null
-git push
+git push >/dev/null
 
 echo Changelogs Successfully Updated
