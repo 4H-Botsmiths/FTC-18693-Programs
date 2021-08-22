@@ -1,4 +1,43 @@
 to update run ./update-changlelogs.sh
+commit 9ff222e61d6a3370c53610e892500a710e4b6f8c
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:03:41 2021 -0700
+
+    Update update-changelogs.sh
+
+ update-changelogs.sh | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 716843beafd50c5375adca8ca3bda09f9f1bd830
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:02:57 2021 -0700
+
+    Added Function Comments To All Of My Programs (excluding RingShooter.java)
+
+ .../ftc/teamcode/AutonomousKolton.java             | 89 +++++-----------------
+ .../firstinspires/ftc/teamcode/RobotHardware.java  | 19 +++--
+ .../firstinspires/ftc/teamcode/TeleopKolton.java   | 37 +++++----
+ 3 files changed, 45 insertions(+), 100 deletions(-)
+
+commit 814cdcfd5035daf3bc707f4b1042ab2b1e723ef1
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:42:28 2021 -0700
+
+    I Updated The update-changelogs.sh script
+
+ update-changelogs.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit ad255bc8ce1d87dade08a7547af50c638b2b5fbf
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:42:18 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Project-Changelog.txt  |  7 +------
+ Williams-Changelog.txt | 10 ++++++++++
+ 2 files changed, 11 insertions(+), 6 deletions(-)
+
 commit 3960c68abe275fb77b45efdcc62bf226e7447723
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:41:00 2021 -0700
