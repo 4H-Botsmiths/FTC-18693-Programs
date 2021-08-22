@@ -1,4 +1,41 @@
 to update run ./update-changlelogs.sh
+commit 5659ce384cfa5eed5b0ac6cb2056319cf6d5d66b
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:27:32 2021 -0700
+
+    #Update This Is the first recorded update.
+
+ CHANGELOG.md         | 137 ---------------------------------------------------
+ update-changelogs.sh |   6 ++-
+ 2 files changed, 4 insertions(+), 139 deletions(-)
+
+commit cd000fe465213afe666f99b5a5f9891b89c11fa1
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:20:28 2021 -0700
+
+    Create README.md
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit e92538e62398f151eba8f74c86252d18f52480e0
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:15:18 2021 -0700
+
+    updated the update-changelogs.sh file
+
+ update-changelogs.sh | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 32fe70d63b325d45983233b8efac88cfc53e9a35
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:14:44 2021 -0700
+
+    Updated Koltons-Changelog.txt and Williams-Changelog.txt
+
+ Koltons-Changelog.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
 commit cd553a337bdd1204c088fb9e6313fdb5b72e4757
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:14:15 2021 -0700
