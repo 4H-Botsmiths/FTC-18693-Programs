@@ -1,3 +1,22 @@
+to update run ./update-changlelogs.sh
+commit 81b98bee1597928687e3573f41ae8b4cc8787ea2
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:08:42 2021 -0700
+
+    added an update-changelogs.sh file
+
+ update-changelogs.sh | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+commit 1cfd382ec589d4144ca84f5770d5558a045c5184
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 12:54:09 2021 -0700
+
+    added a Koltons-Changlog.txt and deleted Koltons-Changlog.log
+
+ Koltons-Changelog.txt | 457 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 457 insertions(+)
+
 commit 6b18403808287ccc409adb83df90e1a11b3b4c47
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 12:51:01 2021 -0700

@@ -1,0 +1,340 @@
+to update run ./update-changlelogs.sh
+commit 341bdb0c63f5539ef524ddcc5deb0dc526aa55f5
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Jun 5 14:35:12 2021 -0700
+
+    Changed AutonomousCode
+
+ .../ftc/teamcode/AutonomousCodeOfficial.java       | 64 ++++++++++------------
+ 1 file changed, 30 insertions(+), 34 deletions(-)
+
+commit 3fed6921ad17d4e501c3e456ce988cdf4a481b30
+Merge: ba05737 cc8b6c2
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Jun 5 12:32:18 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+
+commit ba05737686ba789e92c854827af9eda544a4a60e
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Jun 5 12:32:02 2021 -0700
+
+    Changed AutonomousCode
+
+ .../java/org/firstinspires/ftc/teamcode/AutonomousCodeOfficial.java     | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5b8756ae3de4504f22ccec8b856eb99df52d5e89
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Jun 5 12:20:25 2021 -0700
+
+    Changed AutonomousCode
+
+ .../ftc/teamcode/AutonomousCodeOfficial.java       | 37 ++++++++++++++++++----
+ 1 file changed, 30 insertions(+), 7 deletions(-)
+
+commit 9661c4ed16145ec258108f655affe81992ac38e8
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 15:34:38 2021 -0700
+
+    Changed AutonomousCode
+
+ .../java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+commit 93df83fb3ee922115cbfe6a71602d6bf92aca7cd
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 14:36:00 2021 -0700
+
+    commented out Kolton's programs and part of my autonomous code
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 26 +++++++++---------
+ .../firstinspires/ftc/teamcode/RingShooter.java    | 31 +++++-----------------
+ .../firstinspires/ftc/teamcode/RobotHardware.java  |  4 +--
+ .../ftc/teamcode/TankDriveKolton.java              | 14 +++++-----
+ 4 files changed, 29 insertions(+), 46 deletions(-)
+
+commit 9a40e2b10a66ab1b41c46fe6e9e83457a9d761a8
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 15:34:38 2021 -0700
+
+    Changed AutonomousCode
+
+ .../java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+commit d77cf61bc06ab6c66b3c55d36bb8a05dd8764248
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 14:36:00 2021 -0700
+
+    Changed RobotHardware
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 26 +++++++++---------
+ .../firstinspires/ftc/teamcode/RingShooter.java    | 31 +++++-----------------
+ .../firstinspires/ftc/teamcode/RobotHardware.java  |  4 +--
+ .../ftc/teamcode/TankDriveKolton.java              | 14 +++++-----
+ 4 files changed, 29 insertions(+), 46 deletions(-)
+
+commit 45e09af660b2237cd79e68473b63e446dc9167f2
+Merge: bc2a563 a57b255
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 13:48:18 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+
+commit bc2a5638206a061d4e3b31aa0575845163e6cd44
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 13:32:05 2021 -0700
+
+    Changed RobotHardware
+
+ .../main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java   | 7 ++++---
+ .../main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java  | 2 --
+ 2 files changed, 4 insertions(+), 5 deletions(-)
+
+commit a202e51f06a3f82426852b3876c635b26d87a52d
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 13:26:48 2021 -0700
+
+    Changed RobotHardware
+
+ .../src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java  | 4 ++--
+ .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java   | 4 ++--
+ .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+commit ccc36acf77811b70e3cefcef14a36ed624c53de3
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 13:15:42 2021 -0700
+
+    Changed RobotHardware
+
+ .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+commit bf79766d5ede398ed56fc41808535466285a887b
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 13:09:02 2021 -0700
+
+    Changed AutonomousCode
+
+ .../src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit b462b9a62a00b959f8552693baac20a7099ca871
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 12:41:10 2021 -0700
+
+    Changed WilliamFunction/AutonomousCode
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 193 ++++++++++++++++++++-
+ .../ftc/teamcode/WilliamFunctions.java             |  10 +-
+ 2 files changed, 191 insertions(+), 12 deletions(-)
+
+commit a32e986784617d2c13e39c623e8a1687afe7d87a
+Merge: 261ca0e 4e25d90
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 8 12:41:46 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+    
+    # Conflicts:
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java
+
+commit 261ca0e39505915cf25ee52b55eb827c96fe55c7
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 8 12:41:06 2021 -0700
+
+    Changed RobotHardware/WilliamFunction/AutonomousCode
+
+ .../firstinspires/ftc/teamcode/WilliamFunctions.java   | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+commit 61cc3d0e91e52c759f31ba7d49b70f30da971a1c
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 8 12:37:35 2021 -0700
+
+    Changed RobotHardware/WilliamFunction/AutonomousCode
+
+ .../java/org/firstinspires/ftc/teamcode/RobotHardware.java  |  7 ++++---
+ .../org/firstinspires/ftc/teamcode/WilliamFunctions.java    | 13 +++++++------
+ 2 files changed, 11 insertions(+), 9 deletions(-)
+
+commit c3cb6fa78a3f25d76e27e62a5a9e88b4bb7435d0
+Merge: 53d7b6e 301cbd0
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 8 12:22:39 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+    
+    # Conflicts:
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java
+
+commit 53d7b6e47c7a99bba13d3760fada1d36770712ee
+Merge: 145936d 5708a26
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 1 15:18:45 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+
+commit 145936d6e0688723dd6ce8bda4ba24b95dec171e
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 1 13:41:53 2021 -0700
+
+    Changed RobotHardware
+
+ .../src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 5 ++---
+ .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 2 +-
+ 2 files changed, 3 insertions(+), 4 deletions(-)
+
+commit 8c8216ed034a815215c7e987a9c4da5ebabc7f40
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 1 12:13:18 2021 -0700
+
+    Changed WilliamFunctions
+
+ .../java/org/firstinspires/ftc/teamcode/WilliamFunctions.java  | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+commit fdd64581384166381f4bd40f64055f98824b6954
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 15:53:53 2021 -0700
+
+    Changed WilliamFunctions
+
+ .../org/firstinspires/ftc/teamcode/AutonomousCode.java   | 16 +---------------
+ 1 file changed, 1 insertion(+), 15 deletions(-)
+
+commit aa9a9975b033484db958e447aa04d8449942f780
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 15:53:19 2021 -0700
+
+    Revert "Changed lots of things"
+    
+    This reverts commit 9256ca18
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 16 ++++++++-
+ .../ftc/teamcode/WilliamFunctions.java             | 42 +++++++++++-----------
+ 2 files changed, 37 insertions(+), 21 deletions(-)
+
+commit 9256ca18369a0dd964b2788e818481a95995292a
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 15:44:25 2021 -0700
+
+    Changed lots of things
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 16 +--------
+ .../ftc/teamcode/WilliamFunctions.java             | 42 +++++++++++-----------
+ 2 files changed, 21 insertions(+), 37 deletions(-)
+
+commit e870d22c7717c1f86982c262002223aa858ef579
+Merge: b89e967 b6ee295
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 15:18:27 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+    
+    # Conflicts:
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TankDriveTeleop.java
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/WilliamFunctions.java
+
+commit b89e9678e0171b1133e3d4ad62e3f96f8c8b0298
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 15:03:37 2021 -0700
+
+    Changed lots of things
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 108 ++-------------------
+ .../ftc/teamcode/TankDriveTeleop.java              |  40 ++++----
+ .../ftc/teamcode/WilliamFunctions.java             |  46 +++++----
+ 3 files changed, 58 insertions(+), 136 deletions(-)
+
+commit 94eda4ccb405a0ef1e7775acd3606da5eb0ee566
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 14:14:58 2021 -0700
+
+    Changed RobotFunctions
+
+ .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java   | 2 +-
+ .../ftc/teamcode/{RobotFunctions.java => WilliamFunctions.java}         | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 518f9a259b15692dbfa6e62012c7530618d25a76
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 14:13:22 2021 -0700
+
+    Changed RobotFunctions
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 88 +---------------------
+ .../firstinspires/ftc/teamcode/RobotFunctions.java | 74 +++++++++++++++++-
+ 2 files changed, 74 insertions(+), 88 deletions(-)
+
+commit 248607ed2a5517237729c809f3ba5f44ae5a01a3
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 13:24:00 2021 -0700
+
+    Changed RobotFunctions
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 35 ---------
+ .../firstinspires/ftc/teamcode/RobotFunctions.java | 89 ++++++++++++++++++----
+ 2 files changed, 75 insertions(+), 49 deletions(-)
+
+commit 590d50552ca685858fa0c459efa6916f3b3cae27
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat Apr 24 12:48:15 2021 -0700
+
+    Changed RobotFunctions
+
+ .../{AutonomusCode.java => AutonomousCode.java}    |  2 +-
+ .../ftc/teamcode/KoltonsFirstTankDrive.java        |  2 +-
+ .../firstinspires/ftc/teamcode/RobotFunctions.java | 48 +++++++++++++++++++++-
+ 3 files changed, 48 insertions(+), 4 deletions(-)
+
+commit 2414904d90ecbfa0794301254e8e8e9f827e792d
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Thu Apr 22 19:35:32 2021 -0700
+
+    Fixed bugs
+
+ .../firstinspires/ftc/teamcode/AutonomusCode.java  | 252 +++++++++++++++++++++
+ .../ftc/teamcode/KoltonsFirstTankDrive.java        |  18 +-
+ .../ftc/teamcode/TankDriveTeleop.java              | 140 ++++++------
+ 3 files changed, 322 insertions(+), 88 deletions(-)
+
+commit d9d4d19c54fcbf7c608495a5c6bb954a1ca7d9c2
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Thu Apr 22 18:47:01 2021 -0700
+
+    Added Power
+
+ .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit f751217f7d1167c11720d1cc373aeaaf5680d130
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Thu Apr 22 18:43:31 2021 -0700
+
+    Fixed Kolten's broken program
+
+ .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 1ed748fbd1b3b09633cdd5d1c2eb4449db4662a4
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Thu Apr 22 18:37:25 2021 -0700
+
+    Fixed Kolten's broken program
+
+ .../ftc/teamcode/KoltonsFirstTankDrive.java        |  39 +--
+ .../ftc/teamcode/TankDriveTeleop.java              | 289 +++++++++++----------
+ 2 files changed, 167 insertions(+), 161 deletions(-)
+
+commit 2e26cb39a8b7e5084affa7ece609e434d0a1dfee
+Author: StrongMan19 <76856498+StrongMan19@users.noreply.github.com>
+Date:   Fri Apr 16 16:46:00 2021 -0700
+
+    Add files via upload
+
+ .../ftc/teamcode/TankDriveTeleop.java              | 160 +++++++++++++++++++++
+ 1 file changed, 160 insertions(+)
