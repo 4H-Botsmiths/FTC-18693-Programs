@@ -1,4 +1,14 @@
 to update run ./update-changlelogs.sh
+commit faad22fed0456feca85c4145fbe0033c49fee3ca (HEAD -> Master)
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:32:09 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt | 19 +++++++++++++++++++
+ Project-Changelog.txt |  5 +++++
+ 2 files changed, 24 insertions(+)
+
 commit 695443c806b39f7c8da9d1839e71789af60b9b70
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:32:07 2021 -0700
@@ -57,7 +67,7 @@ Date:   Sun Aug 22 13:27:32 2021 -0700
  update-changelogs.sh |   6 ++-
  2 files changed, 4 insertions(+), 139 deletions(-)
 
-commit cd000fe465213afe666f99b5a5f9891b89c11fa1
+commit cd000fe465213afe666f99b5a5f9891b89c11fa1 (origin/Master, origin/HEAD)
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:20:28 2021 -0700
 
@@ -66,7 +76,7 @@ Date:   Sun Aug 22 13:20:28 2021 -0700
  README.md | 2 ++
  1 file changed, 2 insertions(+)
 
-commit e92538e62398f151eba8f74c86252d18f52480e0
+commit e92538e62398f151eba8f74c86252d18f52480e0 (tag: v1.0.0)
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:15:18 2021 -0700
 
@@ -443,7 +453,7 @@ Date:   Sat Apr 17 10:47:49 2021 -0700
  gradle/wrapper/gradle-wrapper.properties | 4 ++--
  2 files changed, 3 insertions(+), 3 deletions(-)
 
-commit 0eb8ecbe13104025ee8b44d0dbbee74bde168b34
+commit 0eb8ecbe13104025ee8b44d0dbbee74bde168b34 (origin/William, origin/Kolton)
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Fri Apr 16 16:42:30 2021 -0700
 
