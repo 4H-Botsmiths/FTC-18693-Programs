@@ -1,9 +1,17 @@
 to update run ./update-changlelogs.sh
+commit d753ac066764a83915e0be7a6c1f845a34209f82
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:17:10 2021 -0700
+
+
+ Koltons-Changelog.txt  | 1301 +++++----------------------------------
+ Williams-Changelog.txt | 1587 ------------------------------------------------
+ 2 files changed, 148 insertions(+), 2740 deletions(-)
+
 commit 28ad381024c48c55b859d83191a6c665542665c2
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 14:15:25 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Williams-Changelog.txt | 9 +++++++++
  1 file changed, 9 insertions(+)
@@ -12,7 +20,6 @@ commit c673344d7e9ff1bdab9e04c59182d1279054aef2
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 14:13:57 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Williams-Changelog.txt | 9 +++++++++
  1 file changed, 9 insertions(+)
@@ -21,7 +28,6 @@ commit ee2a6012cadc2d8b4428d8304080fca96a4946b0
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 14:11:45 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Williams-Changelog.txt | 10 ++++++++++
  1 file changed, 10 insertions(+)
@@ -30,7 +36,6 @@ commit c817ede10c5123ad4a2cdb33953d6bbb22484968
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 14:08:25 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt  | 18 ++++++++++++++++++
  Williams-Changelog.txt | 28 ++++++++++++++++++++++++++++
@@ -58,7 +63,6 @@ commit 8f3be23de185efdcbc1bc11161dcb8509ffe71dd
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 14:03:52 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt  | 29 +++++++++++++++++++++++++++++
  Williams-Changelog.txt | 39 +++++++++++++++++++++++++++++++++++++++
@@ -97,7 +101,6 @@ commit ad255bc8ce1d87dade08a7547af50c638b2b5fbf
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:42:18 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Project-Changelog.txt  |  7 +------
  Williams-Changelog.txt | 10 ++++++++++
@@ -107,7 +110,6 @@ commit 3960c68abe275fb77b45efdcc62bf226e7447723
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:41:00 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Project-Changelog.txt  |  5 +++++
  Williams-Changelog.txt | 11 +++++++++++
@@ -117,7 +119,6 @@ commit 852424ccdae205ab86ae9470b79e9d07512eb7f2
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:40:26 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt  |  9 +++++++++
  Project-Changelog.txt  |  2 +-
@@ -137,7 +138,6 @@ commit 82447abe21650b2162d9dfc626e2016b5ef26edc
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:37:13 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt  | 1701 ++++++++++++++++++++++++++++++++++++++++++++++++
  Williams-Changelog.txt | 1422 ++++++++++++++++++++++++++++++++++++++++
@@ -147,7 +147,6 @@ commit 096870caa8d6a235fea4f290586443fbc9be3930
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:35:30 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt  | 599 -------------------------------------------------
  Williams-Changelog.txt |   2 +-
@@ -157,7 +156,6 @@ commit 54b97d5f54656bf2646a8eadbde44447e07ca84b
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:33:48 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt  | 16 +++++++++++++---
  Williams-Changelog.txt |  2 +-
@@ -167,7 +165,6 @@ commit faad22fed0456feca85c4145fbe0033c49fee3ca
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:32:09 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt | 19 +++++++++++++++++++
  Project-Changelog.txt |  5 +++++
@@ -186,7 +183,6 @@ commit d13356c5e7ef64b123ceb0a3f4d4fad8181a05d7
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:31:47 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt | 10 ++++++++++
  Project-Changelog.txt | 12 +-----------
@@ -196,7 +192,6 @@ commit 5768bddf00e2621aad8fc66f0159e508cc6b0492
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:29:37 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt | 19 +++++++++++++++++++
  Project-Changelog.txt | 11 +++++++++++
@@ -215,7 +210,6 @@ commit b17c73d21909044503d2329ae927cf8df510b29b
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:27:46 2021 -0700
 
-    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
 
  Koltons-Changelog.txt | 37 +++++++++++++++++++++++++++++++++++++
  Project-Changelog.txt |  0
