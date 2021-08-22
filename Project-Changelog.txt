@@ -1,9 +1,4 @@
-to update run ./update-changlelogs.sh, to make commits apear add Update: To The Start Of Them
-commit 695443c806b39f7c8da9d1839e71789af60b9b70
-Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
-Date:   Sun Aug 22 13:32:07 2021 -0700
-
-    Update: This Is the first recorded update.
+to update run ./update-changlelogs.sh, to make commits apear add Update: to the start of them
 commit 695443c806b39f7c8da9d1839e71789af60b9b70
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:32:07 2021 -0700

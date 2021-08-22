@@ -1,4 +1,14 @@
 to update run ./update-changlelogs.sh
+commit 3960c68abe275fb77b45efdcc62bf226e7447723
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:41:00 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Project-Changelog.txt  |  5 +++++
+ Williams-Changelog.txt | 11 +++++++++++
+ 2 files changed, 16 insertions(+)
+
 commit 852424ccdae205ab86ae9470b79e9d07512eb7f2
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:40:26 2021 -0700
