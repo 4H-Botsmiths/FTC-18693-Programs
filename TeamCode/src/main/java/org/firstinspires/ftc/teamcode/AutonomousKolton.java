@@ -46,71 +46,20 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import static android.os.SystemClock.sleep;
 
 
-@Autonomous(name = "AutonomousKolton", preselectTeleOp = "TeleopKolton", group = "Kolton")
-//@Disabled
+@Autonomous(name = "Autonomous Kolton", preselectTeleOp = "TeleopKolton", group = "Kolton")
+//Selection Code. Runs Once
 public class AutonomousKolton extends OpMode {
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
+    //Declare Robot Variable. (See RobotHardware.java)
     RobotHardware robot = new RobotHardware();
-    // 0= off, 1= on
-    public double shooterOn = (0);
     public String detectedColor;
     public double currentAngle = 360;
     public double turnSpeed;
-    public double DontChangeMe = 0;
 
-    public void RampUp() {
-        if (gamepad2.right_trigger > 0.9) {
-            robot.leftShooter.setVelocity(robot.shootVelocity);
-            robot.rightShooter.setVelocity(robot.shootVelocity);
-            robot.rampBottom.setPower(0.75);
-            robot.rampMiddle.setPower(0.75);
-            robot.rampTop.setPower(0.75);
-        } else if (gamepad2.right_trigger > 0.5) {
-            robot.leftShooter.setVelocity(robot.shootVelocity * 0.5);
-            robot.rightShooter.setVelocity(robot.shootVelocity * 0.5);
-            robot.rampBottom.setPower(0.75);
-            robot.rampMiddle.setPower(0.75);
-            robot.rampTop.setPower(0);
-        } else if (gamepad2.right_trigger > 0) {
-            robot.leftShooter.setVelocity(robot.shootVelocity * 0.25);
-            robot.rightShooter.setVelocity(robot.shootVelocity * 0.25);
-            robot.rampBottom.setPower(0.75);
-            robot.rampMiddle.setPower(0);
-            robot.rampTop.setPower(0);
-        } else {
-            robot.leftShooter.setVelocity(0);
-            robot.rightShooter.setVelocity(0);
-            robot.rampBottom.setPower(0);
-            robot.rampMiddle.setPower(0);
-            robot.rampTop.setPower(0);
-        }
+    //Declare Functions ⬇️
 
-    }
-
-    public void RampDown() {
-        if (gamepad2.left_trigger > 0.9) {
-            robot.rampBottom.setPower(-0.75);
-            robot.rampMiddle.setPower(-0.75);
-            robot.rampTop.setPower(-0.75);
-        } else if (gamepad2.left_trigger > 0.5) {
-            robot.rampBottom.setPower(-0.75);
-            robot.rampMiddle.setPower(-0.75);
-            robot.rampTop.setPower(0);
-        } else if (gamepad2.left_trigger > 0) {
-            robot.rampBottom.setPower(-0.75);
-            robot.rampMiddle.setPower(0);
-            robot.rampTop.setPower(0);
-        } else {
-            robot.leftShooter.setVelocity(0);
-            robot.rightShooter.setVelocity(0);
-            robot.rampBottom.setPower(0);
-            robot.rampMiddle.setPower(0);
-            robot.rampTop.setPower(0);
-        }
-
-    }
-
+    //Update Android Screen
     public void Telemetries() {
         telemetry.addData("Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
         telemetry.addData("Shooter Velocity", "Left (%.2f), Right (%.2f)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
@@ -122,6 +71,7 @@ public class AutonomousKolton extends OpMode {
         telemetry.update();
     }
 
+    //Detect And Return Color Underneath The Robot In Red, Green, Yellow etc. format
     public String detectColor() {
         int colorHSV;
         float hue;
@@ -164,6 +114,7 @@ public class AutonomousKolton extends OpMode {
         }
     }
 
+    //Turn Robot Specified Amount Of Degrees
     public void Turn(int Degrees) {
 
         while (!(currentAngle < 10 & currentAngle > 10)) {
@@ -195,6 +146,7 @@ public class AutonomousKolton extends OpMode {
         robot.rightDrive.setPower(0);
     }
 
+    //Drive Robot Specified Amount Of Inches
     public void Drive(double Inches){
         double Position = Inches*robot.driveInchPerTick;
         robot.leftDrive.setPower(0);
@@ -216,10 +168,9 @@ public class AutonomousKolton extends OpMode {
 
     }
 
-    /*
-     * Code to run ONCE when the driver hits INIT
-     */
+
     @Override
+    //Initialization Code. Runs Once Per Execution
     public void init() {
         telemetry.addData("Status", "Initializing...");
         telemetry.addData("Gyro", "calibrating...");
@@ -228,19 +179,17 @@ public class AutonomousKolton extends OpMode {
 
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     */
+
     @Override
+    //Initialization Code. Runs Repeatedly Until Start
     public void init_loop() {
         telemetry.addData("Gyro", robot.gyro.getCalibrationStatus().toString());
         telemetry.addData("Status", "Initialized");
     }
 
-    /*
-     * Code to run ONCE when the driver hits PLAY
-     */
+
     @Override
+    //Start Code. Runs Once
     public void start() {
         runtime.reset();
         telemetry.addData("Status", "Running");
@@ -254,10 +203,9 @@ public class AutonomousKolton extends OpMode {
         robot.rightDrive.setVelocity(0);
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     */
+
     @Override
+    //Start Code. Runs Repeatedly Until Stop
     public void loop() {
         //function.detectColor();
         if (robot.voltageSensor.getVoltage() < robot.lowBattery) {
@@ -282,10 +230,9 @@ public class AutonomousKolton extends OpMode {
     }
 
 
-    /*
-     * Code to run ONCE after the driver hits STOP
-     */
+
     @Override
+    //Stop Code. Runs Once
     public void stop() {
         telemetry.addData("Status", "Stopping...");
         telemetry.update();

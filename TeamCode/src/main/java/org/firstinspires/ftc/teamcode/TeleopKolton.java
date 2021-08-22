@@ -41,21 +41,20 @@ import org.firstinspires.ftc.robotcore.external.android.AndroidSoundPool;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 
-@TeleOp(name = "TeleopKolton", group = "Kolton")
-//@Disabled
+@TeleOp(name = "Teleop Kolton", group = "Kolton")
+//Selection Code. Runs Once
 public class TeleopKolton extends OpMode {
     // Declare OpMode members.
     private final ElapsedTime runtime = new ElapsedTime();
     public AndroidSoundPool audio;
-    // 0= off, 1= on
-    public double shooterOn = (0);
     public String detectedColor;
-    public double currentAngle = 360;
     public double Status;
+    //Declare Robot Variable. (See RobotHardware.java)
     RobotHardware robot = new RobotHardware();
-    double HandPos = 0;
-    boolean Direction = true;
 
+    //Declare Functions ⬇️
+
+    //Raise Ramp Based Off Of Gamepad Input
     public void RampUp() {
         if (gamepad2.right_trigger > 0.9) {
             robot.leftShooter.setVelocity(robot.shootVelocity);
@@ -85,6 +84,7 @@ public class TeleopKolton extends OpMode {
 
     }
 
+    //Lower Ramp Based Off Of Gamepad Input
     public void RampDown() {
         if (gamepad2.left_trigger > 0.9) {
             robot.rampBottom.setPower(-0.75);
@@ -108,6 +108,7 @@ public class TeleopKolton extends OpMode {
 
     }
 
+    //Update Android Screen
     public void Telemetries() {
         telemetry.addData("Drive Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
         telemetry.addData("Shooter Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
@@ -118,6 +119,7 @@ public class TeleopKolton extends OpMode {
         telemetry.addData("Temperature", robot.gyro.getTemperature());
     }
 
+    //Detect And Return Color Underneath The Robot In Red, Green, Yellow etc. format
     public String detectColor() {
         int colorHSV;
         float hue;
@@ -161,10 +163,9 @@ public class TeleopKolton extends OpMode {
     }
 
 
-    /*
-     * Code to run ONCE when the driver hits INIT
-     */
+
     @Override
+    //Initialization Code. Runs Once Per Execution
     public void init() {
         telemetry.addData("Status", "Initializing...");
         telemetry.addData("Gyro", "calibrating...");
@@ -175,19 +176,17 @@ public class TeleopKolton extends OpMode {
 
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     */
+
     @Override
+    //Initialization Code. Runs Repeatedly Until Start
     public void init_loop() {
         telemetry.addData("Gyro", robot.gyro.getCalibrationStatus().toString());
         telemetry.addData("Status", "Initialized");
     }
 
-    /*
-     * Code to run ONCE when the driver hits PLAY
-     */
+
     @Override
+    //Start Code. Runs Once
     public void start() {
         runtime.reset();
         telemetry.addData("Status", "Running");
@@ -195,10 +194,9 @@ public class TeleopKolton extends OpMode {
 
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits PLAY but before they hit STOP
-     */
+
     @Override
+    //Start Code. Runs Repeatedly Until Stop
     public void loop() {
         //function.detectColor();
         if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery && Status != 2) {
@@ -280,6 +278,7 @@ public class TeleopKolton extends OpMode {
      * Code to run ONCE after the driver hits STOP
      */
     @Override
+    //Stop Code. Runs Once
     public void stop() {
         telemetry.addData("Status", "Stopping...");
         audio.close();

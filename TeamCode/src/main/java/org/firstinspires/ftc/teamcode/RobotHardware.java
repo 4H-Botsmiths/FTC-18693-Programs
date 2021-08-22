@@ -108,8 +108,11 @@ public class RobotHardware {
         clawArm = hwMap.get(CRServo.class, "Servo_3");
         clawHand = hwMap.get(CRServo.class, "Servo_4");
 
+        // Define and initialize ALL installed touch sensors.
         touchBottom = hwMap.get(TouchSensor.class, "Touch_0");
         touchTop = hwMap.get(TouchSensor.class, "Touch_1");
+
+        // Define and initialize ALL installed lights.
         redLight = hwMap.get(LED.class, "Light_0");
         blueLight = hwMap.get(LED.class, "Light_1");
         greenLight = hwMap.get(LED.class, "Light_2");
@@ -119,10 +122,12 @@ public class RobotHardware {
         spareLight4 = hwMap.get(LED.class, "Light_6");
         spareLight5 = hwMap.get(LED.class, "Light_7");
 
+        // Define and initialize ALL installed distance/light sensors.
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         distanceLeft = hwMap.get(Rev2mDistanceSensor.class, "Distance_1");
         distanceRight = hwMap.get(Rev2mDistanceSensor.class, "Distance_2");
 
+        // Define and initialize ALL internal sensors.
         gyro = hwMap.get(BNO055IMU.class, "imu");
         voltageSensor = hwMap.get(VoltageSensor.class, "Control Hub");
 
@@ -147,11 +152,9 @@ public class RobotHardware {
         leftShooter.setPower(0);
         rightShooter.setPower(0);
 
-        //leftClaw.setPosition(MID_SERVO);
-        //rightClaw.setPosition(MID_SERVO);
 
-        leftDrive.setDirection(DcMotorSimple.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
-        rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightDrive.setDirection(DcMotorSimple.Direction.FORWARD);
 
         leftShooter.setDirection(DcMotorSimple.Direction.FORWARD);
         rightShooter.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -173,15 +176,11 @@ public class RobotHardware {
         rightShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
         //PIDF Caliration
-        double Shooter_Motors_F = 32767 / maxShootVelocity;
-        double Shooter_Motors_P = 0.1 * Shooter_Motors_F;
-        double Shooter_Motors_I = 0.1 * Shooter_Motors_P;
+        double Shooter_Motors_F = 32767 / maxShootVelocity, Shooter_Motors_P = 0.1 * Shooter_Motors_F, Shooter_Motors_I = 0.1 * Shooter_Motors_P;
         leftShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
         rightShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
 
-        double Drive_Motors_F = 32767 / maxDriveVelocity;
-        double Drive_Motors_P = 0.1 * Drive_Motors_F;
-        double Drive_Motors_I = 0.1 * Drive_Motors_P;
+        double Drive_Motors_F = 32767 / maxDriveVelocity, Drive_Motors_P = 0.1 * Drive_Motors_F, Drive_Motors_I = 0.1 * Drive_Motors_P;
         leftDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
         rightDrive.setVelocityPIDFCoefficients(Drive_Motors_P, Drive_Motors_I, 0, Drive_Motors_F);
 
