@@ -1,4 +1,13 @@
 to update run ./update-changlelogs.sh
+commit 2490a85a73350f9c5376e5f544630dce82e987f1
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:38:17 2021 -0700
+
+    I Updated The update-changelogs.sh script
+
+ update-changelogs.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 commit 695443c806b39f7c8da9d1839e71789af60b9b70
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:32:07 2021 -0700
