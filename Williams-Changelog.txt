@@ -1,4 +1,4 @@
-to update run ./update-changlelogs.sh --decorate
+to update run ./update-changlelogs.sh
 commit 341bdb0c63f5539ef524ddcc5deb0dc526aa55f5
 Author: StrongMan19 <wdbowker11@gmail.com>
 Date:   Sat Jun 5 14:35:12 2021 -0700
