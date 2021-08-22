@@ -33,6 +33,27 @@ Date:   Sat Jun 5 12:20:25 2021 -0700
  .../ftc/teamcode/AutonomousCodeOfficial.java       | 37 ++++++++++++++++++----
  1 file changed, 30 insertions(+), 7 deletions(-)
 
+commit 9661c4ed16145ec258108f655affe81992ac38e8
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 15:34:38 2021 -0700
+
+    Changed AutonomousCode
+
+ .../java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+commit 93df83fb3ee922115cbfe6a71602d6bf92aca7cd
+Author: StrongMan19 <wdbowker11@gmail.com>
+Date:   Sat May 15 14:36:00 2021 -0700
+
+    commented out Kolton's programs and part of my autonomous code
+
+ .../firstinspires/ftc/teamcode/AutonomousCode.java | 26 +++++++++---------
+ .../firstinspires/ftc/teamcode/RingShooter.java    | 31 +++++-----------------
+ .../firstinspires/ftc/teamcode/RobotHardware.java  |  4 +--
+ .../ftc/teamcode/TankDriveKolton.java              | 14 +++++-----
+ 4 files changed, 29 insertions(+), 46 deletions(-)
+
 commit 9a40e2b10a66ab1b41c46fe6e9e83457a9d761a8
 Author: StrongMan19 <wdbowker11@gmail.com>
 Date:   Sat May 15 15:34:38 2021 -0700
@@ -308,3 +329,12 @@ Date:   Thu Apr 22 18:37:25 2021 -0700
  .../ftc/teamcode/KoltonsFirstTankDrive.java        |  39 +--
  .../ftc/teamcode/TankDriveTeleop.java              | 289 +++++++++++----------
  2 files changed, 167 insertions(+), 161 deletions(-)
+
+commit 2e26cb39a8b7e5084affa7ece609e434d0a1dfee
+Author: StrongMan19 <76856498+StrongMan19@users.noreply.github.com>
+Date:   Fri Apr 16 16:46:00 2021 -0700
+
+    Add files via upload
+
+ .../ftc/teamcode/TankDriveTeleop.java              | 160 +++++++++++++++++++++
+ 1 file changed, 160 insertions(+)

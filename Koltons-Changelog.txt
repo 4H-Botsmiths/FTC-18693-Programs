@@ -1,4 +1,13 @@
 to update run ./update-changlelogs.sh
+commit 2980bb1f1fa573fd802672c79577e2d9918a81d3
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:24:43 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+
 commit 303c5423f50d5a4b3d519855f3143b219d19063e
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 14:23:27 2021 -0700
@@ -250,6 +259,15 @@ Date:   Sun Aug 22 13:27:32 2021 -0700
  update-changelogs.sh |   6 ++-
  2 files changed, 4 insertions(+), 139 deletions(-)
 
+commit cd000fe465213afe666f99b5a5f9891b89c11fa1
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:20:28 2021 -0700
+
+    Create README.md
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
 commit e92538e62398f151eba8f74c86252d18f52480e0
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:15:18 2021 -0700
@@ -405,27 +423,6 @@ Date:   Sat May 22 09:22:52 2021 -0700
 
  .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java    | 1 +
  1 file changed, 1 insertion(+)
-
-commit 9661c4ed16145ec258108f655affe81992ac38e8
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 15:34:38 2021 -0700
-
-    Changed AutonomousCode
-
- .../java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
-
-commit 93df83fb3ee922115cbfe6a71602d6bf92aca7cd
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 14:36:00 2021 -0700
-
-    commented out Kolton's programs and part of my autonomous code
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 26 +++++++++---------
- .../firstinspires/ftc/teamcode/RingShooter.java    | 31 +++++-----------------
- .../firstinspires/ftc/teamcode/RobotHardware.java  |  4 +--
- .../ftc/teamcode/TankDriveKolton.java              | 14 +++++-----
- 4 files changed, 29 insertions(+), 46 deletions(-)
 
 commit e17012b3f95d9e3676d680c49bb541de3f133aac
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -770,3 +767,26 @@ Date:   Fri Apr 16 16:42:30 2021 -0700
  FtcRobotController-6.2/libs/tfod-release.aar       |  Bin 0 -> 1300813 bytes
  FtcRobotController-6.2/settings.gradle             |    2 +
  115 files changed, 11682 insertions(+)
+
+commit 9c1a6f6114695ab6ff971ed9aa695f6a4c6b479f
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 16 16:33:31 2021 -0700
+
+    Delete .idea directory
+
+ .idea/.gitignore             | 3 ---
+ .idea/FTC-18693-Programs.iml | 9 ---------
+ .idea/misc.xml               | 6 ------
+ .idea/modules.xml            | 8 --------
+ .idea/vcs.xml                | 7 -------
+ 5 files changed, 33 deletions(-)
+
+commit 28d6bbdcb0afabc0d9d06a3f454eb90c2e98ff50
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 16 16:10:28 2021 -0700
+
+    Initial commit
+
+ LICENSE   | 21 +++++++++++++++++++++
+ README.md |  2 ++
+ 2 files changed, 23 insertions(+)
