@@ -1,0 +1,457 @@
+commit 6b18403808287ccc409adb83df90e1a11b3b4c47
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 12:51:01 2021 -0700
+
+    added a Koltons-Changlog.log and deleted Koltons-Changlog.md
+
+ Koltons-Changlog.md | 240 ----------------------------------------------------
+ 1 file changed, 240 deletions(-)
+
+commit 9c2e02da59378b8f224c73c6870b4f1a06bfd68f
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Thu Aug 19 13:09:11 2021 -0700
+
+    Updated Koltons-Changlog.md and added Williams-Changlog.md
+
+ Koltons-Changlog.md  | 257 +++++++--------------------------------------------
+ Williams-Changlog.md | 117 +++++++++++++++++++++++
+ 2 files changed, 151 insertions(+), 223 deletions(-)
+
+commit 7b47b4333d785d8691dd00b1a4f49f86d7efa176
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Thu Aug 19 13:04:48 2021 -0700
+
+    Updates Koltons-Changlog.md
+
+ Koltons-Changlog.md | 263 ++++++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 233 insertions(+), 30 deletions(-)
+
+commit 70a2843b415532607734ffe87e8ae1b1ca1ab227
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Thu Aug 19 13:03:09 2021 -0700
+
+    added a Kolton-Changelog.md file. grouped programs by author
+
+ CHANGELOG.md                                       | 137 +++++++++++++
+ Koltons-Changlog.md                                | 226 +++++++++++++++++++++
+ README.md                                          |   2 -
+ .../firstinspires/ftc/teamcode/AutonomousCode.java |   2 +-
+ .../ftc/teamcode/AutonomousCodeOfficial.java       |   2 +-
+ .../ftc/teamcode/AutonomousKolton.java             |   2 +-
+ .../firstinspires/ftc/teamcode/RingShooter.java    |   2 +-
+ .../ftc/teamcode/TankDriveTeleop.java              |   2 +-
+ .../firstinspires/ftc/teamcode/TeleopKolton.java   |   2 +-
+ 9 files changed, 369 insertions(+), 8 deletions(-)
+
+commit c57bf6ee01cface93b7d4c0dd6fca5c1ecc1a588
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 15 17:24:57 2021 -0700
+
+    improved telemetry's
+
+ .../firstinspires/ftc/teamcode/TeleopKolton.java   | 53 ++++++++++++----------
+ 1 file changed, 28 insertions(+), 25 deletions(-)
+
+commit 078bd972361d1ae013aa7a5373e6507561d17406
+Merge: 610bb7d c542cdc
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 15 15:28:57 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+    
+    # Conflicts:
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonomousKolton.java
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java
+
+commit 610bb7d6cb0bba64927b3c77079c1f84a8e046f5
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 15 15:21:41 2021 -0700
+
+    locked some variables in RobotHardware.java
+
+ .../ftc/teamcode/AutonomousKolton.java             | 12 ++------
+ .../firstinspires/ftc/teamcode/RobotHardware.java  | 35 ++++++++--------------
+ 2 files changed, 15 insertions(+), 32 deletions(-)
+
+commit 415bf8bb9ec27a2799924e6c3636066823332662
+Merge: b0e310c 9a40e2b
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sat May 22 09:23:24 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+
+commit b0e310c4773509e11b0eff3432534427562efbb1
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sat May 22 09:22:52 2021 -0700
+
+    Changed code in TankDriveKolton.java
+
+ .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java    | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit e17012b3f95d9e3676d680c49bb541de3f133aac
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sat May 8 17:46:30 2021 -0700
+
+    Added lED's to hardware and my program
+
+ .../firstinspires/ftc/teamcode/RobotHardware.java   | 21 +++++++++++++++++----
+ .../firstinspires/ftc/teamcode/TankDriveKolton.java |  8 +++++---
+ 2 files changed, 22 insertions(+), 7 deletions(-)
+
+commit f9cdeec5784c32f5d3a8885b63690d830a254f15
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Mon Apr 26 08:16:43 2021 -0700
+
+    Added Color Detection to KoltonFunctions.java
+
+ .../ftc/teamcode/KoltonFunctions.java              | 48 ++++++++++++++++++++++
+ .../ftc/teamcode/TankDriveKolton.java              |  2 +
+ 2 files changed, 50 insertions(+)
+
+commit fdf42c969408b7a2673014dabbe922761b06b930
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Apr 25 19:53:22 2021 -0700
+
+    Tweaked my programs
+
+ .../src/main/java/org/firstinspires/ftc/teamcode/KoltonFunctions.java    | 1 +
+ .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java    | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit e85cf69a53aabdfaa438e75eb0133a3cf74fc1ea
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Apr 25 17:45:25 2021 -0700
+
+    Tweaked my program
+
+ .../java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 13 ++++++++-----
+ .../org/firstinspires/ftc/teamcode/TankDriveKolton.java     | 12 ++++++++++--
+ 2 files changed, 18 insertions(+), 7 deletions(-)
+
+commit 6fd9fa1e8c30ad72e24d8dcf603b6d7770591ad5
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Apr 25 17:16:59 2021 -0700
+
+    Added insufficient shooter speed warning
+
+ .../org/firstinspires/ftc/teamcode/KoltonFunctions.java    | 14 +++++++++++---
+ .../org/firstinspires/ftc/teamcode/TankDriveKolton.java    |  7 +++++--
+ 2 files changed, 16 insertions(+), 5 deletions(-)
+
+commit c7720987377805a2934a1e390846fbdf76f6a6ef
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Apr 25 12:42:01 2021 -0700
+
+    Finished my first useable Teleop program
+
+ .../java/org/firstinspires/ftc/teamcode/RobotHardware.java    |  6 ++++++
+ .../java/org/firstinspires/ftc/teamcode/TankDriveKolton.java  | 11 ++++++++++-
+ 2 files changed, 16 insertions(+), 1 deletion(-)
+
+commit 18cd19772e1cf746c2727de3eed3ec851ab5d1a1
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Apr 25 12:26:23 2021 -0700
+
+    Created the first full version of my Teleop program
+
+ .../ftc/teamcode/KoltonFunctions.java              | 22 ++++++++++++++-
+ .../ftc/teamcode/KoltonsFirstTankDrive.java        | 33 ----------------------
+ .../firstinspires/ftc/teamcode/RobotHardware.java  | 11 +++++---
+ .../ftc/teamcode/TankDriveKolton.java              | 33 ++++++++++++++--------
+ 4 files changed, 50 insertions(+), 49 deletions(-)
+
+commit bf02479ca683d95c2f012e7fab8871f0d1dbb313
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sat Apr 24 18:53:29 2021 -0700
+
+    Started working on ramp shooting mechanics
+
+ .../org/firstinspires/ftc/teamcode/KoltonFunctions.java   | 13 +++++++++++++
+ .../org/firstinspires/ftc/teamcode/TankDriveKolton.java   | 15 ++++++++++++---
+ 2 files changed, 25 insertions(+), 3 deletions(-)
+
+commit 030e2aefd86c2bd1f2be28994978729ede600a21
+Merge: 93ea942 63c25ba
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 20:29:44 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+
+commit 93ea942a32f06bc58ac507f392bf453e57ab38a3
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 20:29:29 2021 -0700
+
+    Created new file using template, under heavy development
+
+ .../ftc/teamcode/TankDriveKolton.java              | 102 +++++++++++++++++++++
+ 1 file changed, 102 insertions(+)
+
+commit 683354d1a86c91752c2f02588000835d5b791a5b
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 16:49:10 2021 -0700
+
+    Worked on Hardware files
+
+ .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java  | 1 -
+ .../main/java/org/firstinspires/ftc/teamcode/RobotFunctions.java    | 6 +++++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+commit 66335bba4e96353d7215129c2442745f10cb2664
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 16:42:38 2021 -0700
+
+    Worked on Hardware files
+
+ .../org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 2 ++
+ .../main/java/org/firstinspires/ftc/teamcode/RobotFunctions.java | 9 +++++++++
+ .../main/java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 3 ---
+ 3 files changed, 11 insertions(+), 3 deletions(-)
+
+commit 57b4d9c128a9937a8615cf58d976cf007ca7fc60
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 16:28:42 2021 -0700
+
+    Worked on RobotHardware.java
+
+ .../org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 7 ++++---
+ .../main/java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 9 ++++++---
+ 2 files changed, 10 insertions(+), 6 deletions(-)
+
+commit 07a474967b8b556c237e2cb3f6ead3caa51bbcce
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 16:09:59 2021 -0700
+
+    Worked on KoltonsFirstTankDrive.java file
+
+ .../ftc/teamcode/KoltonsFirstTankDrive.java        | 24 +++++++++-------------
+ 1 file changed, 10 insertions(+), 14 deletions(-)
+
+commit 041fd01f9fab260c9dd5bc3a197ee94a5a212367
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 10:55:18 2021 -0700
+
+    Updated RobotHardware.java file
+
+ .../firstinspires/ftc/teamcode/RobotHardware.java  | 62 +++++++++++++---------
+ 1 file changed, 37 insertions(+), 25 deletions(-)
+
+commit 3774ed7a131f36d4a5b08d0cb15642ca9978d5be
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 23 10:00:03 2021 -0700
+
+    Created robot harware file and imported statistics into my program
+
+ .../ftc/teamcode/KoltonsFirstTankDrive.java        | 27 ++++----
+ .../firstinspires/ftc/teamcode/RobotHardware.java  | 80 ++++++++++++++++++++++
+ 2 files changed, 93 insertions(+), 14 deletions(-)
+
+commit 91fc0ef564b280d1c61f701ab8c513a035d7e787
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Wed Apr 21 20:09:11 2021 -0700
+
+    Worked on my program
+
+ .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java     | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit f517ef60da6dbc6d02a6414e7a7cecf0afa4f870
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Wed Apr 21 20:08:38 2021 -0700
+
+    Worked on my program
+
+ .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 95263d8c9afc8d323ee08258b1a0364fd2338903
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Wed Apr 21 20:07:27 2021 -0700
+
+    Worked on my program
+
+ .../org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java | 11 ++---------
+ 1 file changed, 2 insertions(+), 9 deletions(-)
+
+commit 8773db9e60573b978af458ac7975abb6ffd69350
+Merge: 11b26ab 2a10f65
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Wed Apr 21 20:03:42 2021 -0700
+
+    Merge remote-tracking branch 'origin/Master' into Master
+    
+    # Conflicts:
+    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java
+
+commit 11b26abc3ad82b7fc9b2ead3e218be7a15f133ae
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Wed Apr 21 20:03:00 2021 -0700
+
+    Worked on my program
+
+ .../samples/ConceptCompassCalibration.java         | 121 -------
+ .../external/samples/HardwarePushbot.java          |  95 ------
+ .../samples/PushbotAutoDriveByEncoder_Linear.java  | 184 -----------
+ .../samples/PushbotAutoDriveByGyro_Linear.java     | 363 ---------------------
+ .../samples/PushbotAutoDriveByTime_Linear.java     | 125 -------
+ .../samples/PushbotAutoDriveToLine_Linear.java     | 118 -------
+ .../external/samples/PushbotTeleopPOV_Linear.java  | 134 --------
+ .../samples/PushbotTeleopTank_Iterative.java       | 135 --------
+ .../{TankDrive.java => KoltonsFirstTankDrive.java} |  16 +-
+ 9 files changed, 6 insertions(+), 1285 deletions(-)
+
+commit 4ecf7c9ea764cf747f424bc2ed13b1740221da9e
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sat Apr 17 10:47:49 2021 -0700
+
+    It actually Worked!
+
+ build.gradle                             | 2 +-
+ gradle/wrapper/gradle-wrapper.properties | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 0eb8ecbe13104025ee8b44d0dbbee74bde168b34
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 16 16:42:30 2021 -0700
+
+    Initial Commit
+
+ .idea/.gitignore                                   |    3 +
+ .idea/FTC-18693-Programs.iml                       |   22 +
+ .idea/misc.xml                                     |    6 +
+ .idea/modules.xml                                  |    8 +
+ .idea/vcs.xml                                      |    6 +
+ FtcRobotController-6.2/.github/CONTRIBUTING.md     |   68 ++
+ .../.github/PULL_REQUEST_TEMPLATE.md               |    1 +
+ FtcRobotController-6.2/.gitignore                  |   87 ++
+ .../FtcRobotController/build.gradle                |   24 +
+ .../src/main/AndroidManifest.xml                   |   66 ++
+ .../src/main/assets/FTC_2016-17.dat                |  Bin 0 -> 682924 bytes
+ .../src/main/assets/FTC_2016-17.xml                |    9 +
+ .../src/main/assets/RelicVuMark.dat                |  Bin 0 -> 80294 bytes
+ .../src/main/assets/RelicVuMark.xml                |    6 +
+ .../src/main/assets/StonesAndChips.dat             |  Bin 0 -> 409351 bytes
+ .../src/main/assets/StonesAndChips.xml             |    7 +
+ .../src/main/assets/UltimateGoal.dat               |  Bin 0 -> 426823 bytes
+ .../src/main/assets/UltimateGoal.tflite            |  Bin 0 -> 3208920 bytes
+ .../src/main/assets/UltimateGoal.xml               |   10 +
+ .../external/samples/BasicOpMode_Iterative.java    |  139 +++
+ .../external/samples/BasicOpMode_Linear.java       |  114 +++
+ .../samples/ConceptCompassCalibration.java         |  121 +++
+ .../external/samples/ConceptDIMAsIndicator.java    |  103 ++
+ .../external/samples/ConceptI2cAddressChange.java  |  223 +++++
+ .../external/samples/ConceptMotorBulkRead.java     |  222 ++++
+ .../external/samples/ConceptNullOp.java            |   79 ++
+ .../external/samples/ConceptRampMotorSpeed.java    |  114 +++
+ .../external/samples/ConceptRevSPARKMini.java      |  112 +++
+ .../external/samples/ConceptScanServo.java         |  115 +++
+ .../external/samples/ConceptSoundsASJava.java      |  135 +++
+ .../external/samples/ConceptSoundsOnBotJava.java   |  119 +++
+ .../external/samples/ConceptSoundsSKYSTONE.java    |  123 +++
+ .../external/samples/ConceptTelemetry.java         |  178 ++++
+ .../samples/ConceptTensorFlowObjectDetection.java  |  172 ++++
+ ...TensorFlowObjectDetectionSwitchableCameras.java |  207 ++++
+ .../ConceptTensorFlowObjectDetectionWebcam.java    |  171 ++++
+ .../samples/ConceptVuMarkIdentification.java       |  186 ++++
+ .../samples/ConceptVuMarkIdentificationWebcam.java |  194 ++++
+ .../external/samples/ConceptVuforiaNavigation.java |  336 +++++++
+ .../samples/ConceptVuforiaNavigationWebcam.java    |  461 +++++++++
+ .../ConceptVuforiaUltimateGoalNavigation.java      |  301 ++++++
+ ...ConceptVuforiaUltimateGoalNavigationWebcam.java |  300 ++++++
+ .../external/samples/ConceptWebcam.java            |  310 ++++++
+ .../external/samples/HardwarePushbot.java          |  105 ++
+ .../samples/PushbotAutoDriveByEncoder_Linear.java  |  184 ++++
+ .../samples/PushbotAutoDriveByGyro_Linear.java     |  363 +++++++
+ .../samples/PushbotAutoDriveByTime_Linear.java     |  125 +++
+ .../samples/PushbotAutoDriveToLine_Linear.java     |  118 +++
+ .../external/samples/PushbotTeleopPOV_Linear.java  |  134 +++
+ .../samples/PushbotTeleopTank_Iterative.java       |  135 +++
+ .../samples/SampleRevBlinkinLedDriver.java         |  164 +++
+ .../external/samples/SensorAdafruitRGB.java        |  167 +++
+ .../external/samples/SensorBNO055IMU.java          |  184 ++++
+ .../samples/SensorBNO055IMUCalibration.java        |  232 +++++
+ .../external/samples/SensorColor.java              |  223 +++++
+ .../external/samples/SensorDIO.java                |  107 ++
+ .../external/samples/SensorDigitalTouch.java       |   88 ++
+ .../external/samples/SensorKLNavxMicro.java        |  129 +++
+ .../external/samples/SensorMRColor.java            |  139 +++
+ .../external/samples/SensorMRCompass.java          |  148 +++
+ .../external/samples/SensorMRGyro.java             |  162 +++
+ .../external/samples/SensorMRIrSeeker.java         |   84 ++
+ .../external/samples/SensorMROpticalDistance.java  |   71 ++
+ .../external/samples/SensorMRRangeSensor.java      |   72 ++
+ .../external/samples/SensorREV2mDistance.java      |   89 ++
+ .../ftc/robotcontroller/external/samples/readme.md |   57 ++
+ .../external/samples/sample_conventions.md         |  118 +++
+ .../internal/FtcOpModeRegister.java                |   70 ++
+ .../internal/FtcRobotControllerActivity.java       |  818 +++++++++++++++
+ .../internal/PermissionValidatorWrapper.java       |   91 ++
+ .../src/main/res/drawable-xhdpi/icon_menu.png      |  Bin 0 -> 975 bytes
+ .../res/drawable-xhdpi/icon_robotcontroller.png    |  Bin 0 -> 4777 bytes
+ .../main/res/layout/activity_ftc_controller.xml    |  191 ++++
+ .../src/main/res/menu/ftc_robot_controller.xml     |   77 ++
+ .../FtcRobotController/src/main/res/raw/gold.wav   |  Bin 0 -> 104016 bytes
+ .../FtcRobotController/src/main/res/raw/silver.wav |  Bin 0 -> 99068 bytes
+ .../src/main/res/values/dimens.xml                 |   40 +
+ .../src/main/res/values/strings.xml                |   70 ++
+ .../src/main/res/values/styles.xml                 |   23 +
+ .../src/main/res/xml/app_settings.xml              |   93 ++
+ .../src/main/res/xml/device_filter.xml             |   50 +
+ FtcRobotController-6.2/README.md                   | 1059 ++++++++++++++++++++
+ FtcRobotController-6.2/TeamCode/build.gradle       |   21 +
+ .../TeamCode/lib/OpModeAnnotationProcessor.jar     |  Bin 0 -> 6032 bytes
+ .../TeamCode/src/main/AndroidManifest.xml          |   12 +
+ .../java/org/firstinspires/ftc/teamcode/readme.md  |  121 +++
+ .../TeamCode/src/main/res/raw/readme.md            |    1 +
+ .../TeamCode/src/main/res/values/strings.xml       |    4 +
+ .../src/main/res/xml/teamwebcamcalibrations.xml    |  161 +++
+ FtcRobotController-6.2/build.common.gradle         |  126 +++
+ FtcRobotController-6.2/build.dependencies.gradle   |   23 +
+ FtcRobotController-6.2/build.gradle                |   69 ++
+ .../doc/legal/AudioBlocksSounds.txt                |   21 +
+ ...ibit A - LEGO Open Source License Agreement.txt |   15 +
+ .../doc/legal/LEGO Open Source License.pdf         |  Bin 0 -> 34100 bytes
+ FtcRobotController-6.2/doc/media/PullRequest.PNG   |  Bin 0 -> 19655 bytes
+ FtcRobotController-6.2/doc/media/chips.jpg         |  Bin 0 -> 816198 bytes
+ FtcRobotController-6.2/doc/media/stones.jpg        |  Bin 0 -> 842909 bytes
+ .../doc/media/target_chips_A4.pdf                  |  Bin 0 -> 840051 bytes
+ .../doc/media/target_chips_USLetter.pdf            |  Bin 0 -> 840127 bytes
+ .../doc/media/target_stones_A4.pdf                 |  Bin 0 -> 866933 bytes
+ .../doc/media/target_stones_USLetter.pdf           |  Bin 0 -> 866902 bytes
+ FtcRobotController-6.2/gradle.properties           |    7 +
+ .../gradle/wrapper/gradle-wrapper.jar              |  Bin 0 -> 54329 bytes
+ .../gradle/wrapper/gradle-wrapper.properties       |    6 +
+ FtcRobotController-6.2/gradlew                     |  164 +++
+ FtcRobotController-6.2/gradlew.bat                 |   90 ++
+ FtcRobotController-6.2/libs/README.txt             |    1 +
+ FtcRobotController-6.2/libs/Vuforia.jar            |  Bin 0 -> 204908 bytes
+ .../libs/arm64-v8a/libVuforia.so                   |  Bin 0 -> 17356216 bytes
+ .../libs/armeabi-v7a/libVuforia.so                 |  Bin 0 -> 13870176 bytes
+ FtcRobotController-6.2/libs/ftc.debug.keystore     |  Bin 0 -> 2146 bytes
+ .../libs/tensorflow-lite-0.0.0-nightly.aar         |  Bin 0 -> 2376501 bytes
+ FtcRobotController-6.2/libs/tfod-release.aar       |  Bin 0 -> 1300813 bytes
+ FtcRobotController-6.2/settings.gradle             |    2 +
+ 115 files changed, 11682 insertions(+)
+
+commit 9c1a6f6114695ab6ff971ed9aa695f6a4c6b479f
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 16 16:33:31 2021 -0700
+
+    Delete .idea directory
+
+ .idea/.gitignore             | 3 ---
+ .idea/FTC-18693-Programs.iml | 9 ---------
+ .idea/misc.xml               | 6 ------
+ .idea/modules.xml            | 8 --------
+ .idea/vcs.xml                | 7 -------
+ 5 files changed, 33 deletions(-)
+
+commit 28d6bbdcb0afabc0d9d06a3f454eb90c2e98ff50
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Fri Apr 16 16:10:28 2021 -0700
+
+    Initial commit
+
+ LICENSE   | 21 +++++++++++++++++++++
+ README.md |  2 ++
+ 2 files changed, 23 insertions(+)
