@@ -1,4 +1,41 @@
 to update run ./update-changlelogs.sh
+commit 28ad381024c48c55b859d83191a6c665542665c2
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:15:25 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Williams-Changelog.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit c673344d7e9ff1bdab9e04c59182d1279054aef2
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:13:57 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Williams-Changelog.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit ee2a6012cadc2d8b4428d8304080fca96a4946b0
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:11:45 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Williams-Changelog.txt | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit c817ede10c5123ad4a2cdb33953d6bbb22484968
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:08:25 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt  | 18 ++++++++++++++++++
+ Williams-Changelog.txt | 28 ++++++++++++++++++++++++++++
+ 2 files changed, 46 insertions(+)
+
 commit a5d011c6bc7e85a290a590984a78f638f12d6553
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 14:07:57 2021 -0700
@@ -16,6 +53,16 @@ Date:   Sun Aug 22 14:05:32 2021 -0700
 
  update-changelogs.sh | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 8f3be23de185efdcbc1bc11161dcb8509ffe71dd
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 14:03:52 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt  | 29 +++++++++++++++++++++++++++++
+ Williams-Changelog.txt | 39 +++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 68 insertions(+)
 
 commit 9ff222e61d6a3370c53610e892500a710e4b6f8c
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -46,6 +93,37 @@ Date:   Sun Aug 22 13:42:28 2021 -0700
  update-changelogs.sh | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
+commit ad255bc8ce1d87dade08a7547af50c638b2b5fbf
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:42:18 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Project-Changelog.txt  |  7 +------
+ Williams-Changelog.txt | 10 ++++++++++
+ 2 files changed, 11 insertions(+), 6 deletions(-)
+
+commit 3960c68abe275fb77b45efdcc62bf226e7447723
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:41:00 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Project-Changelog.txt  |  5 +++++
+ Williams-Changelog.txt | 11 +++++++++++
+ 2 files changed, 16 insertions(+)
+
+commit 852424ccdae205ab86ae9470b79e9d07512eb7f2
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:40:26 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt  |  9 +++++++++
+ Project-Changelog.txt  |  2 +-
+ Williams-Changelog.txt | 19 +++++++++++++++++++
+ 3 files changed, 29 insertions(+), 1 deletion(-)
+
 commit 2490a85a73350f9c5376e5f544630dce82e987f1
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:38:17 2021 -0700
@@ -54,6 +132,46 @@ Date:   Sun Aug 22 13:38:17 2021 -0700
 
  update-changelogs.sh | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 82447abe21650b2162d9dfc626e2016b5ef26edc
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:37:13 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt  | 1701 ++++++++++++++++++++++++++++++++++++++++++++++++
+ Williams-Changelog.txt | 1422 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 3123 insertions(+)
+
+commit 096870caa8d6a235fea4f290586443fbc9be3930
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:35:30 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt  | 599 -------------------------------------------------
+ Williams-Changelog.txt |   2 +-
+ 2 files changed, 1 insertion(+), 600 deletions(-)
+
+commit 54b97d5f54656bf2646a8eadbde44447e07ca84b
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:33:48 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt  | 16 +++++++++++++---
+ Williams-Changelog.txt |  2 +-
+ 2 files changed, 14 insertions(+), 4 deletions(-)
+
+commit faad22fed0456feca85c4145fbe0033c49fee3ca
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:32:09 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt | 19 +++++++++++++++++++
+ Project-Changelog.txt |  5 +++++
+ 2 files changed, 24 insertions(+)
 
 commit 695443c806b39f7c8da9d1839e71789af60b9b70
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -64,6 +182,26 @@ Date:   Sun Aug 22 13:32:07 2021 -0700
  update-changelogs.sh | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
+commit d13356c5e7ef64b123ceb0a3f4d4fad8181a05d7
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:31:47 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt | 10 ++++++++++
+ Project-Changelog.txt | 12 +-----------
+ 2 files changed, 11 insertions(+), 11 deletions(-)
+
+commit 5768bddf00e2621aad8fc66f0159e508cc6b0492
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:29:37 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt | 19 +++++++++++++++++++
+ Project-Changelog.txt | 11 +++++++++++
+ 2 files changed, 30 insertions(+)
+
 commit 5b3fc8accab0f7c1e1a83f45e914cfc6aa768de8
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sun Aug 22 13:29:06 2021 -0700
@@ -72,6 +210,16 @@ Date:   Sun Aug 22 13:29:06 2021 -0700
 
  update-changelogs.sh | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b17c73d21909044503d2329ae927cf8df510b29b
+Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
+Date:   Sun Aug 22 13:27:46 2021 -0700
+
+    Updated Koltons-Changelog.txt, Williams-Changelog.txt, and Project-Changelog.txt
+
+ Koltons-Changelog.txt | 37 +++++++++++++++++++++++++++++++++++++
+ Project-Changelog.txt |  0
+ 2 files changed, 37 insertions(+)
 
 commit 5659ce384cfa5eed5b0ac6cb2056319cf6d5d66b
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -82,15 +230,6 @@ Date:   Sun Aug 22 13:27:32 2021 -0700
  CHANGELOG.md         | 137 ---------------------------------------------------
  update-changelogs.sh |   6 ++-
  2 files changed, 4 insertions(+), 139 deletions(-)
-
-commit cd000fe465213afe666f99b5a5f9891b89c11fa1
-Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
-Date:   Sun Aug 22 13:20:28 2021 -0700
-
-    Create README.md
-
- README.md | 2 ++
- 1 file changed, 2 insertions(+)
 
 commit e92538e62398f151eba8f74c86252d18f52480e0
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -232,169 +371,6 @@ Date:   Sun Aug 15 15:21:41 2021 -0700
  .../firstinspires/ftc/teamcode/RobotHardware.java  | 35 ++++++++--------------
  2 files changed, 15 insertions(+), 32 deletions(-)
 
-commit c542cdcf7983542f905a5d4b48a36fb3974ca983
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sun Jun 6 17:52:54 2021 -0700
-
-    Added temperature logging to TeleopKolton.java and fixed precision driving in AutonomousKolton.java
-
- .../ftc/teamcode/AutonomousKolton.java             | 21 +++++++++++++++++----
- .../firstinspires/ftc/teamcode/RobotHardware.java  |  5 +++--
- .../firstinspires/ftc/teamcode/TeleopKolton.java   | 22 +++++++++++++++++++---
- 3 files changed, 39 insertions(+), 9 deletions(-)
-
-commit 341bdb0c63f5539ef524ddcc5deb0dc526aa55f5
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Jun 5 14:35:12 2021 -0700
-
-    Changed AutonomousCode
-
- .../ftc/teamcode/AutonomousCodeOfficial.java       | 64 ++++++++++------------
- 1 file changed, 30 insertions(+), 34 deletions(-)
-
-commit f6308cf2d3d4553dbf9197b913a259271d616376
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Jun 5 14:32:27 2021 -0700
-
-    Added precision driving to AutonomousKolton.java
-
- .../ftc/teamcode/AutonomousKolton.java             | 25 +++++++++++-----------
- 1 file changed, 13 insertions(+), 12 deletions(-)
-
-commit e6a1fab7d5d2aad2f2c051b12e157a59259d5daf
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Jun 5 14:17:01 2021 -0700
-
-    Added precision driving to AutonomousKolton.java
-
- .../main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 5 +----
- .../org/firstinspires/ftc/teamcode/AutonomousCodeOfficial.java   | 8 ++++----
- .../java/org/firstinspires/ftc/teamcode/AutonomousKolton.java    | 9 +++++----
- .../main/java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 4 ++--
- 4 files changed, 12 insertions(+), 14 deletions(-)
-
-commit 9c35db5cf465b355907b07d1fd8cbe11d63dd145
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Jun 5 12:50:26 2021 -0700
-
-    reversed wheel direction
-
- .../main/java/org/firstinspires/ftc/teamcode/AutonomousKolton.java    | 4 +++-
- .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java   | 4 ++--
- 2 files changed, 5 insertions(+), 3 deletions(-)
-
-commit 3fed6921ad17d4e501c3e456ce988cdf4a481b30
-Merge: ba05737 cc8b6c2
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Jun 5 12:32:18 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit ba05737686ba789e92c854827af9eda544a4a60e
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Jun 5 12:32:02 2021 -0700
-
-    Changed AutonomousCode
-
- .../java/org/firstinspires/ftc/teamcode/AutonomousCodeOfficial.java     | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-commit cc8b6c26d4c04e5e29ca43198d3f7f198cef76ca
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Jun 5 12:25:28 2021 -0700
-
-    Added precision driving to AutonomousKolton.java
-
- .../ftc/teamcode/AutonomousKolton.java             | 62 ++++++++++++----------
- .../firstinspires/ftc/teamcode/RobotHardware.java  |  6 +--
- .../{TankDriveKolton.java => TeleopKolton.java}    |  4 +-
- 3 files changed, 39 insertions(+), 33 deletions(-)
-
-commit 5b8756ae3de4504f22ccec8b856eb99df52d5e89
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Jun 5 12:20:25 2021 -0700
-
-    Changed AutonomousCode
-
- .../ftc/teamcode/AutonomousCodeOfficial.java       | 37 ++++++++++++++++++----
- 1 file changed, 30 insertions(+), 7 deletions(-)
-
-commit d5a26c64192c0de5941790079a96c236cb60758d
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Jun 3 20:07:54 2021 -0700
-
-    Added precision driving and turning to AutonomousKolton.java
-
- .../java/org/firstinspires/ftc/teamcode/AutonomousKolton.java     | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-commit 4cafaa4ad1bf088aac93066c94b792e778b8d316
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Jun 3 19:42:25 2021 -0700
-
-    Added my own AutonomousKolton.java file, updated RobotHardware.java and did a lot of other things.
-
- .../ftc/teamcode/AutonomousCodeOfficial.java       |   2 +-
- .../ftc/teamcode/AutonomousKolton.java             | 282 +++++++++++++++++++++
- .../firstinspires/ftc/teamcode/RobotHardware.java  |   4 +
- .../ftc/teamcode/TankDriveKolton.java              |  17 +-
- 4 files changed, 289 insertions(+), 16 deletions(-)
-
-commit 366b2504270fa7f5f2e74e74f8318e57c1eb05d6
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Jun 3 18:33:04 2021 -0700
-
-    Added Gyro functionality to TankDriveKolton.java and added initilization to RobotHardware.java
-
- .../ftc/teamcode/AutonomousCodeOfficial.java       | 222 +++++++++++++++++++++
- .../ftc/teamcode/TankDriveKolton.java              |  24 ++-
- 2 files changed, 238 insertions(+), 8 deletions(-)
-
-commit 43976f83e0711c0dd31914f253ef1c15ac0afcbf
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu May 27 20:00:02 2021 -0700
-
-    Added Gyro functionality to TankDriveKolton.java and added initilization to RobotHardware.java
-
- .../firstinspires/ftc/teamcode/RobotHardware.java  | 37 +++++++--
- .../ftc/teamcode/TankDriveKolton.java              | 90 +++++++++++++---------
- 2 files changed, 84 insertions(+), 43 deletions(-)
-
-commit 2eed6aff9aad9818b35de51a4e7d4eeb8ae9fee4
-Merge: b225f7f 5dd8eec
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu May 27 18:08:13 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit b225f7fb0668732f73ab051041d8e468e44da7b0
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 22 15:45:50 2021 -0700
-
-    Reverted code to before mass comment out, added shooter support and fixed telemetrys
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java |  4 ++
- .../firstinspires/ftc/teamcode/RingShooter.java    | 31 +++++++---
- .../firstinspires/ftc/teamcode/RobotHardware.java  | 21 ++++---
- .../ftc/teamcode/TankDriveKolton.java              | 71 ++++++++++++++++------
- 4 files changed, 96 insertions(+), 31 deletions(-)
-
-commit 5dd8eecf7d862a2ed86d98fc90b6a14978a39ddf
-Merge: 9d9008f 415bf8b
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 22 10:33:25 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit 9d9008f7ff54cc1bad8afc6238c21f1e35b110be
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 22 10:33:07 2021 -0700
-
-    Reverted code to before mass comment out
-
- .../java/org/firstinspires/ftc/teamcode/AutonomousCode.java    | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
 commit 415bf8bb9ec27a2799924e6c3636066823332662
 Merge: b0e310c 9a40e2b
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -432,101 +408,6 @@ Date:   Sat May 15 14:36:00 2021 -0700
  .../ftc/teamcode/TankDriveKolton.java              | 14 +++++-----
  4 files changed, 29 insertions(+), 46 deletions(-)
 
-commit 9a40e2b10a66ab1b41c46fe6e9e83457a9d761a8
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 15:34:38 2021 -0700
-
-    Changed AutonomousCode
-
- .../java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
-
-commit d77cf61bc06ab6c66b3c55d36bb8a05dd8764248
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 14:36:00 2021 -0700
-
-    Changed RobotHardware
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 26 +++++++++---------
- .../firstinspires/ftc/teamcode/RingShooter.java    | 31 +++++-----------------
- .../firstinspires/ftc/teamcode/RobotHardware.java  |  4 +--
- .../ftc/teamcode/TankDriveKolton.java              | 14 +++++-----
- 4 files changed, 29 insertions(+), 46 deletions(-)
-
-commit 45e09af660b2237cd79e68473b63e446dc9167f2
-Merge: bc2a563 a57b255
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 13:48:18 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit bc2a5638206a061d4e3b31aa0575845163e6cd44
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 13:32:05 2021 -0700
-
-    Changed RobotHardware
-
- .../main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java   | 7 ++++---
- .../main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java  | 2 --
- 2 files changed, 4 insertions(+), 5 deletions(-)
-
-commit a202e51f06a3f82426852b3876c635b26d87a52d
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 13:26:48 2021 -0700
-
-    Changed RobotHardware
-
- .../src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java  | 4 ++--
- .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java   | 4 ++--
- .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java | 2 +-
- 3 files changed, 5 insertions(+), 5 deletions(-)
-
-commit ccc36acf77811b70e3cefcef14a36ed624c53de3
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 13:15:42 2021 -0700
-
-    Changed RobotHardware
-
- .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-commit bf79766d5ede398ed56fc41808535466285a887b
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 13:09:02 2021 -0700
-
-    Changed AutonomousCode
-
- .../src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-commit a57b25542c44b4b532393b50df7496a6f0f7c7b1
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 15 12:53:20 2021 -0700
-
-    added distance sensor
-
- TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RingShooter.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-commit b462b9a62a00b959f8552693baac20a7099ca871
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 15 12:41:10 2021 -0700
-
-    Changed WilliamFunction/AutonomousCode
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 193 ++++++++++++++++++++-
- .../ftc/teamcode/WilliamFunctions.java             |  10 +-
- 2 files changed, 191 insertions(+), 12 deletions(-)
-
-commit 8dd9cde7cb3b8010c9b46d35651ea74245d3c10d
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu May 13 19:22:32 2021 -0700
-
-    Worked on programs
-
- .../ftc/teamcode/TankDriveKolton.java              | 38 +++++++++++++++++-----
- 1 file changed, 29 insertions(+), 9 deletions(-)
-
 commit e17012b3f95d9e3676d680c49bb541de3f133aac
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sat May 8 17:46:30 2021 -0700
@@ -536,256 +417,6 @@ Date:   Sat May 8 17:46:30 2021 -0700
  .../firstinspires/ftc/teamcode/RobotHardware.java   | 21 +++++++++++++++++----
  .../firstinspires/ftc/teamcode/TankDriveKolton.java |  8 +++++---
  2 files changed, 22 insertions(+), 7 deletions(-)
-
-commit 90519bbbe6acd638688ef5f438600db35a3a1b23
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 8 16:08:46 2021 -0700
-
-    Worked on programs
-
- .../src/main/java/org/firstinspires/ftc/teamcode/RingShooter.java     | 4 ++++
- .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java   | 2 +-
- 2 files changed, 5 insertions(+), 1 deletion(-)
-
-commit ee95957cb4b7f613437f116997c7b874251ce2b5
-Merge: 77baf46 a32e986
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 8 14:48:36 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit 77baf46ea99dd72455b61ad43c0d34dd5823adf9
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 8 14:47:29 2021 -0700
-
-    Worked on programs
-
- .../firstinspires/ftc/teamcode/RingShooter.java    | 13 ++++---
- .../firstinspires/ftc/teamcode/RobotHardware.java  | 42 +++++++++++++---------
- .../ftc/teamcode/TankDriveKolton.java              | 36 +++++++------------
- 3 files changed, 45 insertions(+), 46 deletions(-)
-
-commit a32e986784617d2c13e39c623e8a1687afe7d87a
-Merge: 261ca0e 4e25d90
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 8 12:41:46 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java
-
-commit 261ca0e39505915cf25ee52b55eb827c96fe55c7
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 8 12:41:06 2021 -0700
-
-    Changed RobotHardware/WilliamFunction/AutonomousCode
-
- .../firstinspires/ftc/teamcode/WilliamFunctions.java   | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
-
-commit 61cc3d0e91e52c759f31ba7d49b70f30da971a1c
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 8 12:37:35 2021 -0700
-
-    Changed RobotHardware/WilliamFunction/AutonomousCode
-
- .../java/org/firstinspires/ftc/teamcode/RobotHardware.java  |  7 ++++---
- .../org/firstinspires/ftc/teamcode/WilliamFunctions.java    | 13 +++++++------
- 2 files changed, 11 insertions(+), 9 deletions(-)
-
-commit 4e25d90033263b43f7a5e574dce0e2c16fbc984d
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 8 12:36:12 2021 -0700
-
-    Worked on programs
-
- .../src/main/java/org/firstinspires/ftc/teamcode/RingShooter.java    | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-commit ca9e5084f6855f756c4aa77c07b109b98a594221
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 8 12:30:34 2021 -0700
-
-    Added ring shooter program
-
- .../firstinspires/ftc/teamcode/RingShooter.java    | 115 +++++++++++++++++++++
- .../firstinspires/ftc/teamcode/RobotHardware.java  |  23 ++++-
- .../ftc/teamcode/TankDriveKolton.java              |  11 +-
- 3 files changed, 144 insertions(+), 5 deletions(-)
-
-commit c3cb6fa78a3f25d76e27e62a5a9e88b4bb7435d0
-Merge: 53d7b6e 301cbd0
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 8 12:22:39 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java
-
-commit 301cbd0201bc3596caf4efc3a2dff1319c9fe224
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu May 6 18:34:04 2021 -0700
-
-    Worked on programs
-
- .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java   | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-commit 4540563d6a4a91b1b72b3c8664b49849ca671065
-Merge: 9e81593 30c5af2
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Thu May 6 18:32:40 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit 9e815935cb8f4707845e93c3d5dda642807be027
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Thu May 6 18:32:30 2021 -0700
-
-    Bug fixing
-
- .../main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java    | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-commit 30c5af2f30225e91ce781648f866adc962b1d832
-Merge: f1d1dfa 6f079be
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu May 6 18:32:27 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit f1d1dfa32b6be96ea6b4f8a1f90fcaec053c56d8
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu May 6 18:32:15 2021 -0700
-
-    Worked on programs
-
- .../ftc/teamcode/TankDriveKolton.java              | 44 +++++++++-------------
- 1 file changed, 17 insertions(+), 27 deletions(-)
-
-commit 6f079be4de375061a65a34887cc58726b8a4a3b1
-Merge: 4f9cc7e 9ad793c
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Thu May 6 18:30:03 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit 4f9cc7e931236a523c45910ddb636df123529d9e
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Thu May 6 18:25:13 2021 -0700
-
-    Bug fixing
-
- .../src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 5 ++---
- .../main/java/org/firstinspires/ftc/teamcode/WilliamFunctions.java   | 1 +
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-commit 202161ea5489547caf7c729437d7de5710826899
-Merge: 45e321d e16868b
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Thu May 6 18:13:00 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/KoltonFunctions.java
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/WilliamFunctions.java
-
-commit 9ad793c1a504deb9cccd5f32ceb30a1489a2df19
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu May 6 18:12:01 2021 -0700
-
-    A busy meeting
-
- .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java  | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-commit e16868b97cb99a7065fbccc30e11768e83081239
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Tue May 4 18:42:34 2021 -0700
-
-    A busy meeting
-
- .../ftc/teamcode/KoltonFunctions.java              | 102 ---------------------
- .../ftc/teamcode/TankDriveKolton.java              |  48 +++++++++-
- 2 files changed, 47 insertions(+), 103 deletions(-)
-
-commit 53d7b6e47c7a99bba13d3760fada1d36770712ee
-Merge: 145936d 5708a26
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 1 15:18:45 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit 5708a26823e90df8b3785431ef7c73474c754e69
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 1 15:17:27 2021 -0700
-
-    A busy meeting
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java |  3 +-
- .../ftc/teamcode/KoltonFunctions.java              | 15 +++----
- .../firstinspires/ftc/teamcode/RobotHardware.java  |  5 ++-
- .../ftc/teamcode/TankDriveKolton.java              | 49 ++++++++++++++++++----
- 4 files changed, 54 insertions(+), 18 deletions(-)
-
-commit 145936d6e0688723dd6ce8bda4ba24b95dec171e
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 1 13:41:53 2021 -0700
-
-    Changed RobotHardware
-
- .../src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java | 5 ++---
- .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 2 +-
- 2 files changed, 3 insertions(+), 4 deletions(-)
-
-commit d5e4ea215727adf7fe7a926427e774c2169b54e6
-Merge: 377cb41 8c8216e
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat May 1 12:13:47 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit 8c8216ed034a815215c7e987a9c4da5ebabc7f40
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat May 1 12:13:18 2021 -0700
-
-    Changed WilliamFunctions
-
- .../java/org/firstinspires/ftc/teamcode/WilliamFunctions.java  | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
-
-commit 377cb410669035e2a8fc97d8280f38cb7d891df1
-Merge: 8dc4708 f9cdeec
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Apr 29 18:23:46 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java
-
-commit 45e321d9ddaba431be246752aadbc30e36251624
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Wed Apr 28 19:32:47 2021 -0700
-
-    Changes to RobotFunctions
-
- .../main/java/org/firstinspires/ftc/teamcode/KoltonFunctions.java | 2 +-
- .../java/org/firstinspires/ftc/teamcode/WilliamFunctions.java     | 8 ++++----
- 2 files changed, 5 insertions(+), 5 deletions(-)
-
-commit f2ff56d5efd603e5be3377e23bb408561a88c839
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Wed Apr 28 19:10:29 2021 -0700
-
-    Changes to RobotFunctions and AutonomousCode
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 12 +++---
- .../ftc/teamcode/WilliamFunctions.java             | 49 ++++++++++------------
- 2 files changed, 30 insertions(+), 31 deletions(-)
 
 commit f9cdeec5784c32f5d3a8885b63690d830a254f15
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -859,175 +490,6 @@ Date:   Sat Apr 24 18:53:29 2021 -0700
  .../org/firstinspires/ftc/teamcode/TankDriveKolton.java   | 15 ++++++++++++---
  2 files changed, 25 insertions(+), 3 deletions(-)
 
-commit fdd64581384166381f4bd40f64055f98824b6954
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 15:53:53 2021 -0700
-
-    Changed WilliamFunctions
-
- .../org/firstinspires/ftc/teamcode/AutonomousCode.java   | 16 +---------------
- 1 file changed, 1 insertion(+), 15 deletions(-)
-
-commit aa9a9975b033484db958e447aa04d8449942f780
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 15:53:19 2021 -0700
-
-    Revert "Changed lots of things"
-    
-    This reverts commit 9256ca18
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 16 ++++++++-
- .../ftc/teamcode/WilliamFunctions.java             | 42 +++++++++++-----------
- 2 files changed, 37 insertions(+), 21 deletions(-)
-
-commit 9256ca18369a0dd964b2788e818481a95995292a
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 15:44:25 2021 -0700
-
-    Changed lots of things
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 16 +--------
- .../ftc/teamcode/WilliamFunctions.java             | 42 +++++++++++-----------
- 2 files changed, 21 insertions(+), 37 deletions(-)
-
-commit 8dc470831af104b1258e04c850f2e7b74b31fc00
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 24 15:19:14 2021 -0700
-
-    Worked on programs
-
- .../src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java     | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-commit e870d22c7717c1f86982c262002223aa858ef579
-Merge: b89e967 b6ee295
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 15:18:27 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/AutonomousCode.java
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TankDriveTeleop.java
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/WilliamFunctions.java
-
-commit b89e9678e0171b1133e3d4ad62e3f96f8c8b0298
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 15:03:37 2021 -0700
-
-    Changed lots of things
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 108 ++-------------------
- .../ftc/teamcode/TankDriveTeleop.java              |  40 ++++----
- .../ftc/teamcode/WilliamFunctions.java             |  46 +++++----
- 3 files changed, 58 insertions(+), 136 deletions(-)
-
-commit b6ee2950efcd3b305bea355a1ae5debadf8ce678
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 24 15:01:32 2021 -0700
-
-    Worked on programs
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 134 ---------------------
- .../ftc/teamcode/KoltonFunctions.java              |  11 ++
- .../ftc/teamcode/KoltonsFirstTankDrive.java        |   6 +-
- .../firstinspires/ftc/teamcode/RobotHardware.java  |   4 +-
- .../ftc/teamcode/TankDriveKolton.java              |  15 ++-
- .../ftc/teamcode/TankDriveTeleop.java              |  40 +++---
- .../ftc/teamcode/WilliamFunctions.java             |   6 +-
- 7 files changed, 45 insertions(+), 171 deletions(-)
-
-commit 94eda4ccb405a0ef1e7775acd3606da5eb0ee566
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 14:14:58 2021 -0700
-
-    Changed RobotFunctions
-
- .../src/main/java/org/firstinspires/ftc/teamcode/TankDriveKolton.java   | 2 +-
- .../ftc/teamcode/{RobotFunctions.java => WilliamFunctions.java}         | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
-commit 518f9a259b15692dbfa6e62012c7530618d25a76
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 14:13:22 2021 -0700
-
-    Changed RobotFunctions
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 88 +---------------------
- .../firstinspires/ftc/teamcode/RobotFunctions.java | 74 +++++++++++++++++-
- 2 files changed, 74 insertions(+), 88 deletions(-)
-
-commit 248607ed2a5517237729c809f3ba5f44ae5a01a3
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 13:24:00 2021 -0700
-
-    Changed RobotFunctions
-
- .../firstinspires/ftc/teamcode/AutonomousCode.java | 35 ---------
- .../firstinspires/ftc/teamcode/RobotFunctions.java | 89 ++++++++++++++++++----
- 2 files changed, 75 insertions(+), 49 deletions(-)
-
-commit 512c6bc9cc39fe547bb49391b3c308cfa5d4b723
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 24 13:19:23 2021 -0700
-
-    Worked on programs
-
- .../main/java/org/firstinspires/ftc/teamcode/RobotHardware.java   | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-commit c0ff33c810a2b034ba604ad429ed86e7609e1249
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 24 13:13:12 2021 -0700
-
-    Worked on programs
-
- .../java/org/firstinspires/ftc/teamcode/RobotHardware.java | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-commit 261f8372a5758bbdab616f70b14e844e6dc2f541
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 24 13:03:26 2021 -0700
-
-    Worked on programs
-
- .../src/main/java/org/firstinspires/ftc/teamcode/RobotFunctions.java   | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-commit 0b1f22b53d76174912e71c5718371cecc974fbbe
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 24 13:01:46 2021 -0700
-
-    Worked on programs
-
- .../firstinspires/ftc/teamcode/RobotFunctions.java |  4 +++-
- .../firstinspires/ftc/teamcode/RobotHardware.java  | 26 ++++++++++++----------
- .../ftc/teamcode/TankDriveKolton.java              |  7 ++----
- 3 files changed, 19 insertions(+), 18 deletions(-)
-
-commit 590d50552ca685858fa0c459efa6916f3b3cae27
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Sat Apr 24 12:48:15 2021 -0700
-
-    Changed RobotFunctions
-
- .../{AutonomusCode.java => AutonomousCode.java}    |  2 +-
- .../ftc/teamcode/KoltonsFirstTankDrive.java        |  2 +-
- .../firstinspires/ftc/teamcode/RobotFunctions.java | 48 +++++++++++++++++++++-
- 3 files changed, 48 insertions(+), 4 deletions(-)
-
-commit 957e00cb7c3ecaaaea82ed26ccf6d20c76b5fa74
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 24 12:18:53 2021 -0700
-
-    Worked on TankDriveKolton.java
-
- .../ftc/teamcode/KoltonsFirstTankDrive.java        | 15 ++-----
- .../firstinspires/ftc/teamcode/RobotHardware.java  | 52 ++++++++++------------
- .../ftc/teamcode/TankDriveKolton.java              | 26 ++++++-----
- .../ftc/teamcode/TankDriveTeleop.java              | 20 ++++-----
- 4 files changed, 54 insertions(+), 59 deletions(-)
-
 commit 030e2aefd86c2bd1f2be28994978729ede600a21
 Merge: 93ea942 63c25ba
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -1044,28 +506,6 @@ Date:   Fri Apr 23 20:29:29 2021 -0700
  .../ftc/teamcode/TankDriveKolton.java              | 102 +++++++++++++++++++++
  1 file changed, 102 insertions(+)
 
-commit 63c25baae46e36bf40d25d998b7a09785d1fe42b
-Merge: 7ac096c 683354d
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 23 17:12:04 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RobotFunctions.java
-
-commit 7ac096c9b07f827b7f42dba96f8685026e2038f0
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 23 17:11:14 2021 -0700
-
-    Changes to RobotFunctions/Hardware and AutonomusCode
-
- .idea/misc.xml                                                     | 5 +++--
- .../main/java/org/firstinspires/ftc/teamcode/AutonomusCode.java    | 7 +++++--
- .../main/java/org/firstinspires/ftc/teamcode/RobotFunctions.java   | 3 ++-
- .../main/java/org/firstinspires/ftc/teamcode/RobotHardware.java    | 7 ++++---
- 4 files changed, 14 insertions(+), 8 deletions(-)
-
 commit 683354d1a86c91752c2f02588000835d5b791a5b
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Fri Apr 23 16:49:10 2021 -0700
@@ -1075,16 +515,6 @@ Date:   Fri Apr 23 16:49:10 2021 -0700
  .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java  | 1 -
  .../main/java/org/firstinspires/ftc/teamcode/RobotFunctions.java    | 6 +++++-
  2 files changed, 5 insertions(+), 2 deletions(-)
-
-commit ec11ee9e5c0c4971a5329637e18cf0eefebee046
-Merge: 8076389 66335bb
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 23 16:46:22 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/RobotHardware.java
 
 commit 66335bba4e96353d7215129c2442745f10cb2664
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -1097,13 +527,6 @@ Date:   Fri Apr 23 16:42:38 2021 -0700
  .../main/java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 3 ---
  3 files changed, 11 insertions(+), 3 deletions(-)
 
-commit 8076389453e336b6f1dacccd8482fc42eba0d74c
-Merge: e570776 57b4d9c
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 23 16:40:42 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
 commit 57b4d9c128a9937a8615cf58d976cf007ca7fc60
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Fri Apr 23 16:28:42 2021 -0700
@@ -1114,17 +537,6 @@ Date:   Fri Apr 23 16:28:42 2021 -0700
  .../main/java/org/firstinspires/ftc/teamcode/RobotHardware.java  | 9 ++++++---
  2 files changed, 10 insertions(+), 6 deletions(-)
 
-commit e5707761d4c101d2fc7154aad7fdf43cecfde115
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 23 16:24:36 2021 -0700
-
-    RobotHardware added to TankDriveTeleop
-
- .idea/misc.xml                                     |   5 +
- .../firstinspires/ftc/teamcode/RobotHardware.java  |   9 +-
- .../ftc/teamcode/TankDriveTeleop.java              | 114 ++++++---------------
- 3 files changed, 42 insertions(+), 86 deletions(-)
-
 commit 07a474967b8b556c237e2cb3f6ead3caa51bbcce
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Fri Apr 23 16:09:59 2021 -0700
@@ -1133,24 +545,6 @@ Date:   Fri Apr 23 16:09:59 2021 -0700
 
  .../ftc/teamcode/KoltonsFirstTankDrive.java        | 24 +++++++++-------------
  1 file changed, 10 insertions(+), 14 deletions(-)
-
-commit 255bd219919be2d6fea22abe483e51d687c5db26
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 23 16:01:27 2021 -0700
-
-    RobotHardware changes
-
- .../firstinspires/ftc/teamcode/RobotHardware.java  | 30 ++++++++++------------
- 1 file changed, 13 insertions(+), 17 deletions(-)
-
-commit 3c5c8b761a194141d19027ad6a3cfecc9faf92d7
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 23 15:58:47 2021 -0700
-
-    RobotHardware changes
-
- .../org/firstinspires/ftc/teamcode/RobotHardware.java   | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
 
 commit 041fd01f9fab260c9dd5bc3a197ee94a5a212367
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -1170,117 +564,6 @@ Date:   Fri Apr 23 10:00:03 2021 -0700
  .../ftc/teamcode/KoltonsFirstTankDrive.java        | 27 ++++----
  .../firstinspires/ftc/teamcode/RobotHardware.java  | 80 ++++++++++++++++++++++
  2 files changed, 93 insertions(+), 14 deletions(-)
-
-commit 4d9ca3c2205476d88a301473a61d34f7902d2100
-Merge: 96b1549 2414904
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Apr 22 20:01:04 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java
-
-commit 96b1549c56d3b20a86b57dd4591803c0efb19352
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Apr 22 19:59:59 2021 -0700
-
-    Worked on KoltonsFirstTankDrive Program
-
- .../ftc/teamcode/KoltonsFirstTankDrive.java              | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
-
-commit b3509ad81397428462194d8601fe4b9e76565ad5
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Apr 22 19:53:56 2021 -0700
-
-    Worked on KoltonsFirstTankDrive Program
-
- .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-commit e2067bcae08874f98eac5fa237f2b0bdf886be89
-Merge: c4db254 d9d4d19
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Apr 22 19:36:11 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java
-
-commit 2414904d90ecbfa0794301254e8e8e9f827e792d
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Thu Apr 22 19:35:32 2021 -0700
-
-    Fixed bugs
-
- .../firstinspires/ftc/teamcode/AutonomusCode.java  | 252 +++++++++++++++++++++
- .../ftc/teamcode/KoltonsFirstTankDrive.java        |  18 +-
- .../ftc/teamcode/TankDriveTeleop.java              | 140 ++++++------
- 3 files changed, 322 insertions(+), 88 deletions(-)
-
-commit c4db2549829ca082c1ec0e8d373b8ee596341a85
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Apr 22 19:34:45 2021 -0700
-
-    Worked on KoltonsFirstTankDrive Program
-
- .../ftc/teamcode/KoltonsFirstTankDrive.java          | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
-
-commit d9d4d19c54fcbf7c608495a5c6bb954a1ca7d9c2
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Thu Apr 22 18:47:01 2021 -0700
-
-    Added Power
-
- .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-commit f751217f7d1167c11720d1cc373aeaaf5680d130
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Thu Apr 22 18:43:31 2021 -0700
-
-    Fixed Kolten's broken program
-
- .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java    | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-commit 1ed748fbd1b3b09633cdd5d1c2eb4449db4662a4
-Author: StrongMan19 <wdbowker11@gmail.com>
-Date:   Thu Apr 22 18:37:25 2021 -0700
-
-    Fixed Kolten's broken program
-
- .../ftc/teamcode/KoltonsFirstTankDrive.java        |  39 +--
- .../ftc/teamcode/TankDriveTeleop.java              | 289 +++++++++++----------
- 2 files changed, 167 insertions(+), 161 deletions(-)
-
-commit 52b24e5dd588b3dce00dc4845330884806a50b0b
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Thu Apr 22 18:24:27 2021 -0700
-
-    Worked on KoltonsFirstTankDrive Program
-
- .../java/org/firstinspires/ftc/teamcode/KoltonsFirstTankDrive.java  | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-commit 7af158e915d97bac76f5c45f37e7f23876dd3696
-Merge: f2a076f 91fc0ef
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Thu Apr 22 09:10:13 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit f2a076fa03e7144209f69196ca9f6919414ca0fe
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Thu Apr 22 09:10:02 2021 -0700
-
-    Changes to launcher system and added servos
-
- .../ftc/teamcode/TankDriveTeleop.java              | 52 +++++++++++++++++-----
- 1 file changed, 42 insertions(+), 10 deletions(-)
 
 commit 91fc0ef564b280d1c61f701ab8c513a035d7e787
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -1336,107 +619,6 @@ Date:   Wed Apr 21 20:03:00 2021 -0700
  .../{TankDrive.java => KoltonsFirstTankDrive.java} |  16 +-
  9 files changed, 6 insertions(+), 1285 deletions(-)
 
-commit 2a10f655254c107aad34240cb94f685d1b1013e1
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Wed Apr 21 19:35:09 2021 -0700
-
-    Changes to launcher system
-
- .../java/org/firstinspires/ftc/teamcode/TankDrive.java  |  2 +-
- .../org/firstinspires/ftc/teamcode/TankDriveTeleop.java | 17 ++---------------
- 2 files changed, 3 insertions(+), 16 deletions(-)
-
-commit 5156bff123a79e774afec7d937ebc9149a490150
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Wed Apr 21 18:57:27 2021 -0700
-
-    Commented
-
- TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TankDrive.java | 1 +
- 1 file changed, 1 insertion(+)
-
-commit f515e85c60e9f8017dd2375ae3247aed4efb0e73
-Merge: eba35f5 925d74a
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Tue Apr 20 16:41:54 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-    
-    # Conflicts:
-    #       TeamCode/src/main/java/org/firstinspires/ftc/teamcode/TankDriveTeleop.java
-
-commit eba35f5380b977089f937b650d3be4e37a19063a
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Tue Apr 20 16:41:14 2021 -0700
-
-    Added servos to TankDriveTeleop
-
- .../ftc/teamcode/TankDriveTeleop.java              | 124 +++++++++++++--------
- 1 file changed, 75 insertions(+), 49 deletions(-)
-
-commit 925d74a07dd843728bfd54708511207915e32db0
-Merge: 3d60dac 2a6c6bd
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sun Apr 18 14:59:41 2021 -0700
-
-    Merge remote-tracking branch 'origin/Master' into Master
-
-commit 3d60dacdd2509a36096847c26307bec1140fdb2d
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sun Apr 18 14:59:20 2021 -0700
-
-    Started my first tank drive java file
-
- .../org/firstinspires/ftc/teamcode/TankDrive.java  | 42 ++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
-
-commit 491a540a267ed65771572a3931ac15d82f745b6a
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sun Apr 18 14:59:01 2021 -0700
-
-    Started my first tank drive java file
-
- .../external/samples/HardwarePushbot.java          |  20 +--
- .../ftc/teamcode/SampleTeleopTank_Iterative.java   | 137 ---------------------
- .../ftc/teamcode/TankDriveTeleop.java              |   2 +-
- 3 files changed, 6 insertions(+), 153 deletions(-)
-
-commit 2a6c6bd8808f67eeb3d23715e811791ae86a6437
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Sun Apr 18 13:04:11 2021 -0700
-
-    Removed SampleTeleopTank_Iterative
-
- .../ftc/teamcode/SampleTeleopTank_Iterative.java   | 137 ---------------------
- 1 file changed, 137 deletions(-)
-
-commit 8a3e82226401353566a64406a91c3a9f30ab0c1e
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 17 15:29:18 2021 -0700
-
-    Moved file TankDriveTeleop
-
- .../src/main/java/org/firstinspires/ftc/teamcode}/TankDriveTeleop.java    | 0
- 1 file changed, 0 insertions(+), 0 deletions(-)
-
-commit f70802c7239d8075e79cc60edd595514163a50aa
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 17 14:04:07 2021 -0700
-
-    Commit
-
- .../ftc/teamcode/SampleTeleopTank_Iterative.java   | 137 +++++++++++++++++++++
- 1 file changed, 137 insertions(+)
-
-commit 658430aa28895192c75ae7ab4d9d4f3ba51a7a86
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Sat Apr 17 13:34:16 2021 -0700
-
-    Commit
-
- gradle/wrapper/gradle-wrapper.properties | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
 commit 4ecf7c9ea764cf747f424bc2ed13b1740221da9e
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
 Date:   Sat Apr 17 10:47:49 2021 -0700
@@ -1446,157 +628,6 @@ Date:   Sat Apr 17 10:47:49 2021 -0700
  build.gradle                             | 2 +-
  gradle/wrapper/gradle-wrapper.properties | 4 ++--
  2 files changed, 3 insertions(+), 3 deletions(-)
-
-commit 39a736a8de48860dba5ed3b0f09c4e7597a80167
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Fri Apr 16 20:21:29 2021 -0700
-
-    Ran Gradle Build
-
- .idea/FTC-18693-Programs.iml | 16 ++++++----------
- .idea/compiler.xml           |  6 ++++++
- .idea/jarRepositories.xml    | 30 ++++++++++++++++++++++++++++++
- .idea/misc.xml               |  2 +-
- .idea/modules.xml            |  2 ++
- 5 files changed, 45 insertions(+), 11 deletions(-)
-
-commit 261e4dacf8c90c9e4e921c1db2327d2d6dd71a21
-Author: BuildTools <unconfigured@null.spigotmc.org>
-Date:   Fri Apr 16 17:13:43 2021 -0700
-
-    Moved file
-
- .../org/firstinspires/ftc/robotcontroller/internal}/TankDriveTeleop.java  | 0
- 1 file changed, 0 insertions(+), 0 deletions(-)
-
-commit 426dfd0bdcb24a540efaaccb911d0bdc74b7c28f
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Fri Apr 16 16:55:51 2021 -0700
-
-    Commit
-
- {FtcRobotController-6.2/.github => .github}/CONTRIBUTING.md |   0
- .../.github => .github}/PULL_REQUEST_TEMPLATE.md            |   0
- FtcRobotController-6.2/.gitignore => .gitignore             |   0
- .idea/FTC-18693-Programs.iml                                |   4 +++-
- .../FtcRobotController => FtcRobotController}/build.gradle  |   0
- .../src/main/AndroidManifest.xml                            |   0
- .../src/main/assets/FTC_2016-17.dat                         | Bin
- .../src/main/assets/FTC_2016-17.xml                         |   0
- .../src/main/assets/RelicVuMark.dat                         | Bin
- .../src/main/assets/RelicVuMark.xml                         |   0
- .../src/main/assets/StonesAndChips.dat                      | Bin
- .../src/main/assets/StonesAndChips.xml                      |   0
- .../src/main/assets/UltimateGoal.dat                        | Bin
- .../src/main/assets/UltimateGoal.tflite                     | Bin
- .../src/main/assets/UltimateGoal.xml                        |   0
- .../external/samples/BasicOpMode_Iterative.java             |   0
- .../external/samples/BasicOpMode_Linear.java                |   0
- .../external/samples/ConceptCompassCalibration.java         |   0
- .../external/samples/ConceptDIMAsIndicator.java             |   0
- .../external/samples/ConceptI2cAddressChange.java           |   0
- .../external/samples/ConceptMotorBulkRead.java              |   0
- .../ftc/robotcontroller/external/samples/ConceptNullOp.java |   0
- .../external/samples/ConceptRampMotorSpeed.java             |   0
- .../external/samples/ConceptRevSPARKMini.java               |   0
- .../robotcontroller/external/samples/ConceptScanServo.java  |   0
- .../external/samples/ConceptSoundsASJava.java               |   0
- .../external/samples/ConceptSoundsOnBotJava.java            |   0
- .../external/samples/ConceptSoundsSKYSTONE.java             |   0
- .../robotcontroller/external/samples/ConceptTelemetry.java  |   0
- .../external/samples/ConceptTensorFlowObjectDetection.java  |   0
- .../ConceptTensorFlowObjectDetectionSwitchableCameras.java  |   0
- .../samples/ConceptTensorFlowObjectDetectionWebcam.java     |   0
- .../external/samples/ConceptVuMarkIdentification.java       |   0
- .../external/samples/ConceptVuMarkIdentificationWebcam.java |   0
- .../external/samples/ConceptVuforiaNavigation.java          |   0
- .../external/samples/ConceptVuforiaNavigationWebcam.java    |   0
- .../samples/ConceptVuforiaUltimateGoalNavigation.java       |   0
- .../samples/ConceptVuforiaUltimateGoalNavigationWebcam.java |   0
- .../ftc/robotcontroller/external/samples/ConceptWebcam.java |   0
- .../robotcontroller/external/samples/HardwarePushbot.java   |   0
- .../external/samples/PushbotAutoDriveByEncoder_Linear.java  |   0
- .../external/samples/PushbotAutoDriveByGyro_Linear.java     |   0
- .../external/samples/PushbotAutoDriveByTime_Linear.java     |   0
- .../external/samples/PushbotAutoDriveToLine_Linear.java     |   0
- .../external/samples/PushbotTeleopPOV_Linear.java           |   0
- .../external/samples/PushbotTeleopTank_Iterative.java       |   0
- .../external/samples/SampleRevBlinkinLedDriver.java         |   0
- .../robotcontroller/external/samples/SensorAdafruitRGB.java |   0
- .../robotcontroller/external/samples/SensorBNO055IMU.java   |   0
- .../external/samples/SensorBNO055IMUCalibration.java        |   0
- .../ftc/robotcontroller/external/samples/SensorColor.java   |   0
- .../ftc/robotcontroller/external/samples/SensorDIO.java     |   0
- .../external/samples/SensorDigitalTouch.java                |   0
- .../robotcontroller/external/samples/SensorKLNavxMicro.java |   0
- .../ftc/robotcontroller/external/samples/SensorMRColor.java |   0
- .../robotcontroller/external/samples/SensorMRCompass.java   |   0
- .../ftc/robotcontroller/external/samples/SensorMRGyro.java  |   0
- .../robotcontroller/external/samples/SensorMRIrSeeker.java  |   0
- .../external/samples/SensorMROpticalDistance.java           |   0
- .../external/samples/SensorMRRangeSensor.java               |   0
- .../external/samples/SensorREV2mDistance.java               |   0
- .../ftc/robotcontroller/external/samples/readme.md          |   0
- .../robotcontroller/external/samples/sample_conventions.md  |   0
- .../ftc/robotcontroller/internal/FtcOpModeRegister.java     |   0
- .../internal/FtcRobotControllerActivity.java                |   0
- .../internal/PermissionValidatorWrapper.java                |   0
- .../src/main/res/drawable-xhdpi/icon_menu.png               | Bin
- .../src/main/res/drawable-xhdpi/icon_robotcontroller.png    | Bin
- .../src/main/res/layout/activity_ftc_controller.xml         |   0
- .../src/main/res/menu/ftc_robot_controller.xml              |   0
- .../src/main/res/raw/gold.wav                               | Bin
- .../src/main/res/raw/silver.wav                             | Bin
- .../src/main/res/values/dimens.xml                          |   0
- .../src/main/res/values/strings.xml                         |   0
- .../src/main/res/values/styles.xml                          |   0
- .../src/main/res/xml/app_settings.xml                       |   0
- .../src/main/res/xml/device_filter.xml                      |   0
- FtcRobotController-6.2/README.md => README (2).md           |   0
- {FtcRobotController-6.2/TeamCode => TeamCode}/build.gradle  |   0
- .../TeamCode => TeamCode}/lib/OpModeAnnotationProcessor.jar | Bin
- .../TeamCode => TeamCode}/src/main/AndroidManifest.xml      |   0
- .../org/firstinspires/ftc/teamcode/TankDriveTeleop.java     |   0
- .../src/main/java/org/firstinspires/ftc/teamcode/readme.md  |   0
- .../TeamCode => TeamCode}/src/main/res/raw/readme.md        |   0
- .../TeamCode => TeamCode}/src/main/res/values/strings.xml   |   0
- .../src/main/res/xml/teamwebcamcalibrations.xml             |   0
- .../build.common.gradle => build.common.gradle              |   0
- .../build.dependencies.gradle => build.dependencies.gradle  |   0
- FtcRobotController-6.2/build.gradle => build.gradle         |   0
- .../doc => doc}/legal/AudioBlocksSounds.txt                 |   0
- .../Exhibit A - LEGO Open Source License Agreement.txt      |   0
- .../doc => doc}/legal/LEGO Open Source License.pdf          | Bin
- {FtcRobotController-6.2/doc => doc}/media/PullRequest.PNG   | Bin
- {FtcRobotController-6.2/doc => doc}/media/chips.jpg         | Bin
- {FtcRobotController-6.2/doc => doc}/media/stones.jpg        | Bin
- .../doc => doc}/media/target_chips_A4.pdf                   | Bin
- .../doc => doc}/media/target_chips_USLetter.pdf             | Bin
- .../doc => doc}/media/target_stones_A4.pdf                  | Bin
- .../doc => doc}/media/target_stones_USLetter.pdf            | Bin
- .../gradle.properties => gradle.properties                  |   0
- .../gradle => gradle}/wrapper/gradle-wrapper.jar            | Bin
- .../gradle => gradle}/wrapper/gradle-wrapper.properties     |   0
- FtcRobotController-6.2/gradlew => gradlew                   |   0
- FtcRobotController-6.2/gradlew.bat => gradlew.bat           |   0
- {FtcRobotController-6.2/libs => libs}/README.txt            |   0
- {FtcRobotController-6.2/libs => libs}/Vuforia.jar           | Bin
- .../libs => libs}/arm64-v8a/libVuforia.so                   | Bin
- .../libs => libs}/armeabi-v7a/libVuforia.so                 | Bin
- {FtcRobotController-6.2/libs => libs}/ftc.debug.keystore    | Bin
- .../libs => libs}/tensorflow-lite-0.0.0-nightly.aar         | Bin
- {FtcRobotController-6.2/libs => libs}/tfod-release.aar      | Bin
- FtcRobotController-6.2/settings.gradle => settings.gradle   |   0
- 112 files changed, 3 insertions(+), 1 deletion(-)
-
-commit 2e26cb39a8b7e5084affa7ece609e434d0a1dfee
-Author: StrongMan19 <76856498+StrongMan19@users.noreply.github.com>
-Date:   Fri Apr 16 16:46:00 2021 -0700
-
-    Add files via upload
-
- .../ftc/teamcode/TankDriveTeleop.java              | 160 +++++++++++++++++++++
- 1 file changed, 160 insertions(+)
 
 commit 0eb8ecbe13104025ee8b44d0dbbee74bde168b34
 Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
@@ -1720,39 +751,3 @@ Date:   Fri Apr 16 16:42:30 2021 -0700
  FtcRobotController-6.2/libs/tfod-release.aar       |  Bin 0 -> 1300813 bytes
  FtcRobotController-6.2/settings.gradle             |    2 +
  115 files changed, 11682 insertions(+)
-
-commit 9c1a6f6114695ab6ff971ed9aa695f6a4c6b479f
-Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
-Date:   Fri Apr 16 16:33:31 2021 -0700
-
-    Delete .idea directory
-
- .idea/.gitignore             | 3 ---
- .idea/FTC-18693-Programs.iml | 9 ---------
- .idea/misc.xml               | 6 ------
- .idea/modules.xml            | 8 --------
- .idea/vcs.xml                | 7 -------
- 5 files changed, 33 deletions(-)
-
-commit 9b632f74b17873cc264afcb7d24df4e76e01bc85
-Author: Bloomkd46 <Bloomkd46@icloud.com>
-Date:   Fri Apr 16 16:30:05 2021 -0700
-
-    Initial Commit
-
- .idea/.gitignore             | 3 +++
- .idea/FTC-18693-Programs.iml | 9 +++++++++
- .idea/misc.xml               | 6 ++++++
- .idea/modules.xml            | 8 ++++++++
- .idea/vcs.xml                | 7 +++++++
- 5 files changed, 33 insertions(+)
-
-commit 28d6bbdcb0afabc0d9d06a3f454eb90c2e98ff50
-Author: bloomkd46 <75853497+bloomkd46@users.noreply.github.com>
-Date:   Fri Apr 16 16:10:28 2021 -0700
-
-    Initial commit
-
- LICENSE   | 21 +++++++++++++++++++++
- README.md |  2 ++
- 2 files changed, 23 insertions(+)
