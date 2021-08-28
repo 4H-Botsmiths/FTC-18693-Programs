@@ -176,7 +176,7 @@ public class RobotHardware {
         rightShooter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
 
         //PIDF Caliration
-        double Shooter_Motors_F = 32767 / maxShootVelocity, Shooter_Motors_P = 0.1 * Shooter_Motors_F, Shooter_Motors_I = 0.1 * Shooter_Motors_P;
+        double Shooter_Motors_F = 32767 / maxShootVelocity, Shooter_Motors_P = 0.1 * Shooter_Motors_F, Shooter_Motors_I = 100 * Shooter_Motors_P;
         leftShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
         rightShooter.setVelocityPIDFCoefficients(Shooter_Motors_P, Shooter_Motors_I, 0, Shooter_Motors_F);
 

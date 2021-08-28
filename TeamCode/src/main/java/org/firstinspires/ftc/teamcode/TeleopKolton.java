@@ -61,21 +61,25 @@ public class TeleopKolton extends OpMode {
 
     //Raise Ramp Based Off Of Gamepad Input
     public void RampUp() {
-        if (gamepad2.right_trigger > 0.9) {
+        if (gamepad2.right_bumper){
+            robot.rampBottom.setPower(0.75);
+            robot.rampMiddle.setPower(0);
+            robot.rampTop.setPower(0);
+        }else if (gamepad2.right_trigger > 0.9) {
             robot.leftShooter.setVelocity(robot.shootVelocity);
             robot.rightShooter.setVelocity(robot.shootVelocity);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0.75);
             robot.rampTop.setPower(0.75);
         } else if (gamepad2.right_trigger > 0.5) {
-            robot.leftShooter.setVelocity(robot.shootVelocity * 0.5);
-            robot.rightShooter.setVelocity(robot.shootVelocity * 0.5);
+        //    robot.leftShooter.setVelocity(robot.shootVelocity * 0.5);
+        //    robot.rightShooter.setVelocity(robot.shootVelocity * 0.5);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0.75);
             robot.rampTop.setPower(0);
         } else if (gamepad2.right_trigger > 0) {
-            robot.leftShooter.setVelocity(robot.shootVelocity * 0.25);
-            robot.rightShooter.setVelocity(robot.shootVelocity * 0.25);
+        //    robot.leftShooter.setVelocity(robot.shootVelocity * 0.25);
+        //    robot.rightShooter.setVelocity(robot.shootVelocity * 0.25);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0);
             robot.rampTop.setPower(0);
@@ -92,17 +96,17 @@ public class TeleopKolton extends OpMode {
     //Lower Ramp Based Off Of Gamepad Input
     public void RampDown() {
         if (gamepad2.left_trigger > 0.9) {
-            robot.rampBottom.setPower(-0.75);
-            robot.rampMiddle.setPower(-0.75);
             robot.rampTop.setPower(-0.75);
-        } else if (gamepad2.left_trigger > 0.5) {
-            robot.rampBottom.setPower(-0.75);
             robot.rampMiddle.setPower(-0.75);
-            robot.rampTop.setPower(0);
-        } else if (gamepad2.left_trigger > 0) {
             robot.rampBottom.setPower(-0.75);
+        } else if (gamepad2.left_trigger > 0.5) {
+            robot.rampTop.setPower(-0.75);
+            robot.rampMiddle.setPower(-0.75);
+            robot.rampBottom.setPower(0);
+        } else if (gamepad2.left_trigger > 0) {
+            robot.rampTop.setPower(-0.75);
             robot.rampMiddle.setPower(0);
-            robot.rampTop.setPower(0);
+            robot.rampBottom.setPower(0);
         } else {
             robot.leftShooter.setVelocity(0);
             robot.rightShooter.setVelocity(0);
@@ -259,7 +263,7 @@ public class TeleopKolton extends OpMode {
 
 
         robot.greenLight.enableLight(time % 2 != 0);
-        if (gamepad2.right_trigger > 0) {
+        if (gamepad2.right_trigger > 0 || gamepad2.right_bumper) {
             RampUp();
         } else if (gamepad2.left_trigger > 0) {
             robot.leftShooter.setPower(0);
