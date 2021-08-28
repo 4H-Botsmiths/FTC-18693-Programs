@@ -66,8 +66,8 @@ public class AutonomousCodeOfficial extends LinearOpMode {
                 robot.rightDrive.setPower(0);
                 robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
-                robot.leftDrive.setTargetPosition((int) Math.round(In/robot.driveInchPerTick));
-                robot.rightDrive.setTargetPosition((int) Math.round(In/robot.driveInchPerTick));
+                robot.leftDrive.setTargetPosition((int) Math.round(In/robot.driveTickPerInch));
+                robot.rightDrive.setTargetPosition((int) Math.round(In/robot.driveTickPerInch));
                 robot.leftDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 robot.rightDrive.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
                 // set F to 54.1

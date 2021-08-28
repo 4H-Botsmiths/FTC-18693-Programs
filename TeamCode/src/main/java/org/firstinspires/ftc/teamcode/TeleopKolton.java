@@ -32,14 +32,19 @@ package org.firstinspires.ftc.teamcode;
 import android.graphics.Color;
 
 import com.qualcomm.ftccommon.SoundPlayer;
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
 import org.firstinspires.ftc.robotcore.external.android.AndroidSoundPool;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
+import org.firstinspires.ftc.robotcore.external.navigation.TempUnit;
 
+import static android.os.SystemClock.sleep;
 
 @TeleOp(name = "Teleop Kolton", group = "Kolton")
 //Selection Code. Runs Once
@@ -48,7 +53,7 @@ public class TeleopKolton extends OpMode {
     private final ElapsedTime runtime = new ElapsedTime();
     public AndroidSoundPool audio;
     public String detectedColor;
-    public double Status;
+    public double Status = 5;
     //Declare Robot Variable. (See RobotHardware.java)
     RobotHardware robot = new RobotHardware();
 
@@ -110,13 +115,33 @@ public class TeleopKolton extends OpMode {
 
     //Update Android Screen
     public void Telemetries() {
+        if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery) {
+            Status = 2;
+            robot.shootVelocity = robot.maxShootVelocity * 0.75;
+            robot.driveVelocity = robot.maxDriveVelocity * 0.5;
+            telemetry.addData("Status", "WARNING! Really Low Voltage");
+            audio.play("RawRes:ss_siren");
+        } else if (robot.voltageSensor.getVoltage() < robot.lowBattery) {
+            Status = 1;
+            robot.driveVelocity = robot.maxDriveVelocity * 0.75;
+            telemetry.addData("Status", "WARNING! Low Voltage");
+            audio.play("RawRes:ss_mf_fail");
+        } else {
+            Status = 0;
+            robot.shootVelocity = robot.maxShootVelocity;
+            robot.driveVelocity = robot.maxDriveVelocity;
+            telemetry.addData("Status", "Running");
+            audio.stop();
+        }
         telemetry.addData("Drive Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
+        telemetry.addData("Raw Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(),robot.rightDrive.getVelocity());
         telemetry.addData("Shooter Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
         telemetry.addData("Ramp Power", "Bottom (%.2f%%), Middle (%.2f%%), Top (%.2f%%)", robot.rampBottom.getPower()/robot.servoPower*100, robot.rampMiddle.getPower()/robot.servoPower*100, robot.rampTop.getPower()/robot.servoPower*100);
         telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower()*100, robot.clawHand.getPower()*100);
         telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
         telemetry.addData("Color Detected", detectColor());
-        telemetry.addData("Temperature", robot.gyro.getTemperature());
+
+        //telemetry.addData("Temperature","%.2f", robot.gyro.getTemperature().toUnit(TempUnit.FARENHEIT));
     }
 
     //Detect And Return Color Underneath The Robot In Red, Green, Yellow etc. format
@@ -199,24 +224,6 @@ public class TeleopKolton extends OpMode {
     //Start Code. Runs Repeatedly Until Stop
     public void loop() {
         //function.detectColor();
-        if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery && Status != 2) {
-            Status = 2;
-            robot.shootVelocity = robot.maxShootVelocity * 0.75;
-            robot.driveVelocity = robot.maxDriveVelocity * 0.5;
-            telemetry.addData("Status", "WARNING! Really Low Voltage", "color: red");
-            audio.play("RawRes:ss_siren");
-        } else if (robot.voltageSensor.getVoltage() < robot.lowBattery && Status != 1) {
-            Status = 1;
-            robot.driveVelocity = robot.maxDriveVelocity * 0.75;
-            telemetry.addData("Status", "WARNING! Low Voltage", "color: orange");
-            audio.play("RawRes:ss_mf_fail");
-        } else if (Status != 0) {
-            Status = 0;
-            robot.shootVelocity = robot.maxShootVelocity;
-            robot.driveVelocity = robot.maxDriveVelocity;
-            telemetry.addData("Status", "Running");
-            audio.stop();
-        }
         // Setup a variable for each drive wheel to save power level for telemetry
         /* double leftVelocity = (Math.pow(-gamepad1.left_stick_y, 7) * robot.driveVelocity);
         double rightVelocity = (Math.pow(-gamepad1.right_stick_y, 7) * robot.driveVelocity);
@@ -230,19 +237,25 @@ public class TeleopKolton extends OpMode {
         // function.Telemetries();
 
         if (robot.touchTop.isPressed()) {
-            robot.clawArm.setPower(0);
-            robot.clawHand.setPower(0);
+            robot.clawArm.setPower(1);
+            robot.clawHand.setPower(robot.clawArm.getPower()/robot.armRatio);
         } else if (robot.touchBottom.isPressed()) {
-            robot.clawArm.setPower(0);
-            robot.clawHand.setPower(0);
+            robot.clawArm.setPower(-1);
+            robot.clawHand.setPower(robot.clawArm.getPower()/robot.armRatio);
         } else if (gamepad2.a) {
             robot.clawHand.setPower(-1);
         } else if (gamepad2.y) {
             robot.clawHand.setPower(1);
-        } else {
-            robot.clawArm.setPower(-gamepad2.left_stick_y);
-            robot.clawHand.setPower(gamepad2.right_stick_y);
-        }
+        } else if (gamepad2.dpad_up){
+            robot.clawArm.setPower(1);
+            robot.clawHand.setPower(-robot.clawArm.getPower()/robot.armRatio);
+        } else if (gamepad2.dpad_down){
+            robot.clawArm.setPower(-1);
+            robot.clawHand.setPower(-robot.clawArm.getPower()/robot.armRatio);
+        }else{
+                robot.clawArm.setPower(-gamepad2.left_stick_y);
+                robot.clawHand.setPower(-gamepad2.right_stick_y);
+            }
 
 
         robot.greenLight.enableLight(time % 2 != 0);

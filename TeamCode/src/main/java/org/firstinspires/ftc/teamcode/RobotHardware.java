@@ -65,22 +65,23 @@ public class RobotHardware {
     public VoltageSensor voltageSensor = null;
 
 
-    public final double shootTPR = 28;
-    public final double driveTPR = 288;
-    public final double shootRPS = 16;
-    public final double driveRPS = 100;
-    public final double maxServoPower = 0.75;
+    public double shootTPR = 28;
+    public double driveTPR = 288;
+    public double shootRPS = 16;
+    public double driveRPS = 2;
+    public final double maxServoPower = 1;
     public final double maxShootVelocity = shootTPR*shootRPS;
     public final double maxDriveVelocity = driveTPR*driveRPS;
     public double servoPower = maxServoPower;
     public double shootVelocity = maxShootVelocity;
     public double driveVelocity = maxDriveVelocity;
-    public double lowBattery = 9.5;
-    public double reallyLowBattery = 9;
-    public final double circumferenceMM = 280;
-    public final double circumferenceIN = 11;
-    public final double driveInchPerTick = circumferenceIN/driveTPR;
-    public final double driveMilimeterPerTick = circumferenceMM/driveTPR;
+    public double lowBattery = 10.5;
+    public double reallyLowBattery = 9.5;
+    public double circumferenceMM = 280;
+    public double circumferenceIN = 11;
+    public final double driveTickPerInch = driveTPR/circumferenceIN;
+    public final double driveMilimeterPerTick = driveTPR/circumferenceMM;
+    public final double armRatio = 6;
 
     /* local OpMode members. */
     HardwareMap hwMap = null;
@@ -121,7 +122,6 @@ public class RobotHardware {
         spareLight3 = hwMap.get(LED.class, "Light_5");
         spareLight4 = hwMap.get(LED.class, "Light_6");
         spareLight5 = hwMap.get(LED.class, "Light_7");
-
         // Define and initialize ALL installed distance/light sensors.
         color1 = hwMap.get(ColorSensor.class, "Color_0");
         distanceLeft = hwMap.get(Rev2mDistanceSensor.class, "Distance_1");

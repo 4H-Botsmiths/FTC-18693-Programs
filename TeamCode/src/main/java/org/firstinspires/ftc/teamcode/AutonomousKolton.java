@@ -148,7 +148,7 @@ public class AutonomousKolton extends OpMode {
 
     //Drive Robot Specified Amount Of Inches
     public void Drive(double Inches){
-        double Position = Inches*robot.driveInchPerTick;
+        double Position = Inches*robot.driveTickPerInch;
         robot.leftDrive.setPower(0);
         robot.rightDrive.setPower(0);
         robot.leftDrive.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
