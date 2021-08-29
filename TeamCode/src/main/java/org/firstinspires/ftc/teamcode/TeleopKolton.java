@@ -54,32 +54,33 @@ public class TeleopKolton extends OpMode {
     public AndroidSoundPool audio;
     public String detectedColor;
     public double Status = 5;
+    public boolean mutantGamepad = false;
     //Declare Robot Variable. (See RobotHardware.java)
     RobotHardware robot = new RobotHardware();
 
     //Declare Functions ⬇️
 
     //Raise Ramp Based Off Of Gamepad Input
-    public void RampUp() {
-        if (gamepad2.right_bumper){
+    public void RampUp(float Trigger, boolean Bumper) {
+        if (Bumper) {
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0);
             robot.rampTop.setPower(0);
-        }else if (gamepad2.right_trigger > 0.9) {
+        } else if (Trigger > 0.9) {
             robot.leftShooter.setVelocity(robot.shootVelocity);
             robot.rightShooter.setVelocity(robot.shootVelocity);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0.75);
             robot.rampTop.setPower(0.75);
-        } else if (gamepad2.right_trigger > 0.5) {
-        //    robot.leftShooter.setVelocity(robot.shootVelocity * 0.5);
-        //    robot.rightShooter.setVelocity(robot.shootVelocity * 0.5);
+        } else if (Trigger > 0.5) {
+            //    robot.leftShooter.setVelocity(robot.shootVelocity * 0.5);
+            //    robot.rightShooter.setVelocity(robot.shootVelocity * 0.5);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0.75);
             robot.rampTop.setPower(0);
-        } else if (gamepad2.right_trigger > 0) {
-        //    robot.leftShooter.setVelocity(robot.shootVelocity * 0.25);
-        //    robot.rightShooter.setVelocity(robot.shootVelocity * 0.25);
+        } else if (Trigger > 0) {
+            //    robot.leftShooter.setVelocity(robot.shootVelocity * 0.25);
+            //    robot.rightShooter.setVelocity(robot.shootVelocity * 0.25);
             robot.rampBottom.setPower(0.75);
             robot.rampMiddle.setPower(0);
             robot.rampTop.setPower(0);
@@ -94,16 +95,16 @@ public class TeleopKolton extends OpMode {
     }
 
     //Lower Ramp Based Off Of Gamepad Input
-    public void RampDown() {
-        if (gamepad2.left_trigger > 0.9) {
+    public void RampDown(float Trigger) {
+        if (Trigger > 0.9) {
             robot.rampTop.setPower(-0.75);
             robot.rampMiddle.setPower(-0.75);
             robot.rampBottom.setPower(-0.75);
-        } else if (gamepad2.left_trigger > 0.5) {
+        } else if (Trigger > 0.5) {
             robot.rampTop.setPower(-0.75);
             robot.rampMiddle.setPower(-0.75);
             robot.rampBottom.setPower(0);
-        } else if (gamepad2.left_trigger > 0) {
+        } else if (Trigger > 0) {
             robot.rampTop.setPower(-0.75);
             robot.rampMiddle.setPower(0);
             robot.rampBottom.setPower(0);
@@ -123,7 +124,7 @@ public class TeleopKolton extends OpMode {
             Status = 2;
             robot.shootVelocity = robot.maxShootVelocity * 0.75;
             robot.driveVelocity = robot.maxDriveVelocity * 0.5;
-            telemetry.addData("Status", "WARNING! Really Low Voltage");
+            telemetry.addData("Status", "Danger! Really Low Voltage");
             audio.play("RawRes:ss_siren");
         } else if (robot.voltageSensor.getVoltage() < robot.lowBattery) {
             Status = 1;
@@ -134,14 +135,17 @@ public class TeleopKolton extends OpMode {
             Status = 0;
             robot.shootVelocity = robot.maxShootVelocity;
             robot.driveVelocity = robot.maxDriveVelocity;
-            telemetry.addData("Status", "Running");
+            if (mutantGamepad) {
+                telemetry.addData("Status", "Running, Mutant Gamepad Enabled");
+            } else {
+                telemetry.addData("Status", "Running");
+            }
             audio.stop();
         }
         telemetry.addData("Drive Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
-        telemetry.addData("Raw Drive Velocity", "Left (%.2f), Right (%.2f)", robot.leftDrive.getVelocity(),robot.rightDrive.getVelocity());
         telemetry.addData("Shooter Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
-        telemetry.addData("Ramp Power", "Bottom (%.2f%%), Middle (%.2f%%), Top (%.2f%%)", robot.rampBottom.getPower()/robot.servoPower*100, robot.rampMiddle.getPower()/robot.servoPower*100, robot.rampTop.getPower()/robot.servoPower*100);
-        telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower()*100, robot.clawHand.getPower()*100);
+        telemetry.addData("Ramp Power", "Bottom (%.2f%%), Middle (%.2f%%), Top (%.2f%%)", robot.rampBottom.getPower() / robot.servoPower * 100, robot.rampMiddle.getPower() / robot.servoPower * 100, robot.rampTop.getPower() / robot.servoPower * 100);
+        telemetry.addData("Claw Power", "Arm (%.2f), Hand (%.2f)", robot.clawArm.getPower() * 100, robot.clawHand.getPower() * 100);
         telemetry.addData("Distance", "left %.2f, right %.2f", robot.distanceLeft.getDistance(DistanceUnit.METER), robot.distanceRight.getDistance(DistanceUnit.METER));
         telemetry.addData("Color Detected", detectColor());
 
@@ -190,7 +194,6 @@ public class TeleopKolton extends OpMode {
             return "Not Detected";
         }
     }
-
 
 
     @Override
@@ -242,33 +245,55 @@ public class TeleopKolton extends OpMode {
 
         if (robot.touchTop.isPressed()) {
             robot.clawArm.setPower(1);
-            robot.clawHand.setPower(robot.clawArm.getPower()/robot.armRatio);
+            robot.clawHand.setPower(robot.clawArm.getPower() / robot.armRatio);
         } else if (robot.touchBottom.isPressed()) {
             robot.clawArm.setPower(-1);
-            robot.clawHand.setPower(robot.clawArm.getPower()/robot.armRatio);
+            robot.clawHand.setPower(robot.clawArm.getPower() / robot.armRatio);
         } else if (gamepad2.a) {
             robot.clawHand.setPower(-1);
         } else if (gamepad2.y) {
             robot.clawHand.setPower(1);
-        } else if (gamepad2.dpad_up){
+        } else if (gamepad2.dpad_up) {
             robot.clawArm.setPower(1);
-            robot.clawHand.setPower(-robot.clawArm.getPower()/robot.armRatio);
-        } else if (gamepad2.dpad_down){
+            robot.clawHand.setPower(-robot.clawArm.getPower() / robot.armRatio);
+        } else if (gamepad2.dpad_down) {
             robot.clawArm.setPower(-1);
-            robot.clawHand.setPower(-robot.clawArm.getPower()/robot.armRatio);
-        }else{
-                robot.clawArm.setPower(-gamepad2.left_stick_y);
-                robot.clawHand.setPower(-gamepad2.right_stick_y);
-            }
+            robot.clawHand.setPower(-robot.clawArm.getPower() / robot.armRatio);
+        } else if (gamepad2.left_stick_y != 0 || gamepad2.right_stick_y != 0) {
+            robot.clawArm.setPower(-gamepad2.left_stick_y);
+            robot.clawHand.setPower(-gamepad2.right_stick_y);
+        } else if (gamepad1.dpad_up && mutantGamepad) {
+            robot.clawArm.setPower(1);
+        } else if (gamepad1.dpad_down && mutantGamepad) {
+            robot.clawArm.setPower(-1);
+        } else if (gamepad1.a && mutantGamepad) {
+            robot.clawHand.setPower(-1);
+        } else if (gamepad1.y && mutantGamepad) {
+            robot.clawHand.setPower(1);
+        } else {
+            robot.clawHand.setPower(0);
+            robot.clawArm.setPower(0);
+        }
 
 
         robot.greenLight.enableLight(time % 2 != 0);
-        if (gamepad2.right_trigger > 0 || gamepad2.right_bumper) {
-            RampUp();
+
+        if (gamepad2.right_bumper) {
+            RampUp(0, true);
+        } else if (gamepad2.right_trigger > 0) {
+            RampUp(gamepad2.right_trigger, false);
+        } else if (gamepad1.right_bumper && mutantGamepad) {
+            RampUp(0, true);
+        } else if (gamepad1.right_trigger > 0 && mutantGamepad) {
+            RampUp(gamepad1.right_trigger, false);
         } else if (gamepad2.left_trigger > 0) {
             robot.leftShooter.setPower(0);
             robot.rightShooter.setPower(0);
-            RampDown();
+            RampDown(gamepad2.left_trigger);
+        } else if (gamepad1.left_trigger > 0 && mutantGamepad) {
+            robot.leftShooter.setPower(0);
+            robot.rightShooter.setPower(0);
+            RampDown(gamepad1.left_trigger);
         } else {
             robot.rampTop.setPower(0);
             robot.rampMiddle.setPower(0);
@@ -276,8 +301,19 @@ public class TeleopKolton extends OpMode {
             robot.leftShooter.setPower(0);
             robot.rightShooter.setPower(0);
         }
+        if (gamepad1.back || gamepad2.back) {
+            if (mutantGamepad) {
+                mutantGamepad = false;
+            } else {
+                mutantGamepad = true;
+            }
+        }
 
         Telemetries();
+    }
+
+
+
     /*    if(gamepad1.a){
             if (Direction){
                 robot.maxDriveVelocity = -288;
@@ -288,7 +324,6 @@ public class TeleopKolton extends OpMode {
             }
         }
 */
-    }
 
 
     /*
