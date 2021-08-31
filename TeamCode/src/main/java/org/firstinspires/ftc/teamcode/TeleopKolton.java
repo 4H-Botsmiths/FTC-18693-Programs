@@ -262,13 +262,14 @@ public class TeleopKolton extends OpMode {
         } else if (gamepad2.left_stick_y != 0 || gamepad2.right_stick_y != 0) {
             robot.clawArm.setPower(-gamepad2.left_stick_y);
             robot.clawHand.setPower(-gamepad2.right_stick_y);
-        }else if ((gamepad1.left_stick_x != 0 && mutantGamepad)||( gamepad1.right_stick_x != 0 && mutantGamepad)) {
-            robot.clawArm.setPower(-gamepad2.left_stick_x);
-            robot.clawHand.setPower(-gamepad2.right_stick_x);
+        }else if (mutantGamepad) {
+            robot.clawArm.setPower(-gamepad1.left_stick_x);
+            robot.clawHand.setPower(-gamepad1.right_stick_x);
         } else {
             robot.clawHand.setPower(0);
             robot.clawArm.setPower(0);
         }
+
 
 
         robot.greenLight.enableLight(time % 2 != 0);
