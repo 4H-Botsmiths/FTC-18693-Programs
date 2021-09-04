@@ -120,27 +120,14 @@ public class TeleopKolton extends OpMode {
 
     //Update Android Screen
     public void Telemetries() {
-        if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery) {
-            Status = 2;
-            robot.shootVelocity = robot.maxShootVelocity * 0.75;
-            robot.driveVelocity = robot.maxDriveVelocity * 0.5;
+        if (Status == 2) {
             telemetry.addData("Status", "Danger! Really Low Voltage");
-            audio.play("RawRes:ss_siren");
-        } else if (robot.voltageSensor.getVoltage() < robot.lowBattery) {
-            Status = 1;
-            robot.driveVelocity = robot.maxDriveVelocity * 0.75;
+        } else if (Status == 1) {
             telemetry.addData("Status", "WARNING! Low Voltage");
-            audio.play("RawRes:ss_mf_fail");
+        } else if (mutantGamepad) {
+            telemetry.addData("Status", "Running, Mutant Gamepad Enabled");
         } else {
-            Status = 0;
-            robot.shootVelocity = robot.maxShootVelocity;
-            robot.driveVelocity = robot.maxDriveVelocity;
-            if (mutantGamepad) {
-                telemetry.addData("Status", "Running, Mutant Gamepad Enabled");
-            } else {
-                telemetry.addData("Status", "Running");
-            }
-            audio.stop();
+            telemetry.addData("Status", "Running");
         }
         telemetry.addData("Drive Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftDrive.getVelocity() / robot.driveVelocity * 100, robot.rightDrive.getVelocity() / robot.driveVelocity * 100);
         telemetry.addData("Shooter Velocity", "Left (%.2f%%), Right (%.2f%%)", robot.leftShooter.getVelocity() / robot.shootVelocity * 100, robot.rightShooter.getVelocity() / robot.shootVelocity * 100);
@@ -240,6 +227,21 @@ public class TeleopKolton extends OpMode {
         robot.leftDrive.setVelocity(-gamepad1.left_stick_y * robot.driveVelocity);
         robot.rightDrive.setVelocity(-gamepad1.right_stick_y * robot.driveVelocity);
 
+        if (robot.voltageSensor.getVoltage() < robot.reallyLowBattery && Status != 2) {
+            if (Status != 1) audio.play("RawRes:ss_siren");
+            Status = 2;
+            robot.shootVelocity = robot.maxShootVelocity * 0.75;
+            robot.driveVelocity = robot.maxDriveVelocity * 0.5;
+        } else if (robot.voltageSensor.getVoltage() < robot.lowBattery && Status != 1) {
+            if (Status != 2) audio.play("RawRes:ss_siren");
+            Status = 1;
+            robot.driveVelocity = robot.maxDriveVelocity * 0.75;
+        } else {
+            Status = 0;
+            robot.shootVelocity = robot.maxShootVelocity;
+            robot.driveVelocity = robot.maxDriveVelocity;
+            audio.stop();
+        }
 
         // function.Telemetries();
 
@@ -262,14 +264,13 @@ public class TeleopKolton extends OpMode {
         } else if (gamepad2.left_stick_y != 0 || gamepad2.right_stick_y != 0) {
             robot.clawArm.setPower(-gamepad2.left_stick_y);
             robot.clawHand.setPower(-gamepad2.right_stick_y);
-        }else if (mutantGamepad) {
+        } else if (mutantGamepad) {
             robot.clawArm.setPower(-gamepad1.left_stick_x);
             robot.clawHand.setPower(-gamepad1.right_stick_x);
         } else {
             robot.clawHand.setPower(0);
             robot.clawArm.setPower(0);
         }
-
 
 
         robot.greenLight.enableLight(time % 2 != 0);
